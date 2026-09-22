@@ -1,0 +1,57 @@
+﻿
+BODY {
+    height: 100%;
+   
+    margin: 0px;
+    /*font-family: Tahoma, Arial, Verdana;*/
+    font-weight: normal;
+    font-size: 12px;
+    color: #333333;
+}
+
+#gvMain_Header {
+    width:100% !important;
+}
+#gvMain_Header_Fixed {
+    width:100% !important;
+}
+.GridViewScrollHeader TH, .GridViewScrollHeader TD {
+    padding:0px 10px;
+    font-weight: normal;
+    white-space: nowrap;
+    border-right: 1px solid royalblue;
+    border-bottom: 1px solid royalblue;
+    background-color:midnightblue;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration-color:white;
+    vertical-align: bottom;
+}
+
+.GridViewScrollItem TD {
+    padding: 0px 10px;
+    white-space: nowrap;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
+    background-color: #FFFFFF;
+    color: #444444;
+}
+
+.GridViewScrollItemFreeze TD {
+    padding:0px 10px;
+    white-space: nowrap;
+    border-right: 1px solid blue;
+    border-bottom: 1px solid blue;
+    background-color: #FAFAFA;
+    color: #444444;
+}
+
+.GridViewScrollFooterFreeze TD {
+    padding: 0px 10px;
+    white-space: nowrap;
+    border-right: 1px solid blue;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+    background-color: #F4F4F4;
+    color: #444444;
+}

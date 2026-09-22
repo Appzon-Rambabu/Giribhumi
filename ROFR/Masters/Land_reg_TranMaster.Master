@@ -1,0 +1,315 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Land_reg_TranMaster.master.cs" Inherits="ROFR.Masters.Land_reg_TranMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- CSS -->
+    <link href="../reports1/css/bootstrap.min.css" rel="stylesheet" />
+
+      <!--<link href="../style.css" rel="stylesheet" />-->
+
+
+    <link href="../reports1/css/font-awesome.css" rel="stylesheet" />
+    <!-- CSS -->
+    <meta name="author" content="" />
+    <link href="../Rofrnewassets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Rofrnewassets/css/style.css" rel="stylesheet" />
+    <link href="../Rofrnewassets/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../datepicker/css/bootstrap-datetimepicker.min.css" />
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,te',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <style>
+        /* Blinking effect using CSS animation */
+        .blink {
+            animation: blink-animation 1s steps(1, start) infinite;
+            color: red; /* Change text color to red when blinking */
+        }
+
+        /* Keyframes for the blink animation */
+        @keyframes blink-animation {
+            50% {
+                visibility: hidden;
+            }
+        }
+        /* Red color style */
+        .red {
+            color: red;
+        }
+
+        .redcolor {
+            color: green;
+        }
+    </style>
+    <style>
+        .rofr-menu ul li {
+            list-style: none;
+        }
+
+        .rofr-menu .nav-link {
+            font-size: 14px;
+            color: #FFF !important;
+        }
+
+        .menu-style .dropdown-menu.show {
+            display: block;
+            width: auto;
+        }
+
+        .menu-style .dropdown-item {
+            color: #fff;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .table tr td {
+            border: none !important;
+        }
+
+        .font-telugu {
+            font-family: 'Ramabhadra', sans-serif;
+            text-shadow: 2px 2px rgba(0,0,0,0.3);
+            font-size: 30px;
+        }
+
+        .navbar-bg-sr {
+            background: url(../imagesnew/header-bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-size: cover;
+        }
+
+        .navbar {
+            padding: 0px !important;
+        }
+
+        .nav-link {
+            display: block;
+            padding: .3rem;
+        }
+        .top-bar .right-side .btn {
+    /* padding: 0.175rem 0.75rem !important; */
+      font-size: 0.8rem !important;
+    margin: 0px 3px !important;
+    height:31px !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+    font-size: 16px;
+    
+    /* font-weight: 600; */
+    border-right: 1px solid rgb(255 255 255 / 10%);
+}
+    </style>
+
+
+    <script src="../newcss/js/translate.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div>
+                <header class="bg-white">
+                    <div class="container-fluid">
+                        <div class="row top-bar" style="height:40px;">
+                            <div class="col-md-6 left-side">
+                                <div class="demo3"></div>
+                            </div>
+                            <div class="col-md-5 text-right d-flex justify-content-end right-side">
+                                <a href="#!" class="btn btn-info font-weight-bold">+ A</a>
+                                <a href="#!" class="btn btn-info font-weight-bold">AA</a>
+                                <a href="#!" class="btn btn-info font-weight-bold">- A</a>
+                                 <div id="google_translate_element" class="float-lg-right">
+                                 <div class="pull-right"  id="countdown">
+                                    <ul style="font-size: 20px;color:green;">
+                                 <li>
+                                     <span id="minutes"></span>
+                                   <span id="minLabel" style="height:50px">Min</span> <span id="seconds"></span>
+                                     <span id="secLabel" style="height:50px">Sec</span></li></ul>
+                                    </div>
+                            </div>
+
+                            </div>
+                            <div class="col-md-1 text-right d-flex justify-content-end right-side">
+                            </div>
+
+                        </div>
+                        <div class="row d-flex justify-content-center main-header">
+                            <div class="col-md-4 text-left">
+                                <div class="logo">
+                                    <img src="../Rofrnewassets/images/ap-logo-left.png" />
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="logo">
+                                    <img src="../Rofrnewassets/images/giri-bhumi-logo.png" />
+                                </div>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="col-md-12">
+                            <div class="collapse navbar-collapse rofr-menu" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"></a>
+
+                                    </li>
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAND TRANSFER REGULATION
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu1" runat="server">
+                                            <a class="dropdown-item" runat="server" onserverclick="Menu_Click" href="../pages/LAND_TRANSFER_REGULATION.aspx">LAND TRANSFER REGULATION</a>
+                                            <a class="dropdown-item" runat="server" href="~/pages/VIEWLTR.aspx">VIEW LAND TRANSFER REGULATION</a>
+                                            <a class="dropdown-item" runat="server" href="~/pages/UpdateLtrCases.aspx">VIEW LTR CASE STATUS</a>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REPORTS
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="Div1" runat="server">
+                                            <a class="dropdown-item" runat="server" href="~/pages/LtrData_Analysis.aspx">LTR ABSTRACT</a>
+
+                                        </div>
+                                    </li>
+                                    <li class="nav-item" style="padding-left: 620px !important;">
+                                        <asp:Button ID="Button2" runat="server" Text="Log Out" OnClick="Button2_Click" class="btn btn-success" />
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarLogout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <asp:Label ID="txt_admin" runat="server" Style="color:#ffffff" Text=""></asp:Label>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                                <div class="collapse navbar-collapse rofr-menu float-right" id="navbarSupportedContent1">
+                                <ul class="navbar-nav mr-auto">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <div class="collapse navbar-collapse rofr-menu float-right" id="navbarSupportedContent1">
+                                
+
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-2">
+                            <div id="google_translate_element" class="float-lg-right"></div>
+
+                        </div>
+                    </nav>
+                </header>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 10px; width: 100%">
+
+                <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+
+                </main>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Copyright 2018 © All Rights Reserved Tribal Welfare Department , Government Of Andhra Pradesh</span>
+            </div>
+        </footer>
+    </form>
+
+    
+    <script>
+        (function () {
+            const second = 1000,
+                minute = second * 60,
+                hour = minute * 60;
+
+            let countDown = new Date().getTime() + (59 * minute + 59 * second);
+
+            const x = setInterval(function () {
+                const now = new Date().getTime(),
+                    distance = countDown - now;
+
+                const minutes = Math.floor((distance % hour) / minute);
+                const seconds = Math.floor((distance % minute) / second);
+
+                const minuteElem = document.getElementById("minutes");
+                const secondElem = document.getElementById("seconds");
+                const minLabelElem = document.getElementById("minLabel");
+                const secLabelElem = document.getElementById("secLabel");
+
+                if (minuteElem && secondElem) {
+                    minuteElem.innerText = minutes < 10 ? '0' + minutes : minutes;
+                    secondElem.innerText = seconds < 10 ? '0' + seconds : seconds;
+                }
+
+                if (distance <= 5 * minute) {
+                    if (minuteElem) minuteElem.classList.add("blink");
+                    if (secondElem) secondElem.classList.add("blink");
+                    if (minLabelElem) minLabelElem.classList.add("blink");
+                    if (secLabelElem) secLabelElem.classList.add("blink");
+                }
+
+                if (distance < 0) {
+                    clearInterval(x);
+
+                    const headline = document.getElementById("headline");
+                    const countdownDiv = document.getElementById("countdown");
+                    const contentDiv = document.getElementById("content");
+
+                    if (headline) headline.innerText = "Countdown Finished!";
+                    if (countdownDiv) countdownDiv.style.display = "none";
+                    if (contentDiv) contentDiv.style.display = "block";
+
+                    alert("Session is Expired! Please Login");
+
+                    setTimeout(function () {
+                        window.location.href = "Login.aspx";
+                    }, 100);
+                }
+            }, second);
+        })();
+
+
+    </script>
+	 <script src="../Rofrnewassets/js/bootstrap.min.js"></script>
+    <script src="../Rofrnewassets/js/scripts.js"></script>
+    <script src="../Rofrnewassets/js/jquery.easy-ticker.js"></script>
+    <link href="../newcss/css/font.css" rel="stylesheet" />
+</body>
+</html>

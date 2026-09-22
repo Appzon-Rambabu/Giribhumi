@@ -1,0 +1,71 @@
+
+        <table style="border-color:brown" border="1">
+              
+             <tr ><th align="center" colspan="5" style="text-align:center;color: white;"><span id="ContentPlaceHolder1_Grid2_lbl_dlpp">Phase - I Beneficiaries in Phase - II</span></th>
+                  
+              </tr>
+          <tr >
+					
+				
+					<th  style="text-align: center; vertical-align: middle;color: white;min-width: 90px;">ITDA</th>
+					<th  style="text-align: center; vertical-align: middle;color: white;min-width: 90px;">DISTRICT</th>
+                    <th  style="text-align: center; vertical-align: middle;color: white;min-width: 90px;">BENFICIARY ID COVERED IN PHASE-I & PHASE-II</th>
+					<th  style="text-align: center; vertical-align: middle;color: white;min-width: 90px;">PHASE-I EXTENT</th>
+					<th  style="text-align: center; vertical-align: middle;color: white;min-width: 90px;">PHASE-II EXTENT</th>
+					
+                </tr>
+          
+
+    
+        <tr>
+            
+            
+            <td>   <div style="text-align:left">
+                <span id="ContentPlaceHolder1_Grid2_lbl_mandal_0">CHINTUR</span>
+                </div>
+            </td>
+                            <td> <div style="text-align:left">
+                
+                                 <a id="ContentPlaceHolder1_Grid2_LinkButton2_0" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$Grid2$ctl01$LinkButton2&#39;,&#39;&#39;)" style="color:Red;font-weight:bold;text-decoration:underline;">EAST GODAVARI</a>
+                                 </div>
+            </td>
+              <td>
+                <span id="ContentPlaceHolder1_Grid2_Label3_0">125</span>
+            </td>
+              <td>
+                <span id="ContentPlaceHolder1_Grid2_Label1_0">452.82</span>
+            </td>
+              <td>
+                <span id="ContentPlaceHolder1_Grid2_Label4_0">321.20</span>
+            </td>
+            
+            
+        </tr>
+    
+        <tr>
+            
+            
+            <td>   <div style="text-align:left">
+                <span id="ContentPlaceHolder1_Grid2_lbl_mandal_1">Total</span>
+                </div>
+            </td>
+                            <td> <div style="text-align:left">
+                
+                                 <a id="ContentPlaceHolder1_Grid2_LinkButton2_1" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$Grid2$ctl02$LinkButton2&#39;,&#39;&#39;)" style="color:Red;font-weight:bold;text-decoration:underline;"></a>
+                                 </div>
+            </td>
+              <td>
+                <span id="ContentPlaceHolder1_Grid2_Label3_1">125</span>
+            </td>
+              <td>
+                <span id="ContentPlaceHolder1_Grid2_Label1_1">452.82</span>
+            </td>
+              <td>
+                <span id="ContentPlaceHolder1_Grid2_Label4_1">321.20</span>
+            </td>
+            
+            
+        </tr>
+    
+        </table>
+    

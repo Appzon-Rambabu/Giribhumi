@@ -1,0 +1,304 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/Giribhumi_Master.Master" AutoEventWireup="true" CodeBehind="BeneficaryExtentLandView.aspx.cs" Inherits="ROFR.test.BeneficaryExtentLandView" EnableEventValidation="false" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+
+   
+      <script type="text/javascript">
+        function deleteConfirm(pubid) {
+            var result = confirm('Do you want to delete Latlong ?');
+            if (result) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        function codevalidate(evt) {
+            var theEvent = evt || window.event;
+
+            // Handle paste
+            if (theEvent.type === 'paste') {
+                key = event.clipboardData.getData('text/plain');
+            } else {
+                // Handle key press
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+            }
+            var regex = /[0-9]|\0/;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+
+        function mastervalidatenumerics(evt) {
+            var theEvent = evt || window.event;
+
+            //Handle paste
+            if (theEvent.type === 'paste') {
+                key = event.clipboardData.getData('text/plain');
+            } else {
+                // Handle key press
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+            }
+            var regex = /[a-zA-Z]|\A/;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+        function Validate() {
+            var district = document.getElementById('<%=ddl_district.ClientID %>').value;
+            var mandal = document.getElementById('<%=ddl_mandal.ClientID %>').value;
+            var Village = document.getElementById('<%=ddl_Village.ClientID %>').value;
+            <%--  var habitation = document.getElementById('<%=ddl_Hab.ClientID %>').value;
+           var range = document.getElementById('<%=ddl_FR.ClientID %>').value;--%>
+
+            if (district == "0") {
+
+                alert("Please select District!");
+                return false;
+            }
+            if (mandal == "0") {
+
+                alert("Please select Mandal!");
+                return false;
+            }
+
+            if (Village == "0") {
+
+                alert("Please select Village!");
+                return false;
+            }
+
+            if (habitation == "0") {
+
+                alert("Please select Forest Habitation!");
+                return false;
+            }
+            //if (range == "0") {
+
+            //    alert("Please select Forest Range!");
+            //    return false;
+            //}
+
+        }
+    </script>
+    <style type="text/css">
+        /*.panel-group .panel {
+		border-radius: 0;
+		box-shadow: none;
+		border-color: #EEEEEE;
+	}
+
+	.panel-default > .panel-heading {
+		width: auto;
+	}
+
+	.panel-title {
+		font-size: 14px;
+		background: orange;
+    padding: 10px;
+    z-index: 2;
+    position: relative;
+    left: 30px;
+    top: 20px;
+	color:#000;
+	
+		
+	}
+	
+	.panel-title a:hover {color:#000;}
+	.panel-title a:focus {color:#000;}
+
+	.panel-title > a {
+		
+	}
+
+	.more-less {
+		margin-left:10px;
+		color: #212121;
+	}
+	.clps-heading{
+		background: orange;
+    padding: 10px;
+    z-index: 999;
+    position: relative;
+    left: 30px;
+    top: 10px;
+	}
+	.clps-heading:hover {color:#000;}
+	.clps-heading:focus {color:#000;}
+
+	
+	
+	.panel-group .panel-body {
+        display: block;
+    margin-left: 10px;
+    margin-right: 20px;
+    padding-top: 2.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove burlywood;
+	
+}
+.panel-title > a:before {
+    float: right !important;
+    font-family: FontAwesome;
+    content:"\f068";
+	margin-left:10px;
+}
+.panel-title > a.collapsed:before {
+    float: right !important;
+    content:"\f067";
+	margin-left:10px;
+}
+.panel-title > a:hover, 
+.panel-title > a:active, 
+.panel-title > a:focus  {
+    text-decoration:none;
+}*/
+        .headertable tr td {
+            border: 1px solid #eee !important;
+        }
+
+
+        .headertable {
+            overflow-y: auto;
+            height: auto;
+            max-height: 300px;
+        }
+
+            .headertable table {
+                border-collapse: collapse;
+                width: 100%;
+                border: 1px solid #000000 !important;
+            }
+
+            .headertable th, .headertable td {
+                padding: 8px 16px;
+            }
+
+            .headertable th {
+                position: sticky;
+                top: -10px;
+                background-color: #38a1d2;
+            }
+
+            .headertable .aftr th {
+                position: sticky;
+                top: 49x;
+            }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="content-area">
+     <div class="panel panel-body" style="margin-top:3px;">
+
+        <h5 class="text-center text-success"> BENEFICARY EXTENT LAND VIEW ON GIS LAYER</h5>
+
+        <div class="row justify-content-center">
+            <div class="col-md-1 text-right">
+                <asp:Label ID="txt_Itda" runat="server" Text="Itda:"></asp:Label>&nbsp<asp:Label ID="Label2" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_ITda" Style="width:150px" AutoPostBack="true" OnSelectedIndexChanged="ddlitda_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+            <div class="col-md-1 text-right">
+                <asp:Label ID="txt_district" runat="server" Text="District:"></asp:Label>&nbsp<asp:Label ID="Label6" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_district" Style="width:150px" AutoPostBack="true" OnSelectedIndexChanged="ddldistrict_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+
+            <div class="col-md-1 text-right">
+                <asp:Label ID="txt_mandal" runat="server" Text="Mandal:"></asp:Label>&nbsp<asp:Label ID="Label10" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_mandal" Style="width: 150px" AutoPostBack="true" OnSelectedIndexChanged="ddlmandal_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+
+            <div class="col-md-1 text-right">
+                <asp:Label ID="Label11" runat="server" Text="Village:"></asp:Label>&nbsp<asp:Label ID="Label12" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_Village" Style="width: 150px" AutoPostBack="true" OnSelectedIndexChanged="ddlvillage_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+
+         
+        </div>
+
+
+         <div class="row justify-content-left mt-3">
+            <div class="col-md-1 text-right">
+                <asp:Label ID="txt_habitation" runat="server" Text="Habitation:"></asp:Label>&nbsp<asp:Label ID="Label3" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_hab" Style="width:150px" AutoPostBack="true" OnSelectedIndexChanged="ddlhab_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+            <div class="col-md-1 text-right">
+                <asp:Label ID="txt_pattadhar" runat="server" Text="Pattadhar:"></asp:Label>&nbsp<asp:Label ID="Label5" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_pattadhar" Style="width:150px" AutoPostBack="true" OnSelectedIndexChanged="ddlpattadhar_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+
+            <div class="col-md-1 text-right">
+                <asp:Label ID="txt_exentplotarea" runat="server" Text="Extent:"></asp:Label>&nbsp<asp:Label ID="Label8" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </div>
+            <div class="col-md-2">
+                <asp:DropDownList ID="ddl_extentplotarea" Style="width: 150px" AutoPostBack="true" OnSelectedIndexChanged="ddlextentplotarea_OnSelectedIndexChanged" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+     
+
+         <div class="row justify-content-center mt-3" runat="server" id="uploadfile">
+               <div class="col-md-6">
+                   <div class="row  d-flex justify-content-center" id="Div2" runat="server">
+                        <div class="col-md-2 text-center">
+                           <asp:Button ID="btnmap" runat="server" Text="ViewGISMap" CssClass="btn btn-success" OnClick="btnmap_Click" />
+                       </div>
+                   </div>
+               </div>
+           </div>
+        
+        
+        <div class="row">
+
+
+
+
+
+
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+
+           
+
+                
+
+            </div>
+
+            <div class="col-md-3">
+            </div>
+
+            
+        <%--    <div class="justify-content-center mt-3 row"><asp:Button ID="btn_submit"  OnClientClick=" return Validate()" runat="server" Text="Submit" /></div>--%>
+
+
+        </div>
+
+
+
+
+        
+
+
+
+    </div>
+         </div>
+</asp:Content>

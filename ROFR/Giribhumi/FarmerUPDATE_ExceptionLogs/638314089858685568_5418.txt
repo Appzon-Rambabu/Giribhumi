@@ -1,0 +1,19 @@
+System.Data.SqlClient.SqlException (0x80131904): There is insufficient memory available in the buffer pool.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   at System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   at System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at ROFR.helper.SQLManager.ExecuteProcedureReturnDataTable(String QueryText, List`1 sqlparameters) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\SQLManager.cs:line 139
+   at ROFR.helper.NewGiribhumi_Get.Get_websiteVisitors_DataUpdate_sp(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\NewGiribhumi_Get.cs:line 1018
+   at ROFR.helper.NewGiribhumiSupport.GetwebSiteVisiDataUpdate(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\NewGiribhumiSupport.cs:line 584
+ClientConnectionId:9e4ff585-bcff-4cc7-92b0-6fa5cd774e08
+Error Number:802,State:2,Class:17

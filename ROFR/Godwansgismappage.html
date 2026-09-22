@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Tribal Welfare</title>
+
+    <link rel="stylesheet" href="../kmlcss/main.css">
+    <link rel="stylesheet" href="../kmlcss/select2.css">
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBivBAs4MbsNiJWu3xFfhVMcb4dW1S-Wo8&libraries=places"></script>-->
+    <script src="linksforcdns/Js/1.7.1.jquery.min.js"></script>
+    <script src="linksforcdns/Js/AIzaSyCx2cY6Odt3ckOO-WtYInywqwEhIVSm9L0.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
+
+
+    <script src="../kmlgodwansJs/trigissupport.js"></script>
+
+    <script src="../kmlgodwansJs/godwansmapjs.js"></script>
+
+    <style type="text/css">
+        html, body, #map {
+            width: 629px;
+            height: 549px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #loaddiv {
+        }
+
+        .infowindow * {
+            font-size: 90%;
+            margin: 0;
+        }
+    </style>
+</head>
+<body onload="initialize()">
+    <div>
+        <select id="AllDistrict" class="form-control">
+            <option value="all" selected>All</option>
+            <option value="502">Anantapur</option>
+            <option value="503">Chittoor</option>
+            <option value="504">Kadapa</option>
+            <option value="505">East Godavari</option>
+            <option value="523">West Godavari</option>
+            <option value="506">Guntur</option>
+            <option value="510">Krishna</option>
+            <option value="511">Kurnool</option>
+            <option value="515">Nellore</option>
+            <option value="517">Prakasam</option>
+            <option value="521">Vizianagaram</option>
+            <option value="520">Visakhapatanam</option>
+            <option value="519">Srikakulam</option>
+        </select>
+        <br>
+        <select id="Alltypes" class="form-control">
+            <option value="all" selected>ALL</option>
+            <option value="APSWC">APSWC</option>
+            <option value="OGF">Other Government Facilities</option>
+            <option value="PG">Private_Godowns</option>
+        </select>
+        <br>
+    </div>
+    <div id="map">
+
+    </div>
+
+    <script type="text/javascript" src="../kmljs/bundle.js"></script>
+    <script type="text/javascript" src="../kmljs/myworld/build/myworld.js?0"></script>
+    <script type="text/javascript" src="../kmljs/myworld/dummy.js"></script>
+</body>
+</html>

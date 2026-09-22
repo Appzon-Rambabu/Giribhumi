@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LTR_MASTER.master.cs" Inherits="ROFR.Masters.LTR_MASTER"  %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../gcss/bootstrap.css">
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/all.min.css">
+
+    <title>Home - గిరి భూమి</title>
+      <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  </head>
+
+  <body >
+       <form id="form2" runat="server">
+           
+    <header class="bg-white">
+        <div class="container-fluid">
+     
+        <div class="row d-flex justify-content-between">
+            <div class="minister d-flex">
+                <!--<img src="../gimages/Ap-Cm.png">-->
+                <!--<div class="content">శ్రీ.వై.ఎస్.జగన్ మోహన్ రెడ్డి గారు<br>గౌ.ముఖ్యమంత్రివర్యులు<br>ఆంధ్రప్రదేశ్ ప్రభుత్వం</div>-->
+            </div>
+            <div class="logo">
+                <img src="../gimages/logo-wide.png">
+            </div>
+            <div class="minister d-flex">
+              <!--<div class="content">శశ్రీ .రాజన్న దొర పీడిక గారు<br />గౌ.ఉప ముఖ్యమంత్రివర్యులు<br />గిరిజన సంక్షేమ శాఖ</div>-->
+                <!--<img src="../imagesnew/tribalministerpeedika.jpg">-->
+            </div>
+        </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+         
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" runat="server" onServerClick="Menu_Click" href="../pages/LAND_TRANSFER_REGULATION.aspx">Home</a></li>
+               
+                 <li class="nav-item dropdown">
+                     
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">   LAND TRANSFER REGULATION</a>
+                    <ul class="dropdown-menu">
+                        <li>          <a class="dropdown-item" runat="server" onServerClick="Menu_Click" href="../pages/LAND_TRANSFER_REGULATION.aspx">LAND TRANSFER REGULATION</a></li>
+                        <li>  <a class="dropdown-item" runat="server"  href="~/pages/VIEWLTR.aspx">VIEW LAND TRANSFER REGULATION</a></li>
+                         <li>     <a class="dropdown-item" runat="server"  href="~/pages/UpdateLtrCases.aspx">VIEW LTR CASE STATUS</a></li>
+                       
+       
+                    </ul>
+                         
+                </li>
+               
+               
+                  <li class="nav-item dropdown">
+                     
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">   REPORTS</a>
+                    <ul class="dropdown-menu">
+                        <li>   <a class="dropdown-item" runat="server"  href="~/pages/LtrData_Analysis.aspx">LTR ABSTRACT</a></li>
+                       
+                    </ul>
+                         
+                </li>
+               
+             
+             
+            </ul>
+
+             
+            </div>
+           <div class="col-md-2">
+        <div class="collapse navbar-collapse rofr-menu float-right" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarLogout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <asp:Label ID="txt_admin" runat="server" Text=""></asp:Label>
+        </a>
+        <div class="dropdown-menu">
+              <a class="dropdown-item" href="../pages/Logout.aspx" aria-expanded="true" ><asp:Button ID="btnl_logout" runat="server" Text="Log Out" OnClick="btn_log_out" class="btn btn-success" /></a>
+            </div>
+      </li>
+        </ul></div>
+    </div>
+          </nav>
+    </header>
+ 
+     
+
+
+
+             <section class="telugu-section">
+        <div class="container">
+           
+     
+
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+       
+        </asp:ContentPlaceHolder>
+ 
+ 
+            </div>
+                 </section>
+   
+
+           </form>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-3 text-white">Copyright ©2019 Andhra Pradesh Giribhumi. All Rights Reserved Tribal Welfare Department</div>
+    </footer>
+    <!-- Footer -->
+    <!-- Login Modal -->
+   
+    <!-- JavaScript -->
+    <script src="../gjs/jquery-3.4.1.min.js"></script>
+    <script src="../gjs/bootstrap.min.js"></script>
+    <script src="../gjs/scripts.js"></script>
+    <script src="../gjs/jquery.easy-ticker.js"></script>
+       </body>      
+</html>

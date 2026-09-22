@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ROFR.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ROFR_WebReference_Services" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.10.48.166/SRDHAadhaarInfoServices/services/Services.ServicesSOAP11port_http/</Value>
+    </Setting>
+    <Setting Name="ROFR_WS_Aadhaar_Services" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://bioauth3.ap.gov.in/SRDHAadhaarInfoServices/services/Services.ServicesSOAP11port_http/</Value>
+    </Setting>
+    <Setting Name="ROFR_AdharNameService_Services" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://bioauth3.ap.gov.in/DemoAuthenticationservice_140/services/Services.ServicesSOAP11port_http/</Value>
+    </Setting>
+    <Setting Name="ROFR_Nergaserviceprod_APHousingWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://mcc.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx</Value>
+    </Setting>
+    <Setting Name="ROFR_Stagemgnergs_APHousingWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://stage.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx</Value>
+    </Setting>
+    <Setting Name="ROFR_getEGSJobCardInfoByUIDser_APHousingWS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://mcc.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

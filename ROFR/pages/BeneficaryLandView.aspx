@@ -1,0 +1,318 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BeneficaryLandView.aspx.cs" Inherits="ROFR.pages.BeneficaryLandView" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+   <%-- <meta name="viewport" content="width=device-width, initial-scale=1" />--%>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <%--    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>--%>
+    <script src="../Newcdn/jquery-3.5.1.js"></script>
+    <%--    <script src="../linksforcdns/Js/1.7.1.jquery.min.js"></script>--%>
+
+    
+<style>
+    html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+}
+
+.map-container {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden !important;
+}
+
+/* Heading */
+.map-title {
+    margin: 5px 0 12px 0;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Map + details */
+.map-layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    overflow: hidden !important;
+}
+
+/* GIS Map */
+.map-box {
+    width: 70%;
+    height: 100%;
+    padding-right: 15px;
+    box-sizing: border-box;
+    overflow: hidden !important;
+}
+#map {
+    width: 100%;
+    height: 100% !important;
+    min-height: 0 !important;
+}
+
+/* Right information area */
+.details-box {
+    width: 30%;
+    height: 100%;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    overflow: hidden !important;
+}
+
+/* IMPORTANT:
+   Do NOT keep Beneficiary + Coordinates side by side */
+.details-content {
+    display: block;
+    width: 100%;
+}
+
+/* Each information section */
+.detail-section {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.detail-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Remove absolute positioning */
+#info1,
+#info {
+    position: static !important;
+    width: 100%;
+    font-family: Verdana;
+    font-size: 13px;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+#info1 {
+    color: black;
+}
+
+#info {
+    color: red;
+    white-space: normal;
+    max-height: none;
+    overflow: hidden !important;
+    word-break: break-word;
+}
+
+/* Print button */
+.print-area {
+    width: 100%;
+    text-align: right;
+    margin-top: 25px;
+    padding-right: 5px;
+}
+.green-print-btn {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+    color: white;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.green-print-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+        
+    </style>
+    <script type="text/javascript">
+        function SetUserName() {
+            var hidField = document.getElementById("mapland").value;
+            alert(hidField);
+
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        function PrintDiv() {
+            var divToPrint = document.getElementById('printarea');
+            var popupWin = window.open('', '_blank', 'width=600px,height=600px,location=no,left=100px');
+            popupWin.document.open();
+            popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+            popupWin.document.close();
+        }
+
+        function PrintElem() {
+            var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+            mywindow.document.write('<html><head><title>' + document.title + '</title>');
+            mywindow.document.write('</head><body >');
+            mywindow.document.write('<h1>' + document.title + '</h1>');
+            mywindow.document.write(document.getElementById('printarea').innerHTML);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+
+        function printAnyMaps() {
+            const $body = $('body');
+            const $mapContainer = $('.map-container');
+            const $mapContainerParent = $mapContainer.parent();
+            const $printContainer = $('<div style="position:relative;">');
+
+            $printContainer
+                .height($mapContainer.height())
+                .append($mapContainer)
+                .prependTo($body);
+
+            const $content = $body
+                .children()
+                .not($printContainer)
+                .not('script')
+                .detach();
+
+            /**
+             * Needed for those who use Bootstrap 3.x, because some of
+             * its `@media print` styles ain't play nicely when printing.
+             */
+            const $patchedStyle = $('<style media="print">')
+                .text(`
+      img { max-width: none !important; }
+      a[href]:after { content: ""; }
+    `)
+                .appendTo('head');
+
+            window.print();
+
+            $body.prepend($content);
+            $mapContainerParent.prepend($mapContainer);
+
+            $printContainer.remove();
+            $patchedStyle.remove();
+        }
+
+    </script>
+
+</head>
+<body>
+    <%-- <div class="col-md-12 text-right">
+     <input id="btnprint" type="button" onclick="printAnyMaps()" value="Print"  />
+        </div>
+              <div class="map-container">
+    <h2>Beneficiary Extent Land Map</h2>
+    <input runat="server" type="hidden" id="mapland">
+    <table>
+        <tr>
+            <td style="width:800px">
+                <div id="map" style="height: 600px; width: auto;"></div>
+            </td>
+            <td></td>
+                         <td style="width:200px">
+                <h3>Beneficiary Details</h3>
+                <div id="info1" style="position:absolute; color:black; font-family: Verdana; font-size: 14px;">
+Beneficiary Extent Land Map
+                </div>
+            </td>
+            <td style="width:300px">
+                <h3>Coordinates X Y</h3>
+                <div id="info" style="position:absolute; color:red; font-family: Verdana; font-size: 14px;"></div>
+            </td>
+             <td>
+               <div id="dvMapImage">
+                   <img id="imgMap" alt="" style = "display:none"/>
+               </div>
+           </td>
+        </tr>
+
+    </table>
+</div>--%>
+    <div class="map-container">
+
+        
+
+        <input runat="server"
+            type="hidden"
+            id="mapland" />
+
+        <div class="map-layout">
+
+            <!-- GIS MAP -->
+            <div class="map-box">
+
+                <div id="map"></div>
+
+            </div>
+
+
+            <!-- RIGHT DETAILS -->
+            <!-- RIGHT DETAILS -->
+<div class="details-box">
+
+    <!-- Beneficiary Details -->
+    <div class="detail-section">
+
+        <h3>Beneficiary Details</h3>
+
+        <div id="info1">
+            Beneficiary Extent Land Map
+        </div>
+
+    </div>
+
+    <!-- Coordinates -->
+    <div class="detail-section">
+
+        <h3>Coordinates X Y</h3>
+
+        <div id="info"></div>
+
+    </div>
+
+    <!-- PRINT -->
+    <div class="print-area">
+    <input id="btnprint"
+           type="button"
+           onclick="printAnyMaps()"
+           value="Print"
+           class="green-print-btn" />
+</div>
+
+</div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="../MapJsfloder/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVXFWjSgWqaHrZHdrj_aWLUC2a9Z3_8f8&callback=initMap"
+        async
+        defer>
+    </script>
+    <%-- <script src="../linksforcdns/AIzaSyCVXFWjSgWqaHrZHdrj_aWLUC2a9Z3_8f8.js"></script>--%>
+    <%--    <script src="../linksforcdns/Js/AIzaSyCx2cY6Odt3ckOO-WtYInywqwEhIVSm9L0.js"></script>--%>
+</body>
+
+</html>
+

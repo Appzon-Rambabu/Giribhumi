@@ -1,0 +1,3 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ROFR.helper.HealthConnection.FamilyCard_SP(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\HealthConnection.cs:line 2044
+   at ROFR.helper.GiribhumiSupport.Get_FamilyCard(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\GiribhumiSupport.cs:line 3475

@@ -1,0 +1,201 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HOME.master.cs" Inherits="ROFR.Masters.HOME" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+          <!-- CSS -->
+
+      <link href="../Rofrnewassets/css/bootstrap.css" rel="stylesheet" />
+      <link href="../Rofrnewassets/css/style.css" rel="stylesheet" />
+      <link href="../Rofrnewassets/css/all.min.css" rel="stylesheet" />
+      <link rel="shortcut icon" href="images/aplogo.png"/>
+
+        <title>Home - గిరి భూమి</title>
+       
+    <script type="text/javascript" >
+        function disableBackButton() {
+            window.history.forward()
+        }
+        disableBackButton(); dis();
+        window.onload = disableBackButton();
+        window.onpageshow = function (evt) {
+            if (evt.persisted) disableBackButton()
+        }
+        window.onunload = function () {
+            void (0)
+        }
+        function dis() {
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+            };
+        }
+    </script>
+
+   
+<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage : 'en',
+				includedLanguages : 'en,te',
+				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
+			}, 'google_translate_element');
+		}
+	</script>
+
+
+
+    <script src="../newcss/js/translate.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="disableBackButton();">
+    <form id="form1" runat="server">
+   
+        
+    <div class="preloader">
+        <div class="spinner"></div>
+        <span id="loading-msg">
+           <%-- <img src="../Rofrnewassets/aplogo.png">--%>
+             <img src="../Rofrnewassets/images/aplogo.png" />
+        </span>
+      </div>
+    <header class="bg-white">
+        <div class="container-fluid">
+        <div class="row top-bar">
+            <div class="col-md-6 left-side">
+                    <div class="demo3">
+                        <ul>
+                            <%--<li ><span class="badge badge-danger">New !</span><a  href="https://ysrrythubharosa.ap.gov.in/RBApp/RB/Phase3Paymentstatus" 
+							target="_blank">Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</a></li>--%>
+                           <%-- <li><span class="badge badge-info">New !</span> Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</li>
+                            <li><span class="badge badge-success">New !</span> Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</li>
+                            <li><span class="badge badge-dark">New !</span> Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</li>--%>
+                        </ul>
+                    </div>
+            </div>
+            <div class="col-md-6 text-right d-flex justify-content-end right-side">
+                <a href="#!" class="btn btn-info font-weight-bold">+ A</a>
+                <a href="#!" class="btn btn-info font-weight-bold">AA</a>
+                <a href="#!" class="btn btn-info font-weight-bold">- A</a>
+                <div id="google_translate_element" class="float-lg-right"></div>
+                <%--<div class="dropdown ml-2">
+                    <button class="btn btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Language <i class="fa fa-caret-down"></i>
+                    </button>
+                   <%-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#">Telugu</a>
+                    </div>
+                </div>--%>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center main-header">
+            <div class="col-md-4 text-left">
+                <div class="logo">
+                    <img src="../Rofrnewassets/images/ap-logo-left.png"/>
+                </div></div>
+            <div class="col-md-4 text-center">
+                <div class="logo">
+                    <img src="../Rofrnewassets/images/giri-bhumi-logo.png"/>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        </div>
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+           <li class="nav-item"><a class="nav-link" href="../pages/dashboard.aspx"><i class="fa fa-home"></i> Home</a></li>
+                <li class="nav-item dropdown">
+                                    <div id="masters" runat="server"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adangal </a>
+                                          <ul class="dropdown-menu">
+                                         <li><a class="dropdown-item" href="../pages/Adangal.aspx">Mee Adangal</a></li>
+                                    <li><a class="dropdown-item" href="../pages/GramaAdangal.aspx">Grama Adangal</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                  <li class="nav-item dropdown">
+                                    <div id="Div1" runat="server"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1-B </a>
+                                           <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="../pages/Details_1B.aspx">Mee 1B</a></li>
+                                    <li><a class="dropdown-item" href="../pages/Grama1B.aspx">Grama 1B</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                <li class="nav-item"><a class="nav-link" href="../pages/Login.aspx">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Rofrnewassets/about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Rofrnewassets/forestact.html">Act & Rule</a></li>
+                
+            </ul>
+
+            </div>
+          </nav>
+    </header>
+
+   
+              
+
+<div class="container-fluid">
+      <div class="row">
+     
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+        
+       <%-- <section>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              </ol>
+            </nav>
+            </section>
+          --%>
+            <div id="csrft" runat="server"></div>
+
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+		  
+     
+        </main>
+      </div>
+    </div>     
+
+ 
+           <!-- Footer -->
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-3 text-white">
+        <div class="row justify-content-end">
+            <div class="col-md-6">Copyright © 2022 Andhra Pradesh Giribhumi. All Rights Reserved Tribal Welfare Department</div>
+        <div class="col-md-3">
+            <%--<span class="d-flex">Total Site Visitors : <span class="sitevisitors">0000001</span></span>--%>
+        </div>
+        </div>
+    </div>
+    </footer>
+        
+           <!-- Footer -->
+    </form>
+ <script src="../newcss/js/jquery-3.5.1.min.js"></script>
+      <script src="../Rofrnewassets/js/bootstrap.min.js"></script>
+ 
+      <script src="../Rofrnewassets/js/scripts.js"></script>
+ 
+      <script src="../Rofrnewassets/js/jquery.easy-ticker.js"></script>
+</body>
+</html>

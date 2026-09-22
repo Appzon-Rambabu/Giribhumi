@@ -1,0 +1,3 @@
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot implicitly convert type 'string' to 'System.Data.DataTable'
+   at CallSite.Target(Closure , CallSite , Object )
+   at ROFR.helper.NewGiribhumiSupport.Get_TwdComments(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\NewGiribhumiSupport.cs:line 1135

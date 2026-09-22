@@ -1,0 +1,708 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ROFR_MASTER.master.cs" Inherits="ROFR.Bank.Master.ROFR_MASTER" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+          <!-- CSS -->
+    <link href="../reports1/css/bootstrap.min.css" rel="stylesheet" />
+   
+    <link href="../style.css" rel="stylesheet" />
+  
+    <link href="../reports1/css/font-awesome.css" rel="stylesheet" />
+    <!-- CSS -->
+<link rel="stylesheet" type="text/css" href="../datepicker/css/bootstrap-datetimepicker.min.css"/>
+   <style>
+       .nav-item.dropdown:hover .dropdown-menu{
+	display:block;
+}
+.nav-item.dropdown:hover .dropdown-menu .dropdown-submenu .dropdown-menu{
+	display:none;
+}
+.dropdown-menu .dropdown-submenu:hover .dropdown-menu{
+	display:block !important;
+}
+       
+       .rofr-menu ul li{
+       list-style:none;}
+       .rofr-menu .nav-link{ 
+          font-size:14px;
+          color:#FFF !important;
+       }
+       .menu-style .dropdown-menu.show {
+    display: block;
+    width: auto;
+}
+
+       .menu-style .dropdown-item {
+       color:#fff;
+       border-bottom:1px solid #eee;
+       font-size:14px;
+       }
+
+       /*.table tr td {
+       border:none !important;
+       
+       }*/
+       .font-telugu
+       {
+           font-family: 'Ramabhadra', sans-serif;
+           text-shadow: 2px 2px rgba(0,0,0,0.3);
+           font-size:30px;
+       }
+       .navbar-bg-sr {
+           background: url(../imagesnew/header-bg.jpg);
+           background-repeat: no-repeat;
+           background-position: center right;
+           background-size: cover;
+       }
+       .navbar {
+           padding:0px !important;
+       }
+       .nav-link {
+    display: block;
+    padding: .3rem 1rem;
+}
+   </style>
+
+   
+   <script>
+        function disableBackButton() {
+            window.history.forward()
+        }
+        disableBackButton(); dis();
+        window.onload = disableBackButton();
+        window.onpageshow = function (evt) {if (evt.persisted) disableBackButton() }
+        window.onunload = function () { void (0) }
+       // windowwindow.onload = window.history.forward(0);
+        function dis() {
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+                //alert('hello');
+            };
+
+            //window.addEventListener('popstate', () => {
+            //    history.pushState(null, null, null);
+            //    alert("If you go back to the previous page, please back from the return to the previous button.");
+            //});
+            
+                      // window.addEventListener('popstate', function () { alert(1); });
+        }
+        //function noBack() {
+        //    window.history.forward()
+        //}
+        //noBack();
+        //window.onload = noBack;
+        //window.onpageshow = function (evt) { if (evt.persisted) noBack() }
+        //window.onunload = function () { void (0) }
+    </script>
+<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage : 'en',
+				includedLanguages : 'en,te,hi',
+				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
+			}, 'google_translate_element');
+		}
+	</script>
+
+
+
+<%--	<script type="text/javascript"
+		src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>--%>
+
+     <script src="../newcss/js/translate.js"></script>
+
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="disableBackButton();">
+    <form id="form1" runat="server">
+  
+    <div>
+        
+          <div>
+          <%-- header
+    --%>
+              
+        <div class="row" style="margin-top: 0;">
+            
+         
+<nav class="navbar navbar-dark fixed-top navbar-bg-sr flex-md-nowrap">
+      <a class="navbar-brand col-sm-2 col-md-2 mr-0" href="#">
+          <img src="../imagesnew/Jcmnew.jpeg" class="mx-auto d-block img-fluid" style="height: 90px;"/>
+         <div class="text-center" style="font-size:10px;">శ్రీ.వై.ఎస్.జగన్ మోహన్ రెడ్డి గారు<br />గౌ.ముఖ్యమంత్రివర్యులు<br />ఆంధ్రప్రదేశ్ ప్రభుత్వం</div>
+ </a>
+    
+     
+    <h3 class="d-sm-none d-none d-xl-block col-sm-3 col-md-3 text-center font-telugu text-white" style="right:-40px;"> ఆంధ్రప్రదేశ్ ప్రభుత్వం<br />గిరిజన సంక్షేమ శాఖ</h3>
+    <img src="../imagesnew/aplogo.png" height="90px" class="img-fluid " style="height: 90px; " /> 
+     <h3 class="d-sm-none d-none d-xl-block col-sm-2 col-md-2 text-center font-telugu text-white" style="line-height: 0.5em;left:-10px;font-size:45px;">గిరి భూమి<br><span style="font-size:13px">భూమి రికార్డుల వివరములు - ప్రజా పోర్టల్</span></h3>
+      
+    <a class="btn btn-success" href="../pages/loginhome.aspx" style="margin: 12px 0px;"><i class="fa fa-home"></i>Home</a>
+    <div class="col-sm-3 col-md-3">
+        <form action="logout" method="post">
+      <ul class="nav float-right">
+     
+          <%--<li class="nav-item dropdown align-middle mt-2">
+            <a class="nav-link dropdown-toggle align-middle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="margin: 12px 0px;"><i class="fa fa-user-circle" aria-hidden="true"></i> <asp:Label ID="txt_admin" runat="server" Text="Label"></asp:Label></a>
+              
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../pages/dashboard.aspx" aria-expanded="true" ><asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClick="btn_log_out" class="btn btn-success" /></a>
+            </div>
+          </li>--%>
+
+          <li class="nav-item dropdown align-middle">
+            <a class="navbar-brand mr-0 " href="#">
+          <img src="../imagesnew/minister.jpeg" class="mx-auto d-block img-fluid" style="height: 90px;"/>
+         <div class="text-center" style="font-size:10px;">శ్రీమతి.పి.పుష్ప శ్రీవాణి గారు<br />గౌ.ఉప ముఖ్యమంత్రివర్యులు<br />గిరిజన సంక్షేమ శాఖ</div>
+ </a>
+          </li>
+          
+     
+  		</ul>
+          
+      </form>
+        </div>
+
+    
+
+
+      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  
+    </nav>
+            
+
+            <div class="col-md-12">
+              
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info menu-style" style="margin-top:146px;z-index:99;">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="col-md-8">
+        
+        <div class="collapse navbar-collapse rofr-menu" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../pages/loginhome.aspx">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+
+        </a>
+
+      </li>
+         <li class="nav-item dropdown">
+              <div id="masters" runat="server">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Masters
+        </a>
+        
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu1" runat="server">
+      
+          <a class="dropdown-item" href="../pages/DistictData_Analysis.aspx">District Master</a>
+          <a class="dropdown-item" href="../pages/MandalMaster_Analysis.aspx">Mandal Master</a>
+            <%-- <a class="dropdown-item" >Village Master</a>--%>
+              <a class="dropdown-item" href="../pages/ForestDivision_Analysis.aspx">Forest Division Master</a>
+              <a class="dropdown-item" href="../pages/ForestRange_Analysis.aspx">Forest Range Master</a>
+              <a class="dropdown-item" href="../pages/ForestBeat_Analysis.aspx">Forest Beat Master</a>
+             <a class="dropdown-item" href="../pages/Beneficiary_Master_analysis.aspx">Beneficiary Master</a>
+           <%-- <a class="dropdown-item" href="../pages/Forest_Division_Master.aspx">Revenue District - Forest Division</a>
+              <a class="dropdown-item" href="../pages/Mandal_Master.aspx">Revenue Mandal - Forest Range</a>
+              <a class="dropdown-item" href="../pages/NewForestBeatMapping.aspx">Revenue Village - Forest Beat</a>--%>
+         
+          <%--<a class="dropdown-item" href="#">Something else here</a>--%>
+        </div>
+                  </div>
+      </li>
+        <li class="nav-item dropdown">
+            <div id="menu_update" runat="server">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Master Update
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu2" runat="server">
+          <a class="dropdown-item" href="../pages/CurdForestDivision.aspx">Update Forest Division</a>
+          <a class="dropdown-item" href="../pages/CurdForestRange.aspx">Update Forest Range</a>
+             <a class="dropdown-item" href="../pages/CurdForestBeat.aspx">Update Forest Beat</a>
+            <a class="dropdown-item" href="../pages/HabitationUpdate.aspx">Update Habitation</a>
+            <a class="dropdown-item" href="../pages/UpdateLatLongs.aspx">Update Latlongs</a>
+            <a class="dropdown-item" href="../pages/UploadMultipleLatlongs.aspx">Update Multiple Latlongs</a>
+             
+          <%--<a class="dropdown-item" href="#">Something else here</a>--%>
+        </div>
+                </div>
+      </li>
+         <li class="nav-item dropdown">
+              <div id="menu_add" runat="server">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Farmer Registration
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu6" runat="server">
+         <a class="dropdown-item" href="../pages/Add_Beneficiary_Master.aspx" >Add Tribal Farmer</a>
+            <%--  <a class="dropdown-item"  href="#" onclick="alert('Page under Construction....Will Update Soon!');">Add Tribal Farmer</a>--%>
+                       <a class="dropdown-item" href="../pages/Beneficiary_Transaction.aspx" >Add Farmer Land Details</a>
+             <a class="dropdown-item" href="../pages/Update_FarmerImage.aspx" >Upload Farmer Image</a>
+             <a class="dropdown-item" href="../pages/Update_Land_Image.aspx" >Upload Farmer Land Image</a>
+             <a class="dropdown-item" href="../pages/Upload_Dlc.aspx" >Upload DLC</a>
+            <div id="dlt_fmr" runat="server">
+            <a class="dropdown-item" href="../pages/Beneficiary_DeletionForm.aspx" >Delete Farmer</a>
+                </div>
+          <%--<a class="dropdown-item" href="#">Something else here</a>--%>
+        </div>
+</div>
+      </li>
+        
+             <li class="nav-item dropdown">
+                   <div id="menu_valid" runat="server">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Farmer Validation&Approval
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            
+            
+           <%--   <li><div id="menu5_0" runat="server">
+
+         <a class="dropdown-item" href="../pages/ROFR_BeneficiariesDetailsChecker.aspx">Farmer Validation</a></div></li>--%>
+            
+
+              <li class="dropdown-submenu">
+                   <div id="Div1" runat="server">
+                       <div id="Div2" runat="server">
+            <a class="dropdown-item dropdown-toggle" href="#">Farmer Validation</a>
+            <ul class="dropdown-menu">
+
+              <li>
+
+          <a class="dropdown-item" runat="server"   href="~/pages/Update_Farmer.aspx">Update Farmer</a></li>
+              <li>   
+          <a class="dropdown-item" runat="server"   href="~/pages/Update_Farmer_Details.aspx" >Update Farmer Land Details</a></li>
+
+                  <li>    </li>
+                 
+         
+
+
+
+            </ul>
+                           </div>
+</div>
+
+          </li>
+            <%--  <li class="dropdown-submenu">
+                   <div id="menu_approval" runat="server">
+                       <div id="menu5_2" runat="server">
+            <a class="dropdown-item dropdown-toggle" href="#">Farmer Approval</a>
+            <ul class="dropdown-menu">
+
+              <li>
+
+          <a class="dropdown-item" runat="server"  onServerClick="PoAnchor_Click" href="../pages/ROFR_BeneficiariesDetailsApproval.aspx">Po Approval</a></li>
+              <li>   
+          <a class="dropdown-item" runat="server" onServerClick="Anchor_Click"  href="../pages/ROFR_BeneficiariesDetailsApproval.aspx" >Collector Approval</a></li>
+                  <li>    </li>
+                 
+         
+
+
+
+            </ul>
+                           </div>
+</div>
+
+          </li>--%>
+
+          
+         <li>
+                 <div id="Div5" runat="server">
+          <a class="dropdown-item" runat="server"   href="~/pages/Aadharwise_Beneficiary_Details.aspx" >Aadhaarwise Beneficiary Details</a></div>
+                 
+           </li>
+          <li>
+                 <div id="menu5_4" runat="server">
+          <a class="dropdown-item" runat="server"   href="~/pages/TemplateforCropLoans.aspx" >Rythu Bharosa Format</a></div>
+                 
+           </li>
+        
+
+          
+        </ul>
+                       </div>
+      </li>
+    
+       
+             
+        
+      <%--   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Giri Bhumi
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu3" runat="server">
+          <a class="dropdown-item" href="../ROFR_BEATWISE_REPORT.aspx">BeatWise Giri Bhoomi</a>
+          <a class="dropdown-item" href="../Mee_Giri_Bhoomi.aspx">Mee Giri Bhoomi</a>--%>
+         
+          <%--<a class="dropdown-item" href="#">Something else here</a>--%>
+       <%-- </div>
+      </li>--%>
+    <%--  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reports
+        </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu4" runat="server">
+              <a class="dropdown-item" href="../pages/ITDAWISE_BENEFICIARY_DETAILS.aspx">ITDA Wise Beneficiary Details</a>
+              <a class="dropdown-item" href="../pages/ROFR_MANDALWISE_REPORTS.aspx">Mandal Wise Reports</a>
+              <a class="dropdown-item" href="../pages/ROFR_VILLAGE_REPORT.aspx">Village Wise Reports</a>
+              <a class="dropdown-item" href="../pages/ROFR_FOREST_REPORT.aspx">Forest Wise Reports</a>
+              <a class="dropdown-item" href="../pages/Districtwise_Missing_MandatoryFields.aspx">District Wise Missing Mandatory Fields Data</a>
+              <a class="dropdown-item" href="../pages/Data_Master_Analysis.aspx">Data Analysis For Masters Report </a>
+
+             
+
+
+
+
+
+              <a class="dropdown-item" href="../pages/Data_Analysis.aspx">Data Analysis For Beneficiaries Report </a>
+              <a class="dropdown-item" href="../pages/DataAnalysisMandalwise.aspx">Data Analysis For Mandalwise Report </a>
+              <a class="dropdown-item" href="../pages/DataAnalysis_MandatoryFields.aspx">Data Analysis For Mandatory Fields</a>
+              <a class="dropdown-item" href="../pages/DataAnalysis_NonMandatoryFields.aspx">Data Analysis For NonMandatory Fields</a>
+              <a class="dropdown-item" href="../pages/DLC_REPORT.aspx">DLC Report </a>
+              <a class="dropdown-item" href="../pages/MissingData.aspx">District Wise Missing and Invalid Data</a>
+              <a class="dropdown-item" href="../pages/BeneficaryExtentLandView.aspx">Beneficiary Extent Land View on Gis Layer</a>
+              <a class="dropdown-item" href="../pages/View_Beneficiary_Plots.aspx">View Beneficiary Plots</a>
+              <%--<div id="memu_1_2" runat="server">
+            <a class="dropdown-item" href="../pages/Adhar.aspx">Aadhar Details</a>
+                </div>
+              <div id="menu_1_1" runat="server">
+                  <a class="dropdown-item" href="../pages/Aadhaarwise_Beneficiary_Analysis.aspx">Aadharwise Beneficiary Analysis</a>
+              </div>
+
+              <%--<a class="dropdown-item" href="#">Something else here</a>
+          </div>
+      </li>--%>
+        <%-- <li class="nav-item">
+        <a class="nav-link" href="../Login.aspx" id="login">
+        Login
+        </a>
+        
+      </li>--%>
+ 
+      <%--<li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>--%>
+         <li class="nav-item dropdown">
+              <div runat="server" id="menu_ebook">
+        <a class="nav-link dropdown-toggle" href="../pages/Epassbook.aspx" id="navbarEpassbook" role="button">
+      Epassbook
+        </a>
+      
+</div>
+      </li>
+         <li class="nav-item dropdown">
+                     
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">   LTR</a>
+                    <ul class="dropdown-menu">
+                        <li>          <a class="dropdown-item" runat="server" onServerClick="Menu_Click"  href="../pages/LTR.aspx">Land Transfer Regulation</a></li>
+                        <li>  <a class="dropdown-item" runat="server"  href="~/pages/VIEW_LTR.aspx">View Land Transfer Regulation</a></li>
+                         <li>     <a class="dropdown-item" runat="server"  href="~/pages/Update_LtrCases.aspx">View Ltr Case Status</a></li>
+                         <li>   <a class="dropdown-item" runat="server"  href="~/pages/Ltr_Data_Analysis.aspx">LTR Abstract</a></li>
+       
+                    </ul>
+                         
+                </li>
+               
+        <li class="nav-item dropdown">
+             <div runat="server" id="menu_reports">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Reports
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+            
+          <%--  <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Reports</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../pages/ROFR_MANDALWISE_REPORTS.aspx">Mandal Wise Reports</a></li>
+              <li><a class="dropdown-item" href="../pages/ROFR_VILLAGE_REPORT.aspx">Village Wise Reports</a></li>
+                  <li><a class="dropdown-item" href="../pages/ROFR_FOREST_REPORT.aspx">Forest Wise Reports</a></li>
+
+
+         
+
+
+
+            </ul>
+
+
+          </li>--%>
+              <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Abstract Reports</a>
+            <ul class="dropdown-menu">
+   <%--           <li><a class="dropdown-item" href="../pages/Data_Master_Analysis.aspx">Data Analysis For Masters Report</a></li>
+              <li><a class="dropdown-item" href="../pages/Data_Analysis.aspx">Data Analysis For Farmer Report</a></li>
+                  <li><a class="dropdown-item" href="../pages/DataAnalysisMandalwise.aspx">Data Analysis For Mandalwise Report </a></li>--%>
+                  <li><a class="dropdown-item" href="../pages/DistrictWise_BeneficiaryMaster_Abstract.aspx">District Wise Farmer Abstract </a></li>
+                 <li><a class="dropdown-item" href="../pages/Districtwise_Farmer_Images_Abtract.aspx">District Wise Farmer Images Report</a></li>
+              <%--  <li><a class="dropdown-item" href="#">Rythu Bharosa Payment Status </a>
+
+
+                     
+            <ul class="dropdown-menu">
+         
+                
+
+
+                  <li><a class="dropdown-item" href="../pages/RythuBharosa_PaymentStatus.aspx">2019</a></li>
+                  <li><a class="dropdown-item" href="../pages/RythuBharosa_PaymentStatus_May20.aspx">May 2020 </a></li>
+               
+
+         
+
+
+
+            </ul>
+
+                </li>--%>
+
+
+                  <li><a class="dropdown-item" href="../pages/DataAnalysis_MandatoryFields.aspx">Data Analysis For Mandatory Fields </a></li>
+                  <li><a class="dropdown-item" href="../pages/DataAnalysis_NonMandatoryFields.aspx">Data Analysis For NonMandatory Fields </a></li>
+               
+
+         
+
+
+
+            </ul>
+
+
+          </li>
+
+             <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Farmer Details</a>
+            <ul class="dropdown-menu">
+                 <li><a class="dropdown-item" href="../pages/ITDAWISE_BENICIARY_MASTER.aspx">ITDA Wise Farmer Details</a></li>
+              <li><a class="dropdown-item" href="../pages/ITDAWISE_BENEFICIARY_DETAILS.aspx">ITDA Wise Farmer Land Details</a></li>
+              <li><a class="dropdown-item" href="../pages/Districtwise_Missing_MandatoryFields.aspx">District Wise Missing Mandatory Fields Data</a></li>
+                  <li><a class="dropdown-item" href="../pages/MissingData.aspx" >District Wise Missing and Invalid Data </a></li>
+              
+
+
+         
+
+
+
+            </ul>
+
+
+          </li>
+              <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Rythu Bharosa Payment Status</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../pages/RythuBharosa_PaymentStatus.aspx">2019</a></li>
+                  <li><a class="dropdown-item" href="../pages/RythuBharosa_PaymentStatus_May20.aspx">May 2020 </a></li>
+               
+              
+                     <li><div id="rb_oct" runat="server">
+                <a class="dropdown-item" href="../pages/RythuBharosa_PaymentStatus_Oct20.aspx" >Oct 2020 </a> </div></li>
+         
+                <li><div id="rb_july" runat="server">
+                <a class="dropdown-item" href="../pages/RythuBharosa_PaymentStatus_May21.aspx" >July 2021 </a> </div></li>
+         
+
+
+
+            </ul>
+
+
+          </li>
+              <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Loan Reports</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../pages/Forestwise_Loan_report.aspx">Forest wise</a></li>
+              <li><a class="dropdown-item" href="../pages/Revenuewise_Loan_reports.aspx">Revenue wise</a></li>
+                <li><a class="dropdown-item" href="../pages/Bankwise_Loan_Reports.aspx">Bank wise</a></li>
+                 
+              
+
+
+         
+
+
+
+            </ul>
+
+
+          </li>
+         <%-- <li><a class="dropdown-item" href="../pages/DLC_REPORT.aspx">DLC Report</a></li>--%>
+             <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">Land Reports</a>
+            <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="../pages/Latlongs_Abstract_Report.aspx">Latlongs Report</a></li>
+              <li><a class="dropdown-item" href="../pages/BeneficaryExtentLandView.aspx">Farmer Extent Land View on Gis Layer</a></li>
+                  
+              <li><a class="dropdown-item" href="../pages/ViewFarmer_Details.aspx">View Farmer Plots</a></li>
+             <li><a class="dropdown-item" href="../pages/LandStatusReport.aspx">Plot Wise Land Status Report</a></li>
+            <li><a class="dropdown-item" href="../pages/LandStatusReport_Beneficiary.aspx">Beneficiarywise Land Status Report</a></li>
+            <div id="div_p1_p2" runat="server"><li><a class="dropdown-item" href="../pages/Phase1_Data.aspx">Phase I and Phase II Data</a></li>
+                </div>
+            <li><a class="dropdown-item" href="../pages/Land_Images_Abstract_Report.aspx">Land Images Report</a></li>
+
+                   <li><a class="dropdown-item" href="../pages/Land_Invalid_Data.aspx">Land Invalid Data Report</a></li>
+         
+                
+                 <li><a class="dropdown-item" href="../pages/Nothavinglanddetailsreport.aspx">Beneficiarywise Not Having Land Details Report</a></li>
+                <div id="div_ben" runat="server">
+                 <li><a class="dropdown-item" href="../pages/Benificiarywise_Report.aspx">Beneficiary Phasewise Land Abstract Report</a></li>
+                </div>
+            </ul>
+
+
+          </li>
+              <li><a class="dropdown-item" href="../pages/Farmer_Image_Abstract.aspx">Farmer Images Report</a></li>
+            
+            <li><a class="dropdown-item" href="../pages/Dlc_Abstract_Report.aspx">DLC Report</a></li>
+            <li><div id="rb_fw" runat="server"><%--<a class="dropdown-item" href="https://giripragati.ap.gov.in/FamilywiseLandInfo.jsp" target="_blank">Rythu Bharosa Familywise Report</a>--%>
+
+               
+ 
+                </div></li>
+             <li><%-- <div id="menu_1_1" runat="server">--%>
+                 <%-- <a class="dropdown-item" href="../pages/Aadhaarwise_Beneficiary_Analysis.aspx">Aadharwise Beneficiary Analysis</a>--%>
+                 <%-- <a class="dropdown-item" href="../pages/Beneficiary_Passbook.aspx">Epassbook</a>--%>
+                   <a class="dropdown-item" href="../pages/Land_Holding.aspx">Familywise Land Holding Details</a>
+                <%-- <li><a class="dropdown-item" href="../pages/Twd_Comments_Report.aspx">TWD Comments Report</a></li>--%>
+                  <li class="dropdown-submenu">
+            <a class="dropdown-item dropdown-toggle" href="#">TWD Comments Report</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../pages/Twd_Comments_Report.aspx">JAN 2021</a></li>
+                  <li><a class="dropdown-item" href="../pages/Twd_Comments_July2021_Report.aspx">JULY 2021 </a></li>
+               
+              
+                     
+         
+
+
+
+            </ul>
+
+
+          </li>
+                 <a class="dropdown-item" href="../pages/Details_1B.aspx">Mee 1B</a>
+                  <a class="dropdown-item" href="../pages/Grama1B.aspx">Grama 1B</a>
+                    <a class="dropdown-item" href="../pages/Adangal.aspx">Adangal</a>
+                   <a class="dropdown-item" href="../pages/GramaAdangal.aspx">Grama Adangal</a>
+              <%--</div>--%></li>
+        
+
+          
+        </ul>
+                 </div>
+      </li>
+      <li class="nav-item dropdown">
+              <div id="Div3" runat="server">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Uploads
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="Div4" runat="server">
+          
+           <a class="dropdown-item" href="../pages/UpdateLatLongs.aspx">Update Latlongs</a>
+            <a class="dropdown-item" href="../pages/UploadMultipleLatlongs.aspx">Update Multiple Latlongs</a>
+          <%--<a class="dropdown-item" href="#">Something else here</a>--%>
+        </div>
+</div>
+      </li>
+    </ul>
+    
+  </div></div>
+    <div class="col-md-2">
+        <div class="collapse navbar-collapse rofr-menu float-right" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarLogout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <asp:Label ID="txt_admin" runat="server" Text=""></asp:Label>
+        </a>
+        <div class="dropdown-menu">
+              <a class="dropdown-item" href="../pages/dashboard.aspx" aria-expanded="true" ><asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClick="btn_log_out" class="btn btn-success" /></a>
+            </div>
+      </li>
+        </ul></div>
+    </div>
+
+    <div class="col-md-2"><div id="google_translate_element" class="float-lg-right"></div></div>
+
+
+  
+</nav>
+         </div>
+             </div>
+
+<div class="container-fluid">
+      <div class="row" style="margin-top:30px;">
+     
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+        
+       <%-- <section>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              </ol>
+            </nav>
+            </section>
+          --%>
+
+               <div id="csrf" runat="server"></div>
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+		  
+     
+        </main>
+      </div>
+    </div>     
+
+    </div>
+        
+      </div>
+        <div class="container-fluid pb-5 bg-light">
+            
+             <div class="row py-1 justify-content-end">
+                                            <div class="col-md-1 text-right px-0">Last Login : </div>
+                                            <div class="col-md-2 text-left">
+                                                
+                                                <asp:Label ID="txt_login_dt" runat="server" ></asp:Label>     
+                                              
+                                            </div>
+                                        </div>
+        </div>
+          <footer class="footer">
+
+        <div class="container">
+            <span class="text-muted">Copyright 2018 © All Rights Reserved Tribal Welfare Department , Government Of Andhra Pradesh</span>
+        </div>
+</footer>
+    </form>
+ <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
+<%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--%>
+
+ <%--<script src="../vendor-assets/jquery/jquery-3.3.1.min.js"></script>
+<link href="../js/jquery-ui.css" rel="stylesheet" />--%>
+<script src="../reports1/js/popper.min.js"></script>
+<script src="../reports1/js/bootstrap.min.js"></script>
+ <script src="../reports1/js/scripts.js"></script>
+
+<%--<link href="https://fonts.googleapis.com/css?family=Ramabhadra" rel="stylesheet"/>--%>
+    <link href="../newcss/css/font.css" rel="stylesheet" />
+</body>
+
+</html>

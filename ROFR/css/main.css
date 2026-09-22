@@ -1,0 +1,112 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+#mainnavbar {        
+    border: 0;
+    padding: .2rem 1rem;
+}
+
+#mainnavbar .navbar-brand{
+    padding: 0;
+}
+
+div.vertical-line {
+    width: 100%;
+    /* border-top: 3px solid #00baf2; */
+}
+
+#app-main { 
+    max-height: calc(100% - 62px);
+    height: 100%;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Terms and Condition */
+#tncbackground {
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0.7;
+}
+#tncpanel {
+    margin: 0% 20%;
+    min-width: 50%;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: absolute;
+    z-index: 1;
+    top: 20vh;
+    font-size: 17px;
+    border: dashed 1px #333;
+}
+
+
+input[type=checkbox], input[type=radio] {
+    margin: 0 10%;
+}
+
+@media screen and (max-width: 640px) {
+    #tncpanel {
+        margin: 0 10%;
+    }
+}
+/* Terms and Condition End */
+
+/* Toast Messages Start */
+#snackbar {
+    visibility: hidden;
+    width: 350px;
+    margin: 0 auto;
+    background-color: #5b5b5b;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 100;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -175px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+}
+
+#snackbar.hide {
+    visibility: hidden;
+    transition: visibility 0s 1s linear;
+    -webkit-animation: fadeout 0.5s 0.5s;
+    animation: fadeout 0.5s  0.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/* Toast Messages End */

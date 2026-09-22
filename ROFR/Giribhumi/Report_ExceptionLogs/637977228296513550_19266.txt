@@ -1,0 +1,2 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ROFR.helper.GiribhumiSupport.Get_reports(addbeneficiary_details obj) in E:\ROFR\ROFR\helper\GiribhumiSupport.cs:line 2615

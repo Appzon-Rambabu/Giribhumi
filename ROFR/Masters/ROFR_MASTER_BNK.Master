@@ -1,0 +1,232 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ROFR_MASTER_BNK.master.cs" Inherits="ROFR.Masters.ROFR_MASTER_BNK" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+     <link href="../Rofrnewassets/css/bootstrap.css" rel="stylesheet" />
+      <link href="../Rofrnewassets/css/style.css" rel="stylesheet" />
+      <link href="../Rofrnewassets/css/all.min.css" rel="stylesheet" />
+     
+
+    <link rel="shortcut icon" href="images/aplogo.png"/>
+
+<link rel="stylesheet" type="text/css" href="../datepicker/css/bootstrap-datetimepicker.min.css"/>
+   <style>
+       .nav-item.dropdown:hover .dropdown-menu{
+	display:block;
+}
+.nav-item.dropdown:hover .dropdown-menu .dropdown-submenu .dropdown-menu{
+	display:none;
+}
+.dropdown-menu .dropdown-submenu:hover .dropdown-menu{
+	display:block !important;
+}
+       
+       .rofr-menu ul li{
+       list-style:none;}
+       .rofr-menu .nav-link{ 
+          font-size:14px;
+          color:#FFF !important;
+       }
+       .menu-style .dropdown-menu.show {
+    display: block;
+    width: auto;
+}
+
+       .menu-style .dropdown-item {
+       color:#fff;
+       border-bottom:1px solid #eee;
+       font-size:14px;
+       }
+
+       /*.table tr td {
+       border:none !important;
+       
+       }*/
+       .font-telugu
+       {
+           font-family: 'Ramabhadra', sans-serif;
+           text-shadow: 2px 2px rgba(0,0,0,0.3);
+           font-size:30px;
+       }
+       .navbar-bg-sr {
+           background: url(../imagesnew/header-bg.jpg);
+           background-repeat: no-repeat;
+           background-position: center right;
+           background-size: cover;
+       }
+       .navbar {
+           padding:0px !important;
+       }
+       .nav-link {
+    display: block;
+    padding: .3rem 1rem;
+}
+   </style>
+
+   
+   <script>
+        function disableBackButton() {
+            window.history.forward()
+        }
+        disableBackButton(); dis();
+        window.onload = disableBackButton();
+        window.onpageshow = function (evt) {if (evt.persisted) disableBackButton() }
+        window.onunload = function () { void (0) }
+       // windowwindow.onload = window.history.forward(0);
+        function dis() {
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+                //alert('hello');
+            };
+
+            //window.addEventListener('popstate', () => {
+            //    history.pushState(null, null, null);
+            //    alert("If you go back to the previous page, please back from the return to the previous button.");
+            //});
+            
+                      // window.addEventListener('popstate', function () { alert(1); });
+        }
+        //function noBack() {
+        //    window.history.forward()
+        //}
+        //noBack();
+        //window.onload = noBack;
+        //window.onpageshow = function (evt) { if (evt.persisted) noBack() }
+        //window.onunload = function () { void (0) }
+    </script>
+<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage : 'en',
+				includedLanguages : 'en,te',
+				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
+			}, 'google_translate_element');
+		}
+	</script>
+
+
+
+
+     <script src="../newcss/js/translate.js"></script>
+
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="disableBackButton();">
+    <form id="form1" runat="server">
+  
+        <div class="page-content">
+
+        <header class="bg-white">
+                <div class="container-fluid">
+                    <div class="row top-bar">
+                        <div class="col-md-6 left-side">
+                            <div class="demo3"><%-- <ul> <li ><span class="badge badge-danger">New !</span><a href="https://ysrrythubharosa.ap.gov.in/RBApp/RB/Phase3Paymentstatus" target="_blank">Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</a></li><%-- <li><span class="badge badge-info">New !</span> Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</li><li><span class="badge badge-success">New !</span> Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</li><li><span class="badge badge-dark">New !</span> Click Here For Rythu Bharosa Dashboard Add Farmer Land Details</li></ul>--%> </div>
+                        </div>
+                        <div class="col-md-6 text-right d-flex justify-content-end right-side"><a href="#!" class="btn btn-info font-weight-bold">+ A</a> <a href="#!" class="btn btn-info font-weight-bold">AA</a> <a href="#!" class="btn btn-info font-weight-bold">- A</a>
+                            <div id="google_translate_element" class="float-lg-right"></div>
+                            <%--<div class="dropdown ml-2">
+                                <button class="btn btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language <i class="fa fa-caret-down"></i></button>
+                               <%-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#">English</a> <a class="dropdown-item" href="#">Telugu</a> </div>
+                            </div>--%>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center main-header">
+            <div class="col-md-4 text-left">
+                <div class="logo">
+                    <img src="../Rofrnewassets/images/ap-logo-left.png"/>
+                </div></div>
+            <div class="col-md-4 text-center">
+                <div class="logo">
+                    <img src="../Rofrnewassets/images/giri-bhumi-logo.png"/>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="col-md-12">
+                        <div class="collapse navbar-collapse rofr-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active"><a class="nav-link" href="../pages/loginhome.aspx"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a> </li>
+                   
+
+                                <li class="nav-item dropdown logout">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarLogout" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <asp:Label ID="txt_admin" runat="server" Text="Logout"></asp:Label>
+        </a>
+        <div class="dropdown-menu">
+            <asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClick="btn_log_out" class="logout-btn" />
+            <%--  <a class="dropdown-item" href="../pages/Logout.aspx" aria-expanded="true" ><asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClick="btn_log_out" class="btn btn-success" /></a>--%>
+            </div>
+      </li>
+
+
+                        </ul> </div>
+        </nav> </header>
+
+
+              
+
+<div class="container-fluid">
+      <div class="row" style="margin-top:30px;">
+     
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+        
+     
+
+               <div id="csrf" runat="server"></div>
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+		  
+     
+        </main>
+      </div>
+    </div>     
+
+
+        <div class="container-fluid pb-5 bg-light">
+            
+             <div class="row py-1 justify-content-end">
+                                            <div class="col-md-1 text-right px-0"></div>
+                                            <div class="col-md-2 text-left">
+                                                
+                                                <asp:Label ID="txt_login_dt" runat="server" ></asp:Label>     
+                                              
+                                            </div>
+                                        </div>
+        </div>
+          <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-3 text-white">
+        <div class="row justify-content-end">
+            <div class="col-md-6">Copyright © 2022 Andhra Pradesh Giribhumi. All Rights Reserved Tribal Welfare Department</div>
+        <div class="col-md-3">
+            <%--<span class="d-flex">Total Site Visitors : <span class="sitevisitors">0000001</span></span>--%>
+        </div>
+        </div>
+    </div>
+    </footer>
+ </div>
+    </form>
+ <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
+<%--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--%>
+
+<script src="../reports1/js/popper.min.js"></script>
+<script src="../reports1/js/bootstrap.min.js"></script>
+    
+ <script src="../reports1/js/scripts.js"></script>
+
+<%--<link href="https://fonts.googleapis.com/css?family=Ramabhadra" rel="stylesheet"/>--%>
+    <link href="../newcss/css/font.css" rel="stylesheet" />
+</body>
+
+</html>

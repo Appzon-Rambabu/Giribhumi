@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getEGSJobCardInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEGSJobCardInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEGSJobCardInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEGSJobCardInfoByUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEGSJobCardInfoByUIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="WorkDetailsCapturingByUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorkDetailsCapturingByUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorkDetailsCapturingByUIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveHousingDeptData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strHousingDeptDataxml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="saveHousingDeptDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="saveHousingDeptDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHousingStageforPayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strStageUpdationDataxml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHousingStageforPaymentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateHousingStageforPaymentsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getEGSJobCardInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getEGSJobCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getEGSJobCardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoByUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getEGSJobCardInfoByUID" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoByUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getEGSJobCardInfoByUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorkDetailsCapturingByUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:WorkDetailsCapturingByUID" />
+  </wsdl:message>
+  <wsdl:message name="WorkDetailsCapturingByUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:WorkDetailsCapturingByUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveHousingDeptDataSoapIn">
+    <wsdl:part name="parameters" element="tns:saveHousingDeptData" />
+  </wsdl:message>
+  <wsdl:message name="saveHousingDeptDataSoapOut">
+    <wsdl:part name="parameters" element="tns:saveHousingDeptDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHousingStageforPaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHousingStageforPayments" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHousingStageforPaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHousingStageforPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoHttpGetIn">
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoByUIDHttpGetIn">
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoByUIDHttpGetOut" />
+  <wsdl:message name="WorkDetailsCapturingByUIDHttpGetIn">
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WorkDetailsCapturingByUIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="saveHousingDeptDataHttpGetIn">
+    <wsdl:part name="strHousingDeptDataxml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveHousingDeptDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHousingStageforPaymentsHttpGetIn">
+    <wsdl:part name="strStageUpdationDataxml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHousingStageforPaymentsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoHttpPostIn">
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoByUIDHttpPostIn">
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getEGSJobCardInfoByUIDHttpPostOut" />
+  <wsdl:message name="WorkDetailsCapturingByUIDHttpPostIn">
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WorkDetailsCapturingByUIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="saveHousingDeptDataHttpPostIn">
+    <wsdl:part name="strHousingDeptDataxml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="saveHousingDeptDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHousingStageforPaymentsHttpPostIn">
+    <wsdl:part name="strStageUpdationDataxml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHousingStageforPaymentsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="APHousingWSSoap">
+    <wsdl:operation name="getEGSJobCardInfo">
+      <wsdl:input message="tns:getEGSJobCardInfoSoapIn" />
+      <wsdl:output message="tns:getEGSJobCardInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <wsdl:input message="tns:getEGSJobCardInfoByUIDSoapIn" />
+      <wsdl:output message="tns:getEGSJobCardInfoByUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <wsdl:input message="tns:WorkDetailsCapturingByUIDSoapIn" />
+      <wsdl:output message="tns:WorkDetailsCapturingByUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <wsdl:input message="tns:saveHousingDeptDataSoapIn" />
+      <wsdl:output message="tns:saveHousingDeptDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <wsdl:input message="tns:UpdateHousingStageforPaymentsSoapIn" />
+      <wsdl:output message="tns:UpdateHousingStageforPaymentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="APHousingWSHttpGet">
+    <wsdl:operation name="getEGSJobCardInfo">
+      <wsdl:input message="tns:getEGSJobCardInfoHttpGetIn" />
+      <wsdl:output message="tns:getEGSJobCardInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <wsdl:input message="tns:getEGSJobCardInfoByUIDHttpGetIn" />
+      <wsdl:output message="tns:getEGSJobCardInfoByUIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <wsdl:input message="tns:WorkDetailsCapturingByUIDHttpGetIn" />
+      <wsdl:output message="tns:WorkDetailsCapturingByUIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <wsdl:input message="tns:saveHousingDeptDataHttpGetIn" />
+      <wsdl:output message="tns:saveHousingDeptDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <wsdl:input message="tns:UpdateHousingStageforPaymentsHttpGetIn" />
+      <wsdl:output message="tns:UpdateHousingStageforPaymentsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="APHousingWSHttpPost">
+    <wsdl:operation name="getEGSJobCardInfo">
+      <wsdl:input message="tns:getEGSJobCardInfoHttpPostIn" />
+      <wsdl:output message="tns:getEGSJobCardInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <wsdl:input message="tns:getEGSJobCardInfoByUIDHttpPostIn" />
+      <wsdl:output message="tns:getEGSJobCardInfoByUIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <wsdl:input message="tns:WorkDetailsCapturingByUIDHttpPostIn" />
+      <wsdl:output message="tns:WorkDetailsCapturingByUIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <wsdl:input message="tns:saveHousingDeptDataHttpPostIn" />
+      <wsdl:output message="tns:saveHousingDeptDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <wsdl:input message="tns:UpdateHousingStageforPaymentsHttpPostIn" />
+      <wsdl:output message="tns:UpdateHousingStageforPaymentsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="APHousingWSSoap" type="tns:APHousingWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getEGSJobCardInfo">
+      <soap:operation soapAction="http://tempuri.org/getEGSJobCardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <soap:operation soapAction="http://tempuri.org/getEGSJobCardInfoByUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <soap:operation soapAction="http://tempuri.org/WorkDetailsCapturingByUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <soap:operation soapAction="http://tempuri.org/saveHousingDeptData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <soap:operation soapAction="http://tempuri.org/UpdateHousingStageforPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APHousingWSSoap12" type="tns:APHousingWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getEGSJobCardInfo">
+      <soap12:operation soapAction="http://tempuri.org/getEGSJobCardInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <soap12:operation soapAction="http://tempuri.org/getEGSJobCardInfoByUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <soap12:operation soapAction="http://tempuri.org/WorkDetailsCapturingByUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <soap12:operation soapAction="http://tempuri.org/saveHousingDeptData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <soap12:operation soapAction="http://tempuri.org/UpdateHousingStageforPayments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APHousingWSHttpGet" type="tns:APHousingWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getEGSJobCardInfo">
+      <http:operation location="/getEGSJobCardInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <http:operation location="/getEGSJobCardInfoByUID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <http:operation location="/WorkDetailsCapturingByUID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <http:operation location="/saveHousingDeptData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <http:operation location="/UpdateHousingStageforPayments" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APHousingWSHttpPost" type="tns:APHousingWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getEGSJobCardInfo">
+      <http:operation location="/getEGSJobCardInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEGSJobCardInfoByUID">
+      <http:operation location="/getEGSJobCardInfoByUID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="WorkDetailsCapturingByUID">
+      <http:operation location="/WorkDetailsCapturingByUID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveHousingDeptData">
+      <http:operation location="/saveHousingDeptData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHousingStageforPayments">
+      <http:operation location="/UpdateHousingStageforPayments" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="APHousingWS">
+    <wsdl:port name="APHousingWSSoap" binding="tns:APHousingWSSoap">
+      <soap:address location="http://stage.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APHousingWSSoap12" binding="tns:APHousingWSSoap12">
+      <soap12:address location="http://stage.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APHousingWSHttpGet" binding="tns:APHousingWSHttpGet">
+      <http:address location="http://stage.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APHousingWSHttpPost" binding="tns:APHousingWSHttpPost">
+      <http:address location="http://stage.mgnregs.ap.gov.in/aphousingws/aphousingws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

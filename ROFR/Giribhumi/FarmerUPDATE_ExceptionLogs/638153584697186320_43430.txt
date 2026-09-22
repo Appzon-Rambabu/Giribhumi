@@ -1,0 +1,7 @@
+System.ArgumentException: The SqlParameter is already contained by another SqlParameterCollection.
+   at System.Data.SqlClient.SqlParameterCollection.Validate(Int32 index, Object value)
+   at System.Data.SqlClient.SqlParameterCollection.Add(Object value)
+   at System.Data.SqlClient.SqlParameterCollection.Add(SqlParameter value)
+   at ROFR.helper.SQLManager.ExecuteProcedureReturnDataTable(String QueryText, List`1 sqlparameters)
+   at ROFR.helper.NewGiribhumi_Get.Get_Farmer_DataUpdate_sp(addbeneficiary_details obj)
+   at ROFR.helper.NewGiribhumiSupport.GetFarmerDataUpdate(addbeneficiary_details obj)

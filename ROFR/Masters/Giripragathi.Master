@@ -1,0 +1,220 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Giripragathi.master.cs" Inherits="ROFR.Masters.Giripragathi" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <!-- CSS -->
+    <link href="../reports1/css/bootstrap.min.css" rel="stylesheet" />
+   
+    <link href="../style.css" rel="stylesheet" />
+  
+  
+    <link href="../reports1/css/font-awesome.css" rel="stylesheet" />
+    <!-- CSS -->
+   <style>
+       
+       .rofr-menu ul li{
+       list-style:none;}
+       .rofr-menu .nav-link{ 
+          font-size:14px;
+          color:#FFF !important;
+       }
+       .dropdown-menu.show {
+    display: block;
+    width: auto;
+}
+
+       .dropdown-item {
+       color:#fff;
+       border-bottom:1px solid #eee;
+       font-size:14px;
+       }
+
+       .table tr td {
+       border:none !important;
+       
+       }
+       .font-telugu
+       {
+           font-family: 'Ramabhadra', sans-serif;
+           text-shadow: 2px 2px rgba(0,0,0,0.3);
+           font-size:30px;
+       }
+       .navbar-bg-sr {
+           background: url(../imagesnew/header-bg.jpg);
+           background-repeat: no-repeat;
+           background-position: center right;
+           background-size: cover;
+       }
+       .navbar {
+           padding:0px !important;
+       }
+       .nav-link {
+    display: block;
+    padding: .3rem 1rem;
+}
+   </style>
+
+   
+   
+<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage : 'en',
+				includedLanguages : 'en,te,hi',
+				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
+			}, 'google_translate_element');
+		}
+	</script>
+
+
+
+	<script type="text/javascript"
+		src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+  
+    <div>
+        
+          <div>
+          <%-- header
+    --%>
+              
+        <div class="row" style="margin-top: 0;">
+            
+         
+<nav class="navbar navbar-dark fixed-top navbar-bg-sr flex-md-nowrap">
+      <a class="navbar-brand col-sm-2 col-md-2 mr-0" href="#"><%--<img src="../imagesnew/cm.jpg" class="mx-auto d-block img-fluid" style="height: 90px;">
+         <div class="text-center" style="font-size:10px;">శ్రీ.నారా చంద్రబాబు నాయుడు గారు<br />గౌ.ముఖ్యమంత్రివర్యులు<br />ఆంధ్రప్రదేశ్ ప్రభుత్వం</div> --%>
+ </a>
+     
+    <h3 class="d-sm-none d-none d-xl-block col-sm-3 col-md-3 text-center font-telugu text-white" style="right:-40px;"> ఆంధ్రప్రదేశ్ ప్రభుత్వం<br />గిరిజన సంక్షేమ శాఖ</h3>
+    <img src="../imagesnew/aplogo.png" height="90px" class="img-fluid " style="height: 90px; " /> 
+     <h3 class="d-sm-none d-none d-xl-block col-sm-2 col-md-2 text-center font-telugu text-white" style="line-height: 0.5em;left:-10px;font-size:45px;">గిరి భూమి<br><span style="font-size:13px">భూమి రికార్డుల వివరములు - ప్రజా పోర్టల్</span></h3>
+      
+    <a class="btn btn-success" href="../pages/loginhome.aspx" style="margin: 12px 0px;"><i class="fa fa-home"></i>Home</a>
+    <div class="col-sm-3 col-md-3">
+        <form action="logout" method="post">
+      <ul class="nav">
+     
+          <li class="nav-item dropdown align-middle mt-2">
+            <a class="nav-link dropdown-toggle align-middle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="margin: 12px 0px;"><i class="fa fa-user-circle" aria-hidden="true"></i> <asp:Label ID="txt_admin" runat="server" Text="Label"></asp:Label></a>
+              
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="../pages/Logout.aspx" aria-expanded="true" ><asp:Button ID="btn_logout" runat="server" Text="Log Out" OnClick="btn_log_out" class="btn btn-success" /></a>
+            </div>
+          </li>
+          
+     
+  		</ul>
+         <a class="navbar-brand col-sm-2 col-md-2 mr-0" href="#">
+    <%--<img src="../imagesnew/minister.jpg"  class="img-fluid mx-auto d-block" style="height: 90px;">
+
+          <div class="text-center" style="font-size:10px;">శ్రీ.కిడారి శ్రావణ్ కుమార్ గారు<br />గౌ.మంత్రివర్యులు<br />గిరిజన సంక్షేమం &amp; సాధికారత</div> --%>
+         </a>   
+      </form>
+        </div>
+
+
+      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  
+    </nav>
+            
+
+            <div class="col-md-12">
+              
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info" style="margin-top:91px;z-index:99;">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="col-md-10"><div class="collapse navbar-collapse rofr-menu" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+
+        </a>
+
+      </li>
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        REPORTS
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu1" runat="server">
+          <a class="dropdown-item" href="../pages/Educationinformation.aspx">EDUCATION INFORMATION</a>
+        </div>
+      </li>
+       
+    </ul>
+    
+  </div></div>
+
+    <div class="col-md-2"><div id="google_translate_element" class="float-lg-right"></div></div>
+
+
+  
+</nav>
+         </div>
+             </div>
+
+<div class="container-fluid">
+      <div class="row" style="margin-top:30px;">
+     
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+        
+       <%-- <section>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+              </ol>
+            </nav>
+            </section>
+          --%>
+
+
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+		  
+     
+        </main>
+      </div>
+    </div>     
+
+    </div>
+        
+      </div>
+          <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Copyright 2018 © All Rights Reserved ROFR , Government Of Andhra Pradesh</span>
+        </div>
+</footer>
+    </form>
+<%--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--%>
+    <script src="../linksforcdns/Js/jquery.min.js"></script>
+<script src="../reports1/js/jquery-3.3.1.slim.min.js"></script>
+<script src="../reports1/js/popper.min.js"></script>
+<script src="../reports1/js/bootstrap.min.js"></script>
+ <script src="../reports1/js/scripts.js"></script>
+
+<%--<link href="https://fonts.googleapis.com/css?family=Ramabhadra" rel="stylesheet"/>--%>
+    <link href="../linksforcdns/Css/Ramabhadra.css" rel="stylesheet" />
+</body>
+</html>

@@ -1,0 +1,712 @@
+
+var map = null;
+var infoWindow = null;
+var arr = new Array();
+var polygons = [];
+var subdivision1 = [];
+var dist1 = [];
+var hidField = null;
+var clickparmeter = null;
+
+function initMap() {
+    Itdas();
+};
+
+function Itdagismap() {
+    var map = null;
+    var location = null;
+    if ($("#selecteddistrict").val() == "s") {
+        alert('Please select itda');
+
+    }
+    else {
+
+
+        var hidField1 = $("#selecteddistrict").val();
+
+        var hidField2 = "";
+        var hidField3 = "";
+        var hidField4 = "";
+        var hidField5 = "1";
+        $.ajax(
+       {
+           type: 'POST',
+           contentType: 'application/json; charset=utf-8',
+           url: '/api/ITDA/ItdaLatlongslist',
+           data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+           dataType: "json",
+           success: function (response) {
+               console.log(JSON.stringify(response));
+               var dist = response;
+               var LAT = '17.998426';
+               var LONG = '82.739254';
+               location = new google.maps.LatLng(LAT, LONG);
+               map = new google.maps.Map(document.getElementById('map'), {
+                   zoom: 10,
+                   center: location,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP  //HYBRID
+               });
+               var bounds = new google.maps.LatLngBounds();
+               arr = [];
+               for (var i = 0; i < dist.itdalist.length; i++) {
+
+                   arr.push(new google.maps.LatLng(
+                           parseFloat(dist.itdalist[i].LATTITUDE),
+                         parseFloat(dist.itdalist[i].LONGITUDE)
+                    ));
+                   bounds.extend(arr[arr.length - 1])
+
+
+               }
+
+               if (dist.itdalist.length >= 3000) {
+
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+               else {
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+
+
+
+           },
+           error: function (result) {
+               alert("Error");
+           }
+
+       });
+    }
+
+
+}
+
+function Mandalgismap() {
+    var map = null;
+    var location = null;
+    if ($("#selecteddistrict").val() == "s") {
+        alert('Please select itda');
+
+    }
+    else {
+
+
+        var hidField1 = $("#selecteddistrict").val();
+
+        var hidField2 = $("#selectedMandal").val();
+        var hidField3 = "";
+        var hidField4 = "";
+        var hidField5 = "2";
+        $.ajax(
+       {
+           type: 'POST',
+           contentType: 'application/json; charset=utf-8',
+           url: '/api/ITDA/ItdaLatlongslist',
+           data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+           dataType: "json",
+           success: function (response) {
+               console.log(JSON.stringify(response));
+               var dist = response;
+               var LAT = '17.998426';
+               var LONG = '82.739254';
+               location = new google.maps.LatLng(LAT, LONG);
+               map = new google.maps.Map(document.getElementById('map'), {
+                   zoom: 10,
+                   center: location,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP  //HYBRID
+               });
+               var bounds = new google.maps.LatLngBounds();
+               arr = [];
+               for (var i = 0; i < dist.itdalist.length; i++) {
+
+                   arr.push(new google.maps.LatLng(
+                           parseFloat(dist.itdalist[i].LATTITUDE),
+                         parseFloat(dist.itdalist[i].LONGITUDE)
+                    ));
+                   bounds.extend(arr[arr.length - 1])
+
+
+               }
+
+               if (dist.itdalist.length >= 3000) {
+
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+               else {
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+
+
+
+           },
+           error: function (result) {
+               alert("Error");
+           }
+
+       });
+    }
+
+
+}
+
+function Villagegismap() {
+    var map = null;
+    var location = null;
+    if ($("#selecteddistrict").val() == "s") {
+        alert('Please select itda');
+
+    }
+    else {
+
+
+        var hidField1 = $("#selecteddistrict").val();
+
+        var hidField2 = $("#selectedMandal").val();
+        var hidField3 = $("#selectedVillage").val();
+        var hidField4 = "";
+        var hidField5 = "5";
+        $.ajax(
+       {
+           type: 'POST',
+           contentType: 'application/json; charset=utf-8',
+           url: '/api/ITDA/ItdaLatlongslist',
+           data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+           dataType: "json",
+           success: function (response) {
+               console.log(JSON.stringify(response));
+               var dist = response;
+               var LAT = '17.998426';
+               var LONG = '82.739254';
+               location = new google.maps.LatLng(LAT, LONG);
+               map = new google.maps.Map(document.getElementById('map'), {
+                   zoom: 10,
+                   center: location,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP  //HYBRID
+               });
+               var bounds = new google.maps.LatLngBounds();
+               arr = [];
+               for (var i = 0; i < dist.itdalist.length; i++) {
+
+                   arr.push(new google.maps.LatLng(
+                           parseFloat(dist.itdalist[i].LATTITUDE),
+                         parseFloat(dist.itdalist[i].LONGITUDE)
+                    ));
+                   bounds.extend(arr[arr.length - 1])
+
+
+               }
+
+               if (dist.itdalist.length >= 3000) {
+
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+               else {
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+
+
+
+           },
+           error: function (result) {
+               alert("Error");
+           }
+
+       });
+    }
+
+
+}
+
+function categorygismap() {
+    var map = null;
+    var location = null;
+    if ($("#selecteddistrict").val() == "s") {
+        alert('Please select itda');
+
+    }
+    else {
+
+
+        var hidField1 = $("#selecteddistrict").val();
+
+        var hidField2 = $("#selectedMandal").val();
+        var hidField3 = $("#selectedVillage").val();
+        var hidField4 = "";
+        var hidField5 = "5";
+        $.ajax(
+       {
+           type: 'POST',
+           contentType: 'application/json; charset=utf-8',
+           url: '/api/ITDA/ItdaLatlongslist',
+           data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+           dataType: "json",
+           success: function (response) {
+               console.log(JSON.stringify(response));
+               var dist = response;
+               var LAT = '17.998426';
+               var LONG = '82.739254';
+               location = new google.maps.LatLng(LAT, LONG);
+               map = new google.maps.Map(document.getElementById('map'), {
+                   zoom: 10,
+                   center: location,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP  //HYBRID
+               });
+               var bounds = new google.maps.LatLngBounds();
+               arr = [];
+               for (var i = 0; i < dist.itdalist.length; i++) {
+
+                   arr.push(new google.maps.LatLng(
+                           parseFloat(dist.itdalist[i].LATTITUDE),
+                         parseFloat(dist.itdalist[i].LONGITUDE)
+                    ));
+                   bounds.extend(arr[arr.length - 1])
+
+
+               }
+
+               if (dist.itdalist.length >= 3000) {
+
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+               else {
+                   polygons.push(new google.maps.Polygon({
+                       paths: arr,
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 3,
+                       fillColor: '',
+                       fillOpacity: 0
+                   }));
+                   polygons[polygons.length - 1].setMap(map);
+                   map.fitBounds(bounds);
+               }
+
+               var hidField6 = $("#selecteddistrict").val();
+
+               var hidField7 = $("#selectedMandal").val();
+               var hidField8 = $("#selectedVillage").val();
+               var hidField9 = $("#selectedparameter").val();
+               var hidField10 = "4";
+               $.ajax(
+              {
+                  type: 'POST',
+                  contentType: 'application/json; charset=utf-8',
+                  url: '/api/ITDA/ItdaLatlongslist',
+                  data: "{'ITDA':'" + hidField6 + "', 'MANDAL':'" + hidField7 + "', 'VILLAGE':'" + hidField8 + "', 'Category':'" + hidField9 + "', 'Type':'" + hidField10 + "'}",
+                  dataType: "json",
+                  success: function (response) {
+                      console.log(JSON.stringify(response));
+                      var dist = response;
+                      var locations = [];
+                      var features = [];
+                      for (var i = 0; i < dist.itdalist.length; i++) {
+                          var haplocations = [];
+                          haplocations.push(dist.itdalist[i].Name, dist.itdalist[i].LATTITUDE, dist.itdalist[i].LONGITUDE);
+                          locations.push(haplocations);
+                          features.push({ position: new google.maps.LatLng(dist.itdalist[i].LATTITUDE, dist.itdalist[i].LONGITUDE), type: dist.itdalist[i].IconType });
+
+                      }
+                      var marker, i;
+                      var infowindow = new google.maps.InfoWindow();
+                      var iconBase =
+                     'http://localhost:60061/imagesnew/';
+                      var icons = {};
+                      var parameter = $("#selectedparameter").val();
+
+                      if (parameter == 'Home') {
+                          icons = {
+                              parking: {
+                                  icon: iconBase + 'maphome.jpg'
+                              },
+                              library: {
+                                  icon: iconBase + 'maphome.jpg'
+                              },
+                              info: {
+                                  icon: iconBase + 'maphome.jpg'
+                              }
+                          };
+
+                      }
+                      else if (parameter == 'Schools') {
+                          icons = {
+                              parking: {
+                                  icon: iconBase + 'mapeducation.jpg'
+                              },
+                              library: {
+                                  icon: iconBase + 'mapeducation.jpg'
+                              },
+                              info: {
+                                  icon: iconBase + 'mapeducation.jpg'
+                              }
+                          };
+                      }
+                      else if (parameter == 'Market') {
+                          icons = {
+                              parking: {
+                                  icon: iconBase + 'maplocation.jpg'
+                              },
+                              library: {
+                                  icon: iconBase + 'maplocation.jpg'
+                              },
+                              info: {
+                                  icon: iconBase + 'maplocation.jpg'
+                              }
+                          };
+                      }
+                      else if (parameter == 'All') {
+                          icons = {
+                              parking: {
+                                  icon: iconBase + 'maphome.jpg'
+                              },
+                              library: {
+                                  icon: iconBase + 'maplocation.jpg'
+                              },
+                              info: {
+                                  icon: iconBase + 'mapeducation.jpg'
+                              }
+                          };
+                      }
+                      else {
+                          icons = {
+                              parking: {
+                                  icon: iconBase + 'maphome.jpg'
+                              },
+                              library: {
+                                  icon: iconBase + 'maplocation.jpg'
+                              },
+                              info: {
+                                  icon: iconBase + 'mapeducation.jpg'
+                              }
+                          };
+                      }
+                      for (i = 0; i < locations.length; i++) {
+                          marker = new google.maps.Marker({
+                              position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                              icon: icons[features[i].type].icon,
+                              map: map
+                          });
+
+                          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                              return function () {
+                                  clickparmeter = locations[i][0];
+                                  infowindow.setContent(locations[i][0]);
+                                  infowindow.open(map, marker);
+
+                              }
+                          })(marker, i));
+
+                          google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
+                              return function () {
+                                  infowindow.setContent(locations[i][0]);
+                                  infowindow.open(map, marker);
+                              }
+                          })(marker, i));
+                      }
+
+                  },
+                  error: function (result) {
+                      alert("Error");
+                  }
+
+              });
+
+
+
+           },
+           error: function (result) {
+               alert("Error");
+           }
+
+       });
+    }
+
+
+}
+
+
+
+// For District
+$(document).ready(function () {
+    $("#selecteddistrict").change(function (e) {
+        $('#selectedMandal').find('option').remove();
+        $('#selectedVillage').find('option').remove();
+        $('#selectedparameter').find('option').remove();
+        if ($("#selecteddistrict").val() == "s") {
+            $("#selectedMandal").append('<option value="s">Select Mandal</option>');
+            $("#selectedVillage").append('<option value="s">Select Village</option>');
+            $("#selectedparameter").append('<option value="s">Select Category</option>');
+        }
+        else {
+            Itdagismap();
+            Mandals();
+        }
+
+
+    });
+
+});
+
+// FOR Mandal
+$(document).ready(function () {
+    $("#selectedMandal").change(function () {
+
+        $('#selectedVillage').find('option').remove();
+        $('#selectedparameter').find('option').remove();
+        var MANDAL = $("#selectedMandal").val();
+
+        if ($("#selecteddistrict").val() == "s") {
+            alert('Please select itda');
+
+        }
+        else if ($("#selectedMandal").val() == "s") {
+            $("#selectedVillage").append('<option value="s">Select Village</option>');
+            $("#selectedparameter").append('<option value="s">Select Category</option>');
+        }
+        else {
+            Mandalgismap();
+            Vilages();
+        }
+
+    });
+
+});
+
+
+// FOR Village
+$(document).ready(function () {
+    $("#selectedVillage").change(function () {
+        var Village = $("#selectedVillage").val();
+        $('#selectedparameter').find('option').remove();
+        if ($("#selecteddistrict").val() == "s") {
+            alert('Please select itda');
+
+        }
+        else if ($("#selectedMandal").val() == "s") {
+            alert('Please select Mandal');
+        }
+        else if ($("#selectedVillage").val() == 's') {
+            $("#selectedparameter").append('<option value="s">Select Category</option>');
+
+        } else {
+            Villagegismap();
+            Category();
+        }
+
+    });
+
+});
+
+// FOR category
+$(document).ready(function () {
+    $("#selectedparameter").change(function () {
+
+        if ($("#selecteddistrict").val() == "s") {
+            alert('Please select itda');
+
+        }
+        else if ($("#selectedMandal").val() == "s") {
+            alert('Please select Mandal');
+        }
+        else if ($("#selectedVillage").val() == 's') {
+            alert('Please select Village');
+
+        }
+        if ($("#selectedparameter").val() == 's') {
+            alert('Please select Category');
+
+        } else {
+            categorygismap();
+        }
+
+    });
+
+});
+
+
+
+function Itdas() {
+    var hidField1 = "";
+    var hidField2 = "";
+    var hidField3 = "";
+    var hidField4 = "";
+    var hidField5 = "6";
+    $.ajax(
+        {
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: '/api/ITDA/ITDAMANDALVILLAGEdropdowns',
+            data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+            dataType: 'json',
+            success: function (response) {
+                console.log(JSON.stringify(response));
+                var Itda = response;
+                for (var i = 0; i < Itda.itdalist.length; i++) {
+                    var opt1 = new Option(Itda.itdalist[i].ITDA_NAME);
+                    $("#selecteddistrict").append(opt1);
+                }
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+}
+
+function Mandals() {
+    var hidField1 = $("#selecteddistrict").val();
+    var hidField2 = "";
+    var hidField3 = "";
+    var hidField4 = "";
+    var hidField5 = "7";
+
+    $.ajax(
+          {
+              type: "POST",
+              contentType: "application/json; charset=utf-8",
+              url: '/api/ITDA/ITDAMANDALVILLAGEdropdowns',
+              data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+              dataType: 'json',
+              success: function (response) {
+                  console.log(JSON.stringify(response));
+                  $("#selectedMandal").append('<option value="s">Select Mandal</option>');
+                  $("#selectedVillage").append('<option value="s">Select Village</option>');
+                  $("#selectedparameter").append('<option value="s">Select Category</option>');
+                  var mandal = response;
+                  for (var i = 0; i < mandal.itdalist.length; i++) {
+                      var opt1 = new Option(mandal.itdalist[i].MANDAL);
+                      $("#selectedMandal").append(opt1);
+                  }
+              },
+              error: function (result) {
+                  alert("Error");
+              }
+          });
+}
+
+function Vilages() {
+    var hidField1 = $("#selecteddistrict").val();
+    var hidField2 = $("#selectedMandal").val();
+    var hidField3 = "";
+    var hidField4 = "";
+    var hidField5 = "8";
+
+    $.ajax(
+          {
+              type: "POST",
+              contentType: "application/json; charset=utf-8",
+              url: '/api/ITDA/ITDAMANDALVILLAGEdropdowns',
+              data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+              dataType: 'json',
+              success: function (response) {
+                  console.log(JSON.stringify(response));
+                  $("#selectedVillage").append('<option value="s">Select Village</option>');
+                  $("#selectedparameter").append('<option value="s">Select Category</option>');
+                  var village = response;
+                  for (var i = 0; i < village.itdalist.length; i++) {
+                      var opt1 = new Option(village.itdalist[i].village);
+                      $("#selectedVillage").append(opt1);
+                  }
+              },
+              error: function (result) {
+                  alert("Error");
+              }
+          });
+}
+
+function Category() {
+    var hidField1 = $("#selecteddistrict").val();
+    var hidField2 = $("#selectedMandal").val();
+    var hidField3 = $("#selectedVillage").val();
+    var hidField4 = "";
+    var hidField5 = "9";
+
+    $.ajax(
+          {
+              type: "POST",
+              contentType: "application/json; charset=utf-8",
+              url: '/api/ITDA/ITDAMANDALVILLAGEdropdowns',
+              data: "{'ITDA':'" + hidField1 + "', 'MANDAL':'" + hidField2 + "', 'VILLAGE':'" + hidField3 + "', 'Category':'" + hidField4 + "', 'Type':'" + hidField5 + "'}",
+              dataType: 'json',
+              success: function (response) {
+                  console.log(JSON.stringify(response));
+                  $("#selectedparameter").append('<option value="s">Select Category</option>');
+                  var category = response;
+                  for (var i = 0; i < category.itdalist.length; i++) {
+                      var opt1 = new Option(category.itdalist[i].Category);
+                      $("#selectedparameter").append(opt1);
+                  }
+              },
+              error: function (result) {
+                  alert("Error");
+              }
+          });
+}
+
+
+
+
+
+
+
+

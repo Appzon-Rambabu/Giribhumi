@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APSWHC</title>
+    <link rel="shortcut icon" href="../Godowns/assets/images/favicon.png " type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="../Godowns/assets/css/webstyle.css">
+    <link rel="stylesheet" href="../Godowns/assets/css/webresponsive.css">
+    <link rel="stylesheet" href="../Godowns/kmlcss/main.css">
+    <link rel="stylesheet" href="../Godowns/kmlcss/select2.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBivBAs4MbsNiJWu3xFfhVMcb4dW1S-Wo8&libraries=places"></script>
+
+
+
+    <script src="../Godowns/kmlgodwansJs/sup_jquery.js"></script>
+
+
+    <script src="../Godowns/kmlgodwansJs/trigissupport.js"></script>
+
+    <script src="../Godowns/kmlgodwansJs/godwansmapjs.js"></script>
+    <style type="text/css">
+        html, body, #map {
+            width: 1500px;
+            height: 549px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #loaddiv {
+        }
+
+        .infowindow * {
+            font-size: 90%;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body onload="initialize()">
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+    <header>
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start align-items-center">
+                        <a href="#maincontent">Skip to main</a>
+                        <ul class="font-increase">
+
+                            <li>
+                                <button id="btn-decrease">A-</button>
+
+                            </li>
+                            <li>
+                                <button id="btn-orig">A</button>
+                            </li>
+                            <li>
+                                <button id="btn-increase">A+</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end align-items-center">
+
+                        <ul class="language">
+
+                            <li>
+                                <a href="#">Telugu</a>
+                            </li>
+                            <li>
+                                <a href="#">English</a>
+                            </li>
+
+                        </ul>
+                        <form class="form-inline has-search my-2 ml-3 my-lg-0">
+                            <span class="fa fa-search form-control-feedback"></span>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+
+                        </form>
+
+
+
+                    </div>
+
+                </div>
+                <!--/row-->
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark header-bg">
+            <div class="container px-0">
+
+
+                <a class="navbar-brand" href="#"> <img src="../Godowns/assets/images/logo.svg" width="350" alt="apswc-logo" srcset="../Godowns/assets/images/logo.svg"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                About <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="boardDirectors.html">Board of Directors</a>
+                                <a class="dropdown-item" href="boardDirectors.html#organisationstructure">Organisational Structure</a>
+                                <a class="dropdown-item" href="#">Warehousing Act</a>
+                                <a class="dropdown-item" href="#">Regulations</a>
+                                <a class="dropdown-item" href="#">Document Repository</a>
+                                <a class="dropdown-item" href="#">Employee Details</a>
+                                <a class="dropdown-item" href="#">Regional Offices</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Warehouse <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Types Of Godowns</a>
+                                <a class="dropdown-item" href="#">Logistic</a>
+
+                                <a class="dropdown-item" href="#">Storage and other charges</a>
+                                <a class="dropdown-item" href="#">Service Charter</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tender</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reports <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Report 1</a>
+                                <a class="dropdown-item" href="#">Report 2</a>
+                                <a class="dropdown-item" href="#">Report 3</a>
+                                <a class="dropdown-item" href="#">Report 4</a>
+                                <a class="dropdown-item" href="#">Report 5</a>
+                                <a class="dropdown-item" href="#">Report 7</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle eserive-btn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                e-Services <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Admin Login</a>
+
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="container page-border">
+
+            <div class="row breadcum ">
+                <div class="col-sm-12">
+                    <div class="">
+
+                        <h1>Godowns Locators</h1>
+                        <p>Home /<a href="#"> Godowns Locators</a></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="max-height: 500px; height: 100vh;">
+                <div>
+                    <select id="AllDistrict" class="form-control">
+                        <option value="all" selected>All</option>
+                        <option value="502">Anantapur</option>
+                        <option value="503">Chittoor</option>
+                        <option value="504">Kadapa</option>
+                        <option value="505">East Godavari</option>
+                        <option value="523">West Godavari</option>
+                        <option value="506">Guntur</option>
+                        <option value="510">Krishna</option>
+                        <option value="511">Kurnool</option>
+                        <option value="515">Nellore</option>
+                        <option value="517">Prakasam</option>
+                        <option value="521">Vizianagaram</option>
+                        <option value="520">Visakhapatanam</option>
+                        <option value="519">Srikakulam</option>
+                    </select>
+
+                    <select id="Alltypes" class="form-control">
+                        <option value="all" selected>ALL</option>
+                        <option value="APSWC">APSWC</option>
+                        <option value="OGF">Other Government Facilities</option>
+                        <option value="PG">Private_Godowns</option>
+                    </select>
+                    <br>
+                </div>
+                    <div id="map">
+
+                    </div>
+               
+            </div>
+
+
+        </div>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h1 class="text-uppercase"> APSWC</h1>
+                    <h4 class="fhead-title ">Head Office</h4>
+                    <p>
+                        Stalin Corporate Building. Back Side of Auto Nagar, 2nd floor, <br> D.no. 55-17-3, C-13, Industrial Estate, Auto Nagar, Vijayawada -520 007
+                    </p>
+                    <h6>Email : md@apswc.com </h6>"
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h6 class="fhead-title ">More Information</h6>
+                    <ul class="nav flex-column footer-links ">
+                        <li class="nav-item ">
+                            <a class="nav-link " href="# ">Website Policy</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="# ">Disclaimer</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="privacypolicy.html">Privacy Policy</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="# ">Hyperlinking Policy</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="# ">Accessibility</a>
+                        </li>
+                    </ul>
+
+
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h6 class="fhead-title ">Get It On</h6>
+                    <img src="../Godowns/assets/images/playstore 1.png " alt="playstore " width="250 " srcset=" ">
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="r text-white p-3" style="background-color: #222121;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Copyright © 2021 APSWC. All Rights Reserved. |
+                        <a class="text-white" href="site.html">Site Map</a>
+                    </div>
+                    <div class="col-sm-6"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+    <script src="../Godowns/assets/js/jquery.marquee.js "></script>
+  
+    <script type="text/javascript" src="../Godowns/kmljs/bundle.js"></script>
+    <script type="text/javascript" src="../Godowns/kmljs/myworld/build/myworld.js?0"></script>
+    <script type="text/javascript" src="../Godowns/kmljs/myworld/dummy.js"></script>
+    <script>
+      
+    </script>
+</body>
+
+</html>

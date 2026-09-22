@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Mandali&display=swap&subset=telugu');
+
+body {
+    background-repeat: repeat;
+    background: #eee;
+    font-family: "Poppins", sans-serif;
+    color: #354558;
+    font-size: 13px;
+  }
+  
+  @media (max-width: 991px) {
+    body {
+      overflow-x: hidden;
+    }
+  }
+  
+  html {
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  h6 {
+    font-size: 14px;
+  }
+  
+  p {
+    line-height: 1.7;
+  }
+  
+  svg {
+    max-width: 100%;
+  }
+  
+  * {
+    outline: none !important;
+  }
+  
+  a {
+    color: #616f80;
+  }
+  
+  a:hover, a:active, a:focus {
+    outline: 0;
+    text-decoration: none;
+  }
+  
+  b, strong {
+    font-weight: 500;
+  }
+
+  section{
+      display: block;
+  }
+
+  
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+header .logo img{
+  height: 100px;
+}
+.navbar-nav{
+    font-family: 'Mandali', sans-serif;
+}
+.navbar{
+    background: #38b6ff;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+.navbar-light .navbar-nav .nav-link{
+    color:#fff !important;
+    font-size:16px;
+    padding: 0rem 1rem;
+    font-weight: 600;
+}
+.dropdown-menu{
+    padding: 0rem 0;
+    border:none;
+    border-radius: 0rem;
+    background: #38b6ff;
+    color: #ffffff;
+}
+
+.dropdown-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #ffffff;
+    text-decoration: none;
+    background: #0989d4;
+  }
+
+footer{
+  background: #38b6ff;
+  display: inline-block;
+  width: 100%;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 380px;
+}
+
+
+/* Telugu Section */
+
+.telugu-section h3{
+    font-family: 'Mandali', sans-serif;
+    font-weight: bold;
+}
+.telugu-section p{
+    font-family: 'Mandali', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+.telugu-section ul li{
+    font-family: 'Mandali', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* minister */
+
+.minister img{
+  height: 80px;
+  margin: 10px 5px;
+}
+.minister .content{
+  font-size: 14px;
+  font-weight: 600;
+  margin: 15px 5px;
+  font-family: 'Mandali', sans-serif;
+  line-height: 1.2;
+  padding: 9px 0px;
+  
+}
+
+/* Link Section */
+.marquee
+{
+    overflow: hidden;
+}
+.links-section{
+  background: #eee;
+  width: 100%;
+  display: block;
+}
+.links-section .marquee2 .item{
+  background: #38b6ff;
+}
+.links-section .marquee2 .item img{
+  width: 100%;
+  height: 100px;
+}
+.links-section .marquee2 .item:hover img{
+  opacity: 0;
+}
+.links-section .marquee2 .item span{
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 40px;
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+  color:#fff;
+}
+
+.links-section .marquee2 .item:hover span{
+  display: block;
+}

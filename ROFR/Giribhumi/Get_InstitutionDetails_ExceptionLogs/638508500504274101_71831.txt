@@ -1,0 +1,4 @@
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot implicitly convert type 'System.Dynamic.ExpandoObject' to 'System.Data.DataSet'
+   at CallSite.Target(Closure , CallSite , Object )
+   at ROFR.helper.NewGiribhumiSupport.Get_InstitutionDetails(addbeneficiary_details obj) in F:\27-12-2023 ROFR LASTEST CODE\ROFR\ROFR\helper\NewGiribhumiSupport.cs:line 1435
+   at ROFR.Controllers.NewGiribhumiController.Institution_Details(addbeneficiary_details obj) in F:\27-12-2023 ROFR LASTEST CODE\ROFR\ROFR\Controllers\NewGiribhumiController.cs:line 923

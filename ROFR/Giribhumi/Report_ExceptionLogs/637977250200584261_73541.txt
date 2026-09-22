@@ -1,0 +1,3 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ROFR.helper.HealthConnection.Reports_SP(addbeneficiary_details obj) in E:\ROFR\ROFR\helper\HealthConnection.cs:line 1154
+   at ROFR.helper.GiribhumiSupport.Get_reports(addbeneficiary_details obj) in E:\ROFR\ROFR\helper\GiribhumiSupport.cs:line 2615

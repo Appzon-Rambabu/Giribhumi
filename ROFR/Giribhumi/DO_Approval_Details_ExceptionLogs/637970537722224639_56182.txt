@@ -1,0 +1,2 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ROFR.Controllers.GiribhumiController.DO_Approval_Details(addbeneficiary_details obj) in E:\ROFR\ROFR\Controllers\GiribhumiController.cs:line 1617

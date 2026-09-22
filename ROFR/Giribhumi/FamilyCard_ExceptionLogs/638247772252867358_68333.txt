@@ -1,0 +1,3 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ROFR.helper.HealthConnection.WebSiteVisitors_SP(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\HealthConnection.cs:line 828
+   at ROFR.helper.NewGiribhumiSupport.Get_WebSitevisitors(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\NewGiribhumiSupport.cs:line 1284

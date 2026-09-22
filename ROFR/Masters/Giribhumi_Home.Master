@@ -1,0 +1,264 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Giribhumi_Home.master.cs" Inherits="ROFR.Masters.Giribhumi_Home" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../gcss/bootstrap.css">
+    <link rel="stylesheet" href="../gcss/style.css">
+    <link rel="stylesheet" href="../gcss/all.min.css">
+
+    <title>Home - గిరి భూమి</title>
+    
+      <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+      <%--  <script>
+
+
+        function Captcha() {
+            var alpha = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+
+               );
+            var i;
+            for (i = 0; i < 6; i++) {
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+                var e = alpha[Math.floor(Math.random() * alpha.length)];
+
+            }
+            var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e;
+            document.getElementById("mainCaptchas").innerHTML = code
+            document.getElementById("mainCaptchas").value = code
+
+        }
+        function ValidCaptcha() {
+
+            var uname = document.getElementById('<%=Txt_username.ClientID %>').value;
+         var pwd = document.getElementById('<%=Txt_pwd.ClientID %>').value;
+            var captcha = document.getElementById('txtInputs').value;
+         if (uname == "") {
+
+             alert("Please Enter Username!");
+             return false;
+         }
+         if (pwd == "") {
+
+             alert("Please Enter Password");
+             return false;
+         }
+         if (captcha == "") {
+
+             alert("Please Enter Captcha");
+             return false;
+         }
+         if (captcha != "") {
+
+
+             var string1 = removeSpaces(document.getElementById('mainCaptchas').value);
+             var string2 = removeSpaces(document.getElementById('txtInputs').value);
+             if (string1 == string2) {
+                 return true;
+             }
+
+
+             else {
+
+                 alert("Enter valid captcha");
+
+                 return false;
+             }
+         }
+     }
+     function removeSpaces(string) {
+         return string.split(' ').join('');
+     }
+
+
+
+    </script>--%>
+
+  </head>
+
+  <body >
+       <form id="form2" runat="server">
+           
+    <header class="bg-white">
+        <div class="container-fluid">
+     
+        <div class="row d-flex justify-content-between">
+            <div class="minister d-flex">
+                <!--<img src="../gimages/Ap-Cm.png">-->
+                <!--<div class="content">శ్రీ.వై.ఎస్.జగన్ మోహన్ రెడ్డి గారు<br>గౌ.ముఖ్యమంత్రివర్యులు<br>ఆంధ్రప్రదేశ్ ప్రభుత్వం</div>-->
+            </div>
+            <div class="logo">
+                <!--<img src="../gimages/logo-wide.png">-->
+            </div>
+            <div class="minister d-flex">
+                <!--<div class="content">శ్రీమతి.పి.పుష్ప శ్రీవాణి గారు<br>గౌ.ఉప ముఖ్యమంత్రివర్యులు<br>గిరిజన సంక్షేమ శాఖ</div>-->
+                <!--<img src="../gimages/Tribal-Minister.png">-->
+            </div>
+        </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="../pages/Giribhumi.aspx">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Adangal</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../test/Adangall.aspx">Mee Adangal</a></li>
+                        <li><a class="dropdown-item" href="../test/GramaAdangall.aspx">Grama Adangal</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">1-B</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../test/Details__1B.aspx">Mee 1-B</a></li>
+                        <li><a class="dropdown-item" href="../test/Grama_1B.aspx">Grama 1-B</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Complaints</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="">ఫిర్యాదుల నమోదు</a></li>
+                        <li><a class="dropdown-item" href="">మీ ఫిర్యాదు స్థితి</a></li>
+                    </ul>
+                </li>
+                 <li class="nav-item"><a class="nav-link" href="../test/Epass_book.aspx">Epassbook</a></li>
+           
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Reports</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../test/ItdawiseLandDetails.aspx">Land Summary Report</a></li>
+                        <li><a class="dropdown-item" href="../test/ITDAWISE_POPULATION_REPORT.aspx">Population Report</a></li>
+                       
+                    </ul>
+                </li>
+           
+            </ul>
+ <%--<a data-toggle="modal" data-target="#LoginModal" class="float-right btn btn-outline-success login-btn text-white"><i class="fa fa-sign-in-alt   "></i>Login</a>--%>
+             
+            </div>
+           
+          </nav>
+    </header>
+  
+      
+
+
+
+             <section class="telugu-section">
+        <div class="container">
+           
+      
+
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+		  
+ 
+            </div>
+                 </section>
+    
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small">
+      <div class="footer-copyright text-center py-3 text-white">Copyright ©2019 Andhra Pradesh Giribhumi. All Rights Reserved Tribal Welfare Department</div>
+    </footer>
+    <!-- Footer -->
+    <!-- Login Modal -->
+       <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="LoginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body" >
+                   
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label for="exampleInputEmail1">Username</label>
+                                <%-- <input type="email" class="form-control" id="Username" aria-describedby="Username">--%>
+                                <asp:TextBox ID="Txt_username" runat="server" class="form-control h-auto"  aria-label="Username" aria-describedby="username" autocomplete="off"> </asp:TextBox>
+                            </div>
+                            <div class="form-group row">
+                                <label for="exampleInputPassword1">Password</label>
+                                <%-- <input type="password" class="form-control" id="exampleInputPassword1">--%>
+                                <asp:TextBox ID="Txt_pwd" runat="server" class="form-control h-auto"  aria-label="Password" aria-describedby="password" autocomplete="off" TextMode="Password" MaxLength="40"> </asp:TextBox>
+                            </div>
+                            <%--                            <div class="form-group row">
+                                <div class="bg-secondary col-md-12">
+                                    <h2 class="text-white text-center" id="mainCaptcha" ></h2>
+                                </div>
+                            </div>--%>
+                          
+                                <%-- <div class="row  pr-3 pl-3 justify-content-center">--%>
+                            <%-- <body onload="Captcha();">--%>
+                                <div class="form-group row">
+                                <div class="col-md-10 border bg-secondary" style="height: 45px;">
+                                   
+                                        <h2 type="text" id="mainCaptchas" class="text-center text-white"></h2>
+                                       
+
+                                   
+                                    
+                                </div>
+                                     <div class="col-md-1 text-left">
+                                                <button type="button" class="btn btn-light" value="Refresh" id="refresh" onclick="Captcha();"><i class="fa fa-sync"></i></button>
+                                            </div>
+                        </div>
+                               
+                               
+                                
+                        <div class="form-group row">
+                            <label for="exampleInputPassword1" class="col-md-12">Enter Captcha</label>
+                            <input type="text" id="txtInputs" name="captcha" class="form-control h-auto" autocomplete="off">
+                           <%-- <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>--%>
+                        </div>
+
+</div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <%--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
+                   <%-- <button type="button" class="btn btn-primary">Login</button>--%>
+                     <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary"  OnClick="btn_login_Click"  Text="Login" OnClientClick="return ValidCaptcha() "  />
+                </div>
+                
+           
+</div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="../gjs/jquery-3.4.1.min.js"></script>
+    <script src="../gjs/bootstrap.min.js"></script>
+    <script src="../gjs/scripts.js"></script>
+    <script src="../gjs/jquery.easy-ticker.js"></script>
+      
+           </form>     </body>      
+</html>
+

@@ -1,0 +1,133 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/ROFR_MASTER.Master" AutoEventWireup="true" CodeBehind="Rofr_Beneficiary_Data_for_Rythubharosa.aspx.cs" Inherits="ROFR.pages.Rofr__Beneficiary_Data__for__Rythubharosa" EnableEventValidation="false" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <style type="text/css">
+        .header-center {
+            text-align: center;
+        }
+        .headertable { overflow-y: auto; height:400px; } 
+.headertable table { border-collapse: collapse; width: 100%; border:1px solid #000000 !important;font-size:13px;}
+.headertable th, .headertable td { padding: 8px 16px; } 
+.headertable th { position: sticky; top: -10px; background-color: #1F5C99;}
+
+.headertable .aftr th{position: sticky;top: 49px;}
+
+     
+    </style>
+     <script type="text/javascript">
+        function noBack()
+         {
+             window.history.forward()
+         }
+        noBack();
+        window.onload = noBack;
+        window.onpageshow = function(evt) { if (evt.persisted) noBack() }
+        window.onunload = function() { void (0) }
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+       <div class="panel panel-body" style="margin-top:160px;"> 
+          <%-- <asp:Button ID="btnexcel" runat="server" Text="Excel" />--%>
+           
+         <div class="row mb-1 mt-1 justify-content-end">
+               <div class="col-md-4"></div>
+               <div class="col-md-4"> <h5 class="text-center text-success mb-1 mt-1">FARMER LAND IMAGES REPORT</h5></div>
+              <div class="col-md-4 text-right ">
+        
+                   </div>
+             
+            <div class="col-md-4">
+
+
+                <div class="row d-flex justify-content-end">
+
+                    <div class="col-md-3 ml-0 mr-0">
+                          <asp:Button ID="btn_upload" class="btn btn-sm btn-success"  AutoPostBack="true" OnClick="btnupload_Click" runat="server" Text="EXCEL" />&nbsp;&nbsp;
+                    </div>
+                
+                </div>
+
+
+           </div>
+        </div>
+
+
+       
+    <div class="row justify-content-center" style="text-align:right" id="div_dist" runat="server">
+           <div class="col-md-8">
+        <div class="table-responsive">
+
+       <div class="headertable">
+      <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"   
+                    BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px"   
+                    CellPadding="4" > 
+                    <Columns>   
+                                
+                        
+                         <asp:TemplateField HeaderText=" ITDA "  ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                <div style="text-align:left">
+              <asp:Label Class="txt"  ID="lbl0" runat="server"  Font-Bold="True" Text='<%# Eval("ITDA_NAME") %>' ForeColor="Black"></asp:Label>
+                    </div>
+            </ItemTemplate>
+        </asp:TemplateField>
+
+                          <asp:TemplateField HeaderText=" DISTRICT "  ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                <div style="text-align:left">
+              <asp:Label Class="txt"  ID="lbl1" runat="server"  Font-Bold="True" Text='<%# Eval("DISTRICT") %>' Visible="false"></asp:Label>
+                     <asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" ForeColor="Red"  Font-Underline="true" CommandName="MyUpdate" CommandArgument='<%#Eval("ITDA_NAME")+","+Eval("DISTRICT")+"-"+ "1"%>' CausesValidation="false"   OnClick="link_onclick" ><%# Eval("DISTRICT") %></asp:LinkButton>
+                    </div>
+            </ItemTemplate>
+        </asp:TemplateField>
+                        
+                          <asp:TemplateField HeaderText="FARMERS PLOTS" ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                <asp:Label ID="lbl2"  Font-Bold="True" Text='<%# Eval("total_farmer_Plots") %>' runat="server" />
+  
+            </ItemTemplate>
+        </asp:TemplateField> 
+                         <asp:TemplateField HeaderText="UPTO YESTERDAY LAND IMAGES UPLOADED" ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                <asp:Label ID="lbl5" ForeColor="Green" Font-Bold="True" Text='<%# Eval("Till_yesterday_Having_Land_Image") %>' runat="server" />
+  
+            </ItemTemplate>
+        </asp:TemplateField> 
+                         <asp:TemplateField HeaderText="TODAY LAND IMAGES UPLOADED" ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                <asp:Label ID="lbl6" ForeColor="Green" Font-Bold="True" Text='<%# Eval("Today_Having_Land_Image") %>' runat="server" />
+  
+            </ItemTemplate>
+        </asp:TemplateField> 
+ <asp:TemplateField HeaderText="CUMULATIVE LAND IMAGES UPLOADED" ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                <asp:Label ID="lbl3" ForeColor="Green" Font-Bold="True" Text='<%# Eval("Cumulative_Having_Land_Image") %>' runat="server" />
+  
+            </ItemTemplate>
+        </asp:TemplateField> 
+                           
+                         <asp:TemplateField HeaderText="LAND IMAGES NOT UPLOADED" ItemStyle-Width = "150" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+            <ItemTemplate>
+                 <asp:Label ID="lbl4" ForeColor="Red" Font-Bold="True" Text='<%# Eval("Not_having_Land_Image") %>' runat="server" />
+         
+            </ItemTemplate>
+        </asp:TemplateField> 
+                      
+                    </Columns>  
+                    <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />  
+                    <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />  
+                    <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />  
+                    <RowStyle BackColor="White" ForeColor="#003399" />  
+                    <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />  
+                    <SortedAscendingCellStyle BackColor="#EDF6F6" />  
+                    <SortedAscendingHeaderStyle BackColor="#0D4AC4" />  
+                    <SortedDescendingCellStyle BackColor="#D6DFDF" />  
+                    <SortedDescendingHeaderStyle BackColor="#002876" />  
+                </asp:GridView>
+             </div>
+              </div>
+               </div>
+        </div>
+       
+        </div>
+</asp:Content>
+

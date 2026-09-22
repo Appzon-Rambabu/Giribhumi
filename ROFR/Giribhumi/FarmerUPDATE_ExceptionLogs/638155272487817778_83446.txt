@@ -1,0 +1,3 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ROFR.helper.NewGiribhumi_Get.Get_Farmer_DataUpdate_sp(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\NewGiribhumi_Get.cs:line 969
+   at ROFR.helper.NewGiribhumiSupport.GetFarmerDataUpdate(addbeneficiary_details obj) in C:\Users\vudda\Downloads\ROFR1\ROFR\ROFR\helper\NewGiribhumiSupport.cs:line 538
