@@ -22,11 +22,11 @@ using Newtonsoft.Json.Linq;
 
 namespace ROFR.Controllers
 {
-
+  
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-
+   
     [RoutePrefix("Giribhumi")]
-
+    
     public class GiribhumiController : ApiController
     {
         GiribhumiSupport gs = new GiribhumiSupport();
@@ -149,7 +149,7 @@ namespace ROFR.Controllers
 
 
         [HttpPost]
-
+        
         [Route("GetAdangal")]
         public dynamic GetAdangal(addbeneficiary_details obj)
         {
@@ -278,7 +278,7 @@ namespace ROFR.Controllers
 
         }
 
-
+      
         ///Giribhumi Controler 
         /// <summary>  
         /// Upload Document.....  
@@ -353,7 +353,7 @@ namespace ROFR.Controllers
 
                 if (formData["ClientDocs"] == "ClientDocs")
                 {
-
+                   
                     if ((extension1 == ".jpg" || extension1 == ".jpeg" || extension1 == ".JPG" || extension1 == ".JPEG" || extension1 == ".png" || extension1 == ".PNG") && (extension2 == ".jpg" || extension2 == ".jpeg" || extension2 == ".JPG" || extension2 == ".JPEG" || extension2 == ".png" || extension2 == ".PNG"))
                     {
                         if ((ctype1 == "image/png" || ctype1 == "image/jpeg" || ctype1 == "image/*") && (ctype2 == "image/png" || ctype2 == "image/jpeg" || ctype2 == "image/*"))
@@ -906,7 +906,7 @@ namespace ROFR.Controllers
             try
             {
                 dynamic token = new ExpandoObject();
-                token = ps.openToken(obj);
+               token= ps.openToken(obj);
                 return token;
             }
             catch (Exception ex)
@@ -916,7 +916,7 @@ namespace ROFR.Controllers
 
 
         }
-
+    
         [HttpPost]
         [Route("RB_STATUS")]
         public dynamic RB_STATUS(addbeneficiary_details obj)
@@ -925,7 +925,7 @@ namespace ROFR.Controllers
             try
             {
 
-                return gs.RB_STATUS_valid(obj);
+             return gs.RB_STATUS_valid(obj);
             }
             catch (Exception ex)
             {
@@ -944,7 +944,7 @@ namespace ROFR.Controllers
             dynamic data = new ExpandoObject();
             addbeneficiary_details obj = new addbeneficiary_details();
             obj.Type = "1";
-            DataTable dt = GiribhumiSupport.Get_RTGS_INSERT_Valid(obj);
+            DataTable dt = GiribhumiSupport.Get_RTGS_INSERT_Valid (obj);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if (dt != null && dt.Rows.Count > 0)
@@ -975,15 +975,15 @@ namespace ROFR.Controllers
                     // GetData(url);
                     var val = PostData(url, lmobj);
                     data = GetSerialzedData<dynamic>(val);
-                    if (data.success == true)
-                    {
+            if(data.success==true)
+            {
                         obj.Type = "2";
                         obj.Benificiary_id = data.personDetails[0]["BENFICIARY_ID"].ToString();
                         obj.Aadhaar_NO = data.personDetails[0]["UID_NUM"].ToString();
                         GiribhumiSupport.Get_RTGS_INSERT_Valid(obj);
                     }
-                }
-            }
+        }
+    }
             data.Success = "Sucess";
             data.Message = "Updated Successfully";
             return data;
@@ -1221,11 +1221,11 @@ namespace ROFR.Controllers
             {
                 try
                 {
-                    obj_data = gs.ROFR_RTGS_Valid(obj);
+                    obj_data=   gs.ROFR_RTGS_Valid(obj);
                 }
                 catch (Exception ex)
                 {
-
+                   
                 }
             }
             else
@@ -1247,7 +1247,7 @@ namespace ROFR.Controllers
             dynamic obj_data = new ExpandoObject();
             System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
             string Status = gs.VerifyToken(headers);
-
+            
             if (Status == "success")
             {
                 try
@@ -1425,7 +1425,7 @@ namespace ROFR.Controllers
         //public dynamic Update_FarmerImage(addbeneficiary_details obj)
         //{
         //    Landsettlementpattas ls = new Landsettlementpattas();
-
+           
         //    try
         //    {
         //        return gs.farUploadImage(obj);
@@ -1456,16 +1456,16 @@ namespace ROFR.Controllers
             NameValueCollection formData = provider.FormData;
             //access files  
             IList<HttpContent> files = provider.Files;
-
+            
             HttpContent file1 = files[0];
             HttpPostedFile file = HttpContext.Current.Request.Files[0];
             var thisFileName = file1.Headers.ContentDisposition.FileName.Trim('\"');
-
+        
             string ctype1 = file1.Headers.ContentType.ToString();
             string extension1 = System.IO.Path.GetExtension(thisFileName);
             int count1 = thisFileName.Split('.').Length - 1;
 
-            string imagefloder = formData["itda"].ToString() + formData["distid"].ToString();
+            string imagefloder = formData["itda"].ToString()+formData["distid"].ToString();
             string filename = String.Empty;
 
             Stream input = await file1.ReadAsStreamAsync();
@@ -1474,7 +1474,7 @@ namespace ROFR.Controllers
             string URL = String.Empty;
             string tempDocUrl = WebConfigurationManager.AppSettings["DocsUrl"];
             string path = String.Empty;
-
+            
             if ((count1 > 1))
             {
                 res.Status = "102";
@@ -1502,7 +1502,7 @@ namespace ROFR.Controllers
                 {
                     if ((extension1 == ".jpg" || extension1 == ".jpeg" || extension1 == ".JPG" || extension1 == ".JPEG" || extension1 == ".png" || extension1 == ".PNG"))
                     {
-
+                       
                         if ((ctype1 == "image/png" || ctype1 == "image/jpeg" || ctype1 == "image/*"))
                         {
                             string sc = @"\";
@@ -1511,7 +1511,7 @@ namespace ROFR.Controllers
 
                             string benid = formData["benid"].ToString();
 
-                            string location = (locpath + DateTime.Now.ToString("dd-MM-yyyy") + sc + imagefloder + sc + benid + sc);
+                           string location = (locpath + DateTime.Now.ToString("dd-MM-yyyy") + sc + imagefloder + sc + benid + sc);
 
                             if (!Directory.Exists(location))
                             {
@@ -1528,7 +1528,7 @@ namespace ROFR.Controllers
                             obj.latitude = formData["latitude"];
                             obj.longitude = formData["longitude"];
                             res = gs.updateImage_Valid(obj);
-
+                            
                             var respons = Request.CreateResponse(HttpStatusCode.OK, new { res });
                             return respons;
                         }
@@ -1537,7 +1537,7 @@ namespace ROFR.Controllers
                             res.Status = "104";
                             res.Message = "Selected files are not Image. Please check and select Image to upload";
                             res.Reason = "Files are not in Image Format";
-
+                            
                             var respons = Request.CreateResponse(HttpStatusCode.OK, new { res });
                             return respons;
                         }
@@ -1879,7 +1879,7 @@ namespace ROFR.Controllers
             }
         }
 
-
+       
         [HttpPost]
         [Route("Checkversion")]
         public dynamic version(addbeneficiary_details obj)
@@ -2028,7 +2028,7 @@ namespace ROFR.Controllers
                 if (Status == "success")
                 {
 
-
+                   
                     return gs.Get_Do_Dates(obj);
 
                 }
@@ -2068,7 +2068,7 @@ namespace ROFR.Controllers
 
                 if (Status == "success")
                 {
-
+                   
                     return gs.Get_DOApprovals_Details(obj);
 
                 }
@@ -2474,7 +2474,7 @@ namespace ROFR.Controllers
         {
             try
             {
-
+                
 
                 System.Net.Http.Headers.HttpRequestHeaders headers = this.Request.Headers;
 
@@ -2732,7 +2732,7 @@ namespace ROFR.Controllers
 
         public async Task<string> GetToken()
         {
-
+           
             var requestBody = new
             {
                 userName = "ap_citizen_CT",
@@ -2740,12 +2740,12 @@ namespace ROFR.Controllers
             };
             var json = JsonConvert.SerializeObject(requestBody);
 
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+           var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("http://raisetribes.ap.gov.in/Api_Raisetribes/V1/CitizenService/Login", content);
             if (response.IsSuccessStatusCode)
             {
                 var tokenResponse = await response.Content.ReadAsStringAsync();
-                string token = JsonConvert.DeserializeObject<TokenResponse>(tokenResponse).Bearer;
+                string token =  JsonConvert.DeserializeObject<TokenResponse>(tokenResponse).Bearer;
                 return token;
             }
             return "Failed to generate token";
@@ -2753,24 +2753,24 @@ namespace ROFR.Controllers
 
         // Newly adding 11-11-2024 Getdata based token
 
-
-
+       
+       
         [HttpPost]
         [Route("GetHouseholdData")]
 
         public async void GetHouseholdData(Inputdet obj)
         {
 
-
+            
             string tokenResponse = await GetToken();
 
             _httpClient.DefaultRequestHeaders.Authorization
                          = new AuthenticationHeaderValue("Bearer", tokenResponse);
 
             var content = new StringContent(obj.DistrictCode, Encoding.UTF8, "text/plain");
-
+            
             var response = await _httpClient.PostAsync("http://raisetribes.ap.gov.in/Api_Raisetribes/V1/CitizenService/GetTribalSTData", new StringContent(obj.DistrictCode));
-
+            
             if (response.IsSuccessStatusCode)
             {
                 var householdResponse = await response.Content.ReadAsStringAsync();
@@ -2778,7 +2778,7 @@ namespace ROFR.Controllers
                 Giribhumi_get gt = new Giribhumi_get();
                 if (householdData.HHData.Count > 0)
                 {
-                    foreach (Household house in householdData.HHData)
+                    foreach(Household house in householdData.HHData)
                     {
                         Household householdD = new Household
                         {
@@ -2790,13 +2790,13 @@ namespace ROFR.Controllers
                         gt.insertData_sp(householdD);
                     }
 
-
+                    
                 }
-
-
+                
+                
             }
-
-
+            
+            
         }
 
 
@@ -2868,7 +2868,7 @@ namespace ROFR.Controllers
 
             try
             {
-                return gs.GetRofrdata(obj);
+                return  gs.GetRofrdata(obj);
             }
             catch (Exception ex)
             {
@@ -3042,7 +3042,6 @@ namespace ROFR.Controllers
         [Route("GetAllDropDownmaster")]
         public dynamic Get_AllDropDown(addbeneficiary_details obj)
         {
-
             try
             {
                 return gs.Get_AllDropDowns(obj);
@@ -3051,8 +3050,8 @@ namespace ROFR.Controllers
             {
                 throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message));
             }
-
         }
+
 
         [HttpPost]
         [Route("GetFarmerDetailsMaster")]
@@ -3116,7 +3115,25 @@ namespace ROFR.Controllers
             }
 
         }
+
+        //---------------------------Insert method Api Service----------------------//
+        [HttpPost]
+        [Route("InsertCropDetails")]
+        public dynamic InsertCropDetails(CropDetails obj)
+        {
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+
+            try
+            {
+                var result = gs.InsertCropDetails(obj);
+                sw.Stop();
+                System.Diagnostics.Debug.WriteLine("Controller Time : " +sw.Elapsed.TotalSeconds + " sec");
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message));
+            }
+        }
     }
-
-
 }
