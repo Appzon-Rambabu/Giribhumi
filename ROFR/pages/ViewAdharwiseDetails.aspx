@@ -142,6 +142,20 @@
                     </div>
             </ItemTemplate>
         </asp:TemplateField> 
+                                <%--------------new column------------------%>
+
+                                <asp:TemplateField HeaderText="Revenue Village" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
+
+                                            <ItemTemplate>
+                                                <div style="text-align: center">
+
+                                                    <asp:Label Class="txt" ID="lbl19" runat="server" Font-Bold="True" Text='<%# Eval("Revenue_village") %>'></asp:Label>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                 <%--------------------------------%>
+
+
                 <asp:TemplateField HeaderText="Village" HeaderStyle-ForeColor="White" HeaderStyle-CssClass="header-center">
            
                               <ItemTemplate>
