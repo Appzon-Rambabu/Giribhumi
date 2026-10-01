@@ -42,15 +42,6 @@ namespace ROFR.pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TtlExtent;
 
         /// <summary>
-        /// images_not_uploaded control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl images_not_uploaded;
-
-        /// <summary>
         /// Hvngdlc control.
         /// </summary>
         /// <remarks>

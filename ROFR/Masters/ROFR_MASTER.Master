@@ -135,24 +135,17 @@
                                 <%--<li class="nav-item">
 
                                     <a class="nav-link" href="../pages/loginhome.aspx"><i class="fa fa-home"></i>Home<span class="sr-only">(current)</span></a> </li>--%>
-                                <li class="nav-item dropdown">
+                                <%--<li class="nav-item dropdown">
                                     <div id="masters" runat="server">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Masters </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menu1" runat="server">
-                                            <%--<a class="dropdown-item" href="../pages/DistictData_Analysis.aspx">District Master</a>--%> 
                                             <a class="dropdown-item" href="../NewPages/DistrictData_Analysis.aspx">District Master</a>
-                                            <%--<a class="dropdown-item" href="../pages/MandalMaster_Analysis.aspx">Mandal Master</a>--%>
                                             <a class="dropdown-item" href="../NewPages/MandalMaster_Analysis.aspx">Mandal Master</a>
-                                            <%-- <a class="dropdown-item" >Village Master</a>--%> 
-                                            <%--<a class="dropdown-item" href="../pages/ForestDivision_Analysis.aspx">Forest Division Master</a>--%>
                                             <a class="dropdown-item" href="../NewPages/ForestDivision_Analysis.aspx">Forest Division Master</a>
-                                           <%-- <a class="dropdown-item" href="../pages/ForestRange_Analysis.aspx">Forest Range Master</a> --%>
                                             <a class="dropdown-item" href="../NewPages/ForestRange_Master_Analysis.aspx">Forest Range Master</a> 
-                                            <%--<a class="dropdown-item" href="../pages/ForestBeat_Analysis.aspx">Forest Beat Master</a> --%>
                                             <a class="dropdown-item" href="../NewPages/AllForestBeat_Master_Analysis.aspx">Forest Beat Master</a> 
-                                            <%--<a class="dropdown-item" href="../pages/Beneficiary_Master_analysis.aspx">Beneficiary Master</a> --%>
                                              <a class="dropdown-item" href="../NewPages/Beneficiary_Master_analysis.aspx">Beneficiary Master</a> 
-                                            <%-- <a class="dropdown-item" href="../pages/Forest_Division_Master.aspx">Revenue District - Forest Division</a> <a class="dropdown-item" href="../pages/Mandal_Master.aspx">Revenue Mandal - Forest Range</a> <a class="dropdown-item" href="../pages/NewForestBeatMapping.aspx">Revenue Village - Forest Beat</a>--%> <%--<a class="dropdown-item" href="#">Something else here</a>--%> </div>
+                                            </div>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -164,9 +157,9 @@
                                             <a class="dropdown-item" href="../pages/HabitationUpdate.aspx">Habitation</a> 
 										<a class="dropdown-item" href="../pages/UpdateLatLongs.aspx">Individual</a>
                                             <a class="dropdown-item" href="../pages/UploadMultipleLatlongs.aspx">Bulk</a>
-                                            <%--<a class="dropdown-item" href="#">Something else here</a>--%> </div>
+                                             </div>
                                     </div>
-                                </li>
+                                </li>--%>
                                 <li class="nav-item dropdown">
                                     <div id="menu_add" runat="server">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Farmer & Land Registration </a>
@@ -346,28 +339,20 @@
                                 
                                 
                                 
-                        <li class="nav-item dropdown">
-                            <div id="Div3" runat="server"><a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"><%-- <li><div id="menu5_0" runat="server"> <a class="dropdown-item" href="../pages/ROFR_BeneficiariesDetailsChecker.aspx">Farmer Validation</a></div></li>--%>
+                        <%--<li class="nav-item dropdown">
+                            <div id="Div3" runat="server">
+                                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu">
                                         <div id="Div4" runat="server">
                                             <div id="Div13" runat="server">
-                                                <%--<a class="dropdown-item dropdown-toggle" href="#">Rythu Bharosa Payment Status</a>--%>
                                                <ul class="dropdown-menu">
-                                       
-                                          <%--<li><a class="dropdown-item" href="../NewPages/RythuBharosa_PaymentStatus2019.aspx">2019</a></li>--%>
-                                  
-                                        <%--<li><a class="dropdown-item" href="../NewPages/Rythubarosa_PaymentStatus_May20.aspx">May 2020 </a></li>--%>
                                           <li>
                             <div id="Div14" runat="server">
-                       
-                          <%--<a class="dropdown-item" href="../NewPages/Rythubarosa_PaymentStatus_Oct20.aspx">Oct 2020 </a>--%>
                             </div>
                                          </li>
                                       <li>
                 <div id="Div15" runat="server">
-                    
-                    <%--<a class="dropdown-item" href="../NewPages/Rythubarosa_PaymentStatus_May21.aspx">May 2021 </a>--%>
 
                 </div>
                                      </li>
@@ -375,12 +360,10 @@
                  </div>
                                         </div>
                                     </li>
-                                    <%--<li><a class="dropdown-item" href="../pages/Jalakala_Report.aspx">Jalakala Scheme</a></li>--%>
-									 <%--<li><a class="dropdown-item" href="../pages/RofrFamilycard.aspx">ROFR Family Card</a></li>--%>
                                   
                                 </ul>
                             </div>
-                        </li>
+                        </li>--%>
                         <li class="nav-item dropdown">
                             <div id="Div6" runat="server"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Downloads </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"><%-- <li><div id="menu5_0" runat="server"> <a class="dropdown-item" href="../pages/ROFR_BeneficiariesDetailsChecker.aspx">Farmer Validation</a></div></li>--%>

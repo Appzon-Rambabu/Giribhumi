@@ -25,7 +25,7 @@ namespace ROFR.helper
         public string flong { get; set; }
         public string fgeoaddres { get; set; }
     }
-
+  
 
     public class UserLoginCls
     {
@@ -90,7 +90,7 @@ namespace ROFR.helper
         public int ONE_LTR_SACHET_PRICE { get; set; }
     }
 
-
+    
 
     public class unittypes
     {
@@ -111,7 +111,7 @@ namespace ROFR.helper
     }
     public class ROFRData
     {
-
+        
         public string id { get; set; }
         public string Benificiaryid { get; set; }
         public string Aadhaarno { get; set; }
@@ -137,11 +137,11 @@ namespace ROFR.helper
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Gramsabha { get; set; }
-        public string LATITUDE { get; set; }
-        public string LONGITUDE { get; set; }
+        public string LATITUDE{ get; set; }
+        public string LONGITUDE{ get; set; }
         public string FarmerUniqueID { get; set; }
         public string RepreseName { get; set; }
-        public string FatherName { get; set; }
+        public string FatherName{ get; set; }
         public HttpPostedFileBase DocumentFile { get; set; }
         public string CFRID { get; set; }
         public string ItdaCodecrf { get; set; }
@@ -179,7 +179,7 @@ namespace ROFR.helper
         public string CFR_Document { get; set; }
         public string user_name { get; set; }
         public string IPADDRESS { get; set; }
-
+       
         //end crfmodel
         public string Recordid { get; set; }
         public string GramaPanchayatCode { get; set; }
@@ -232,14 +232,14 @@ namespace ROFR.helper
 
 
         public string panchayatcode { get; set; }
-
+       
         public string SiteSize { get; set; }
-        public string FamilySize { get; set; }
+       public string FamilySize { get; set; }
         public string SiteLen { get; set; }
         public string SiteWidth { get; set; }
         public string SiteDepth { get; set; }
         public string SHGGroupID { get; set; }
-
+        
         //10-02-2025 End
 
 
@@ -297,7 +297,7 @@ namespace ROFR.helper
 
         public string Id { get; set; }
         public string Frangebeats { get; set; }
-        public string DivisionCode { get; set; }
+        public string DivisionCode{ get; set; }
         public string DivisionName { get; set; }
         public string allForestbeat { get; set; }
         public string forestrange { get; set; }
@@ -353,8 +353,8 @@ namespace ROFR.helper
         public string Landpossession { get; set; }
         public string Propertytype { get; set; }
         public string SurveyNo { get; set; }
-        public string caste { get; set; }
-        public string gender { get; set; }
+        public string caste { get; set;}
+        public string gender{get; set;}
         public string dob
         {
             get; set;
@@ -409,7 +409,7 @@ namespace ROFR.helper
 
 
         public string userprevilages { get; set; }
-
+        
         public string benid { get; set; }
         public string imagename { get; set; }
         public string rev_village { get; set; }
@@ -490,12 +490,12 @@ namespace ROFR.helper
         public string bankaccountno { get; set; }
         public string ifsccode { get; set; }
         public string fathername { get; set; }
-        public string aadhaarstatus { get; set; }
+        public string aadhaarstatus{ get; set; }
 
         public string postofficeaccount { get; set; }
         public string ponumber { get; set; }
         public string poname { get; set; }
-        public string sub_caste { get; set; }
+             public string sub_caste { get; set; }
         public string Itdacode { get; set; }
         public string Modified_by { get; set; }
         public string Land_Filename { get; set; }
@@ -671,9 +671,9 @@ namespace ROFR.helper
 
 
 
+        
 
-
-
+        
 
 
     }
@@ -683,8 +683,8 @@ namespace ROFR.helper
         public string claimid { get; set; }
         public string nature_of_evidence { get; set; }
         public string rejection_reason { get; set; }
-        public string rejection_notice_issued { get; set; }
-        public string present_land_status { get; set; }
+        public string rejection_notice_issued{ get; set; }
+        public string present_land_status{ get; set; }
         public string latitude { get; set; }
         public string longitude { get; set; }
         public string remarks { get; set; }
@@ -763,14 +763,14 @@ namespace ROFR.helper
 
     public class Rtgs
     {
-
+       
 
         public string beficiaryId { get; set; }
         public string itdaName { get; set; }
         public string districtName { get; set; }
-        public string districtId { get; set; }
-        public string mandalName { get; set; }
-        public string mandalId { get; set; }
+    public string districtId { get; set; }
+public string mandalName { get; set; }
+      public string mandalId { get; set; }
         public string revVillageId { get; set; }
         public string revVillageName { get; set; }
         public string villageName { get; set; }
@@ -800,25 +800,56 @@ namespace ROFR.helper
     public class CropDetails
     {
         public int ITDA_Code { get; set; }
+
         public string Itda { get; set; }
 
         public int District_Code { get; set; }
+
         public string district { get; set; }
 
         public int Mandal_Code { get; set; }
+
         public string mandal { get; set; }
 
         public int Panchayat_Code { get; set; }
+
         public string panchayat { get; set; }
+
         public string Rev_Village_code { get; set; }
+
         public string village { get; set; }
+
         public string Habitation { get; set; }
+
         public string Benificiaryid { get; set; }
-        public string Crop_Code { get; set; }
-        public string Crop_Name { get; set; }
+
+        public string Plot_id { get; set; }
+
+        public string Farmer_name { get; set; }
+
+        public string Father_name { get; set; }
+
+        public string Extent { get; set; }
+
         public string Crop_Category_Code { get; set; }
+
+        public string Crop_Code { get; set; }
+
+        public string Crop_season { get; set; }
+
+        public string Financial_year { get; set; }
+
+        public string Crop_quantity { get; set; }
+
+        public string Crop_Name { get; set; }
+
         public string Crop_Category_Name { get; set; }
 
+        public string USER_NAME { get; set; }
+
+        public int PTYPE { get; set; }
     }
+
+
 
 }

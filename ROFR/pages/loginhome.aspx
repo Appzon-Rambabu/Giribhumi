@@ -88,7 +88,6 @@ body {
     border-radius: 20px;
     padding: 5px;
     margin-bottom: 20px;
-	margin-Top: -10px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.06);
 }
 .lineheight{
@@ -229,23 +228,6 @@ body {
                                         </div>
                                     </div>
                                 </div>
-								 <div class="col-md-3 mb-5">
-                                    <div class="card bg-primary">
-                                        <div class="card-body text-center">
-                                          <h2>  <p class="text-white">Farmer Images</p></h2>
-                                           <div class="row">
-                                                <div class="col-md-6 border-dashed border-right">
-                                                    <h5 class="mb-1 text-dark">Uploaded</h5>
-                                                    <h2 class="text-white" id="Frmrimgstat" runat="server"></h2>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <h5 class="mb-1 text-dark">Yet to upload</h5>
-                                                    <h2 class="text-white" id="Frmrimgnotstat" runat="server"></h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-3 mb-5">
                                     <div class="card bg-purple">
                                         <div class="card-body text-center">
@@ -297,7 +279,23 @@ body {
                                         </div>
                                     </div>
                                 </div>
-                               
+                                <div class="col-md-3 mb-5">
+                                    <div class="card bg-primary">
+                                        <div class="card-body text-center">
+                                          <h2>  <p class="text-white">Farmer Images</p></h2>
+                                           <div class="row">
+                                                <div class="col-md-6 border-dashed border-right">
+                                                    <h5 class="mb-1 text-dark">Uploaded</h5>
+                                                    <h2 class="text-white" id="Frmrimgstat" runat="server"></h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h5 class="mb-1 text-dark">Yet to upload</h5>
+                                                    <h2 class="text-white" id="Frmrimgnotstat" runat="server"></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                    
                                 <div class="col-md-2 mb-4">
                                     <div class="card bg-danger">
@@ -364,114 +362,171 @@ body {
     </h3>--%>
 
     <!-- ================= IFR SECTION ================= -->
-    <div class="section-box gradient-gray">
-        <h4 class="text-center mb-4 size">Individual Forest Rights (IFR)</h4>
+    <!-- ================= IFR SECTION ================= -->
+<div class="section-box gradient-gray">
 
-        <!-- Top 4 Cards -->
-        <div class="row" style="margin-top:-15px">
-            <div class="col-md-3 mb-4">
-                <div class="card-box gradient-red">
-                    <div class="card-title">Total Farmers</div>
-                    <div class="card-value" id="totalbeneficiaries" runat="server"></div>
-                </div>
+    <h4 class="text-center mb-4 size">
+        Individual Forest Rights (IFR)
+    </h4>
+
+    <!-- ================= TOP ROW ================= -->
+    <div class="row justify-content-center" style="margin-top:-15px">
+
+        <!-- Total Farmers -->
+        <div class="col-md-3 mb-4">
+            <div class="card-box gradient-red">
+                <div class="card-title">Total Farmers</div>
+                <div class="card-value"
+                     id="totalbeneficiaries"
+                     runat="server"></div>
             </div>
+        </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card-box gradient-red">
-                    <div class="card-title">Total Plots</div>
-                    <div class="card-value" id="Ttlplots" runat="server"></div>
-                </div>
+        <!-- Total Plots -->
+        <div class="col-md-3 mb-4">
+            <div class="card-box gradient-red">
+                <div class="card-title">Total Plots</div>
+                <div class="card-value"
+                     id="Ttlplots"
+                     runat="server"></div>
             </div>
+        </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card-box gradient-red">
-                    <div class="card-title">Total Extent (in Acres)</div>
-                    <div class="card-value" id="TtlExtent" runat="server"></div>
+        <!-- Total Extent -->
+        <div class="col-md-3 mb-4">
+            <div class="card-box gradient-red">
+                <div class="card-title">
+                    Total Extent (in Acres)
                 </div>
+                <div class="card-value"
+                     id="TtlExtent"
+                     runat="server"></div>
             </div>
+        </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card-box gradient-red">
-                    <div class="card-title">Farmers not Having Land</div>
-                    <div class="card-value" id="images_not_uploaded" runat="server"></div>
+        <!-- DLC -->
+        <div class="col-md-3 mb-4">
+            <div class="info-card gradient-red">
+
+                <div class="info-title mb-3">
+                    DLC
+                </div>
+
+                <div class="row text-center">
+
+                    <div class="col-6 border-right">
+                        <div class="info-label">Uploaded</div>
+                        <div class="info-value"
+                             id="Hvngdlc"
+                             runat="server"></div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="info-label">Yet to upload</div>
+                        <div class="info-value"
+                             id="Nthvngdlc"
+                             runat="server"></div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
-        <!-- Bottom 4 Info Cards -->
-        <div class="row" style="margin-top:-15px">
-
-    <div class="col-md-3 mb-3">
-        <div class="info-card gradient-red">
-            <div class="info-title mb-3">DLC</div>
-
-            <div class="row text-center">
-                <div class="col-6 border-right">
-                    <div class="info-label">Uploaded</div>
-                    <div class="info-value" id="Hvngdlc" runat="server"></div>
-                </div>
-                <div class="col-6">
-                    <div class="info-label">Yet to upload</div>
-                    <div class="info-value" id="Nthvngdlc" runat="server"></div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="col-md-3 mb-3">
-        <div class="info-card gradient-red">
-            <div class="info-title mb-3">Stone Plantation</div>
 
-            <div class="row text-center">
-                <div class="col-6 border-right">
-                    <div class="info-label">Uploaded</div>
-                    <div class="info-value" id="STPShvng" runat="server"></div>
+    <!-- ================= SECOND ROW ================= -->
+    <div class="row justify-content-center" style="margin-top:-15px">
+
+        <!-- Stone Plantation -->
+        <div class="col-md-3 mb-3">
+            <div class="info-card gradient-red">
+
+                <div class="info-title mb-3">
+                    Stone Plantation
                 </div>
-                <div class="col-6">
-                    <div class="info-label">Yet to upload</div>
-                    <div class="info-value" id="STPSnothvng" runat="server"></div>
+
+                <div class="row text-center">
+
+                    <div class="col-6 border-right">
+                        <div class="info-label">Uploaded</div>
+                        <div class="info-value"
+                             id="STPShvng"
+                             runat="server"></div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="info-label">Yet to upload</div>
+                        <div class="info-value"
+                             id="STPSnothvng"
+                             runat="server"></div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-3 mb-3">
-        <div class="info-card gradient-red">
-            <div class="info-title mb-3">Latitude Longitude</div>
 
-            <div class="row text-center">
-                <div class="col-6 border-right">
-                    <div class="info-label">Uploaded</div>
-                    <div class="info-value" id="latlnghvng" runat="server"></div>
+        <!-- Latitude Longitude -->
+        <div class="col-md-3 mb-3">
+            <div class="info-card gradient-red">
+
+                <div class="info-title mb-3">
+                    Latitude Longitude
                 </div>
-                <div class="col-6">
-                    <div class="info-label">Yet to upload</div>
-                    <div class="info-value" id="latlngnothvng" runat="server"></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="col-md-3 mb-3">
-        <div class="info-card gradient-red">
-            <div class="info-title mb-3">Farmer Images</div>
+                <div class="row text-center">
 
-            <div class="row text-center">
-                <div class="col-6 border-right">
-                    <div class="info-label">Uploaded</div>
-                    <div class="info-value" id="Frmrimgstat" runat="server"></div>
-                </div>
-                <div class="col-6">
-                    <div class="info-label">Yet to upload</div>
-                    <div class="info-value" id="Frmrimgnotstat" runat="server"></div>
+                    <div class="col-6 border-right">
+                        <div class="info-label">Uploaded</div>
+                        <div class="info-value"
+                             id="latlnghvng"
+                             runat="server"></div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="info-label">Yet to upload</div>
+                        <div class="info-value"
+                             id="latlngnothvng"
+                             runat="server"></div>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+
+        <!-- Farmer Images -->
+        <div class="col-md-3 mb-3">
+            <div class="info-card gradient-red">
+
+                <div class="info-title mb-3">
+                    Farmer Images
+                </div>
+
+                <div class="row text-center">
+
+                    <div class="col-6 border-right">
+                        <div class="info-label">Uploaded</div>
+                        <div class="info-value"
+                             id="Frmrimgstat"
+                             runat="server"></div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="info-label">Yet to upload</div>
+                        <div class="info-value"
+                             id="Frmrimgnotstat"
+                             runat="server"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
-
-    </div>
 
     <!-- ================= CFR + HOUSING ================= -->
     <div class="row lineheight">

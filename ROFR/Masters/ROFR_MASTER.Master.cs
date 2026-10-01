@@ -123,9 +123,9 @@ namespace ROFR.Masters
 
                     if (user != "admin" && !check.IsMatch(user) && user != "PSTW" && user != "TEST" && user == "")
                   {
-                            menu2.Style.Add("display", "none");
-                            menu1.Style.Add("display", "none");
-                            menu_update.Style.Add("display", "none");
+                            //menu2.Style.Add("display", "none");
+                            //menu1.Style.Add("display", "none");
+                            //menu_update.Style.Add("display", "none");
                         //16-09-2025
                         LTR_MENU.Style.Add("display", "block");
 
@@ -133,8 +133,8 @@ namespace ROFR.Masters
                     }
             if (user == "admin" || user == "VSKP COLLECTOR" || user == "SKLM COLLECTOR" || user == "VZM COLLECTOR" || user == "WG COLLECTOR" || user == "EG COLLECTOR")
                     {
-                        masters.Style.Add("display", "none");
-                        menu_update.Style.Add("display", "none");
+                        //masters.Style.Add("display", "none");
+                        //menu_update.Style.Add("display", "none");
                         dlt_fmr.Style.Add("display", "none");
                         //16-09-2025
                         LTR_MENU.Style.Add("display", "block");
@@ -154,11 +154,11 @@ namespace ROFR.Masters
                             if (usertype == "STAFF"|| usertype == "STAFF1"|| usertype == "STAFF2"||usertype == "STAFF3" || usertype == "STAFF4" || usertype == "STAFF5" || usertype == "STAFF6" || usertype == "STAFF7" || usertype == "STAFF8" || usertype == "STAFF9" || usertype == "STAFF10" || usertype == "STAFF11" || usertype == "STAFF12" || usertype == "STAFF13" || usertype == "STAFF14" || usertype == "STAFF15" || usertype == "STAFF16" || usertype == "STAFF17" || usertype == "STAFF18" || usertype == "STAFF19" || usertype == "STAFF20" || usertype == "STAFF21" || usertype == "STAFF22" || usertype == "STAFF23" || usertype == "STAFF24" || usertype == "STAFF25")
                             {
                                 divrbdfr.Style.Add("display", "none");
-                                masters.Style.Add("display", "none");
+                                //masters.Style.Add("display", "none");
                                 Div1.Style.Add("display", "none");
                                 //menu5_4.Style.Add("display", "none");
-                                menu1.Style.Add("display", "none");
-                                menu_update.Style.Add("display", "none");
+                                //menu1.Style.Add("display", "none");
+                                //menu_update.Style.Add("display", "none");
                                 rb_oct.Style.Add("display", "none");
                                 rb_fw.Style.Add("display", "none");
                                 //menu_1_1.Style.Add("display", "none");
@@ -170,9 +170,9 @@ namespace ROFR.Masters
                             }
                             else if (usertype == "PO" || usertype == "ROFR1" || usertype == "PO1"||usertype == "PO2" || usertype == "PO3" || usertype == "PO4" || usertype == "PO5" || usertype == "PO6" || usertype == "PO7" || usertype == "PO8" || usertype == "PO9" || usertype == "PO10" || usertype == "PO11" || usertype == "PO12" || usertype == "PO13" || usertype == "PO14" || usertype == "PO15")
                             {
-                                masters.Style.Add("display", "none");
-                                menu1.Style.Add("display", "none");
-                                menu_update.Style.Add("display", "none");
+                                //masters.Style.Add("display", "none");
+                               // menu1.Style.Add("display", "none");
+                               // menu_update.Style.Add("display", "none");
                                 //16-09-2025
                                 LTR_MENU.Style.Add("display", "block");
                                 //menu5_0.Style.Add("display", "none");
@@ -183,13 +183,13 @@ namespace ROFR.Masters
                             }
                             else if (usertype == "DTW")
                             {
-                                masters.Style.Add("display", "none");
-                                menu1.Style.Add("display", "none");
-                                menu_update.Style.Add("display", "none");
+                                //masters.Style.Add("display", "none");
+                                //menu1.Style.Add("display", "none");
+                                //menu_update.Style.Add("display", "none");
                                 //16-09-2025
                                 LTR_MENU.Style.Add("display", "block");
                                 //24-12-2025
-                                Div4.Style.Add("display", "none");
+                                //Div4.Style.Add("display", "none");
                                 //menu5_2.Style.Add("display", "none");
                                 //    menu5_1.Style.Add("display", "none");
                                 //    menu5_3.Style.Add("display", "none");
@@ -198,7 +198,7 @@ namespace ROFR.Masters
                             }
                             else if (usertype == "ROFR")
                             {
-                                menu_update.Style.Add("display", "none");
+                               // menu_update.Style.Add("display", "none");
                                 menu_add.Style.Add("display", "none");
                                 //menu_approval.Style.Add("display", "none");
                                 menu_valid.Style.Add("display", "none");
@@ -222,8 +222,8 @@ namespace ROFR.Masters
 
                     if (((string)Session["masterusername"]) == "master_admin"||((string)Session["prinsec"]) == "prisec_tw"|| ((string)Session["prinsec"]) == "TW_DIRECTOR" || ((string)Session["prinsec"]) == "TW_PRLSECRETARY")
                     {
-                        masters.Style.Add("display", "block");
-                        menu_update.Style.Add("display", "block");
+                        //masters.Style.Add("display", "block");
+                        //menu_update.Style.Add("display", "block");
                         //menu_add.Style.Add("display", "block");
                         //dlt_fmr.Style.Add("display", "block");
                         //16-09-2025
@@ -233,9 +233,9 @@ namespace ROFR.Masters
 
                    if (((string)Session["masterusername"])=="ROFR1")
                     {
-                        masters.Style.Add("display", "none");
-                        menu1.Style.Add("display", "none");
-                        menu_update.Style.Add("display", "none");
+                        //masters.Style.Add("display", "none");
+                        //menu1.Style.Add("display", "none");
+                        //menu_update.Style.Add("display", "none");
                         menu_add.Style.Add("display", "none");
                         menu_valid.Style.Add("display", "none");
 
@@ -250,8 +250,8 @@ namespace ROFR.Masters
                     }
                     if(((string)Session["masterusername"]) == "ROFR_TEST")
                     {
-                        masters.Style.Add("display", "block");
-                        menu_update.Style.Add("display", "block");
+                        //masters.Style.Add("display", "block");
+                        //menu_update.Style.Add("display", "block");
                         dlt_fmr.Style.Add("display", "block");
                         //16-09-2025
                         LTR_MENU.Style.Add("display", "block");

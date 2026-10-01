@@ -2006,43 +2006,137 @@ namespace ROFR.helper
         }
 
         //15-09-2026 Add New Get_AllDropDowns Method//
+        //public dynamic Get_AllDropDowns(addbeneficiary_details obj)
+        //{
+        //    dynamic obj_data = new ExpandoObject();
+        //    try
+        //    {
+
+        //        DataTable dt = userObj.Get_AllDropDowns_sp(obj);
+
+        //        if (dt != null && dt.Rows.Count > 0)
+        //        {
+
+        //            obj_data.Status = "1";
+        //            obj_data.Message = "Success";
+        //            obj_data.Data = dt;
+        //            obj_data.Reason = "Data Loaded Successfully";
+
+
+        //        }
+        //        else
+        //        {
+        //            obj_data.Status = "0";
+        //            obj_data.Message = "Failure";
+        //            obj_data.Reason = "No Data Availbale";
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        obj_data.Status = "Failure";
+        //        obj_data.Reason = ex.Message.ToString();
+        //    }
+        //    finally
+        //    {
+
+        //    }
+        //    return obj_data;
+        //}
+
+        //public dynamic Get_AllDropDowns(addbeneficiary_details obj)
+        //{
+        //    dynamic obj_data = new ExpandoObject();
+        //    Stopwatch totalWatch = Stopwatch.StartNew();
+        //    try
+        //    {
+        //        Debug.WriteLine("========== API START ==========");
+        //        Stopwatch dbWatch = Stopwatch.StartNew();
+        //        Debug.WriteLine("Calling SP...");
+        //        DataTable dt = userObj.Get_AllDropDowns_sp(obj);
+        //        dbWatch.Stop();
+        //        Debug.WriteLine("SP COMPLETED: " +dbWatch.ElapsedMilliseconds + " ms");
+        //        Debug.WriteLine("ROWS: " +(dt == null ? 0 : dt.Rows.Count));
+        //        if (dt != null && dt.Rows.Count > 0)
+        //        {
+        //            obj_data.Status = "1";
+        //            obj_data.Message = "Success";
+        //            obj_data.Data = dt;
+        //            obj_data.Reason = "Data Loaded Successfully";
+        //            obj_data.TotalRecords = dt.Rows.Count;
+        //        }
+        //        else
+        //        {
+        //            obj_data.Status = "0";
+        //            obj_data.Message = "Failure";
+        //            obj_data.Data = new List<object>();
+        //            obj_data.Reason = "No Data Available";
+        //            obj_data.TotalRecords = 0;
+        //        }
+
+        //        Debug.WriteLine("BAL RESPONSE OBJECT CREATED");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine("BAL ERROR: " + ex.ToString());
+        //        obj_data.Status = "Failure";
+        //        obj_data.Message = "Error";
+        //        obj_data.Data = new List<object>();
+        //        obj_data.Reason = ex.Message;
+        //    }
+        //    finally
+        //    {
+        //        totalWatch.Stop();
+        //        Debug.WriteLine("TOTAL BAL TIME: " +totalWatch.ElapsedMilliseconds + " ms");
+        //        Debug.WriteLine("========== API END ==========");
+        //    }
+
+        //    return obj_data;
+        //}
+
         public dynamic Get_AllDropDowns(addbeneficiary_details obj)
         {
             dynamic obj_data = new ExpandoObject();
+
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+
             try
             {
-
                 DataTable dt = userObj.Get_AllDropDowns_sp(obj);
+
+                System.Diagnostics.Debug.WriteLine(
+                    "Service DB Call Completed : " +
+                    sw.Elapsed.TotalSeconds + " sec");
 
                 if (dt != null && dt.Rows.Count > 0)
                 {
-
                     obj_data.Status = "1";
                     obj_data.Message = "Success";
                     obj_data.Data = dt;
                     obj_data.Reason = "Data Loaded Successfully";
-
-
                 }
                 else
                 {
                     obj_data.Status = "0";
                     obj_data.Message = "Failure";
-                    obj_data.Reason = "No Data Availbale";
+                    obj_data.Reason = "No Data Available";
                 }
-
             }
             catch (Exception ex)
             {
                 obj_data.Status = "Failure";
-                obj_data.Reason = ex.Message.ToString();
+                obj_data.Reason = ex.Message;
             }
-            finally
-            {
 
-            }
+            sw.Stop();
+
+            System.Diagnostics.Debug.WriteLine(
+                "Service Total Time : " +
+                sw.Elapsed.TotalSeconds + " sec");
+
             return obj_data;
         }
+
         public dynamic GetFarmerDetails(CropDetails cropDetails)
         {
             dynamic obj_data = new ExpandoObject();
@@ -2191,6 +2285,42 @@ namespace ROFR.helper
             {
 
             }
+            return obj_data;
+        }
+
+        //======================insert method API==========================//
+        public dynamic InsertCropDetails(CropDetails obj)
+        {
+            dynamic obj_data = new ExpandoObject();
+
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+
+            try
+            {
+                DataTable dt = userObj.InsertCropDetails_sp(obj);
+
+                System.Diagnostics.Debug.WriteLine(
+                    "Service DB Call Completed : " +
+                    sw.Elapsed.TotalSeconds + " sec");
+
+                // If no exception occurred, INSERT was executed successfully
+                obj_data.Status = "1";
+                obj_data.Message = "Success";
+                obj_data.Reason = "Crop Details Inserted Successfully";
+            }
+            catch (Exception ex)
+            {
+                obj_data.Status = "0";
+                obj_data.Message = "Failure";
+                obj_data.Reason = ex.Message;
+            }
+
+            sw.Stop();
+
+            System.Diagnostics.Debug.WriteLine(
+                "Service Total Time : " +
+                sw.Elapsed.TotalSeconds + " sec");
+
             return obj_data;
         }
         public dynamic Get_Districts(addbeneficiary_details obj)
@@ -4006,8 +4136,7 @@ namespace ROFR.helper
         public List<RofrDataModel> ConvertDataTableToList(DataTable dt)
         {
             List<RofrDataModel> list = new List<RofrDataModel>();
-            if (dt.Rows.Count > 0)
-            {
+            if (dt.Rows.Count > 0) {
                 foreach (DataRow row in dt.Rows)
                 {
                     RofrDataModel item = new RofrDataModel();
@@ -4038,10 +4167,10 @@ namespace ROFR.helper
                     item.extent = row["ExtentPlotArea"].ToStr();
                     list.Add(item);
 
-
+                                                         
                 }
                 // Map other columns accordingly
-
+                
             }
 
             return list;
@@ -4248,7 +4377,7 @@ namespace ROFR.helper
                     area_unit = firstRow["area_unit"]?.ToString(),
                     Message = "Ok",
                     RequestedAt = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),
-
+                    
 
                     owner_details = group.Select(row => new OwnerDetails
                     {
@@ -4317,7 +4446,7 @@ namespace ROFR.helper
         public string platid { get; set; }
         public string extent { get; set; }
 
-    }
+    }  
     public class RofrDataModelRes
     {
         public string ITDA_NAME { get; set; }

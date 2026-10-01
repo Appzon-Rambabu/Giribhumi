@@ -70,21 +70,21 @@ namespace ROFR.helper
             {
                 if (obj.Itdastart == "DTW")
                 {
-
+                    
                     lstparams.Add(new System.Data.SqlClient.SqlParameter("@itda_name", obj.ITDANAME));
                     lstparams.Add(new System.Data.SqlClient.SqlParameter("@p_type", 3));
 
                 }
                 else if (obj.Itdastart != "DTW" && obj.ITDANAME != "DIRECTOR" && obj.Itdastart != "")
                 {
-
-                    lstparams.Add(new System.Data.SqlClient.SqlParameter("@itda_name", obj.ITDANAME));
-
+                   
+                    lstparams.Add(new System.Data.SqlClient.SqlParameter("@itda_name",obj.ITDANAME));
+                    
                     lstparams.Add(new System.Data.SqlClient.SqlParameter("@p_type", 4));
                 }
                 else if (obj.Itdastart == "" || obj.ITDANAME == "DIRECTOR")
                 {
-
+                    
                     lstparams.Add(new System.Data.SqlClient.SqlParameter("@p_type", 2));
 
                 }
@@ -116,7 +116,7 @@ namespace ROFR.helper
                 lstparams.Add(new System.Data.SqlClient.SqlParameter("@itda_name", obj.Itda));
                 lstparams.Add(new System.Data.SqlClient.SqlParameter("@district", obj.District));
                 lstparams.Add(new System.Data.SqlClient.SqlParameter("@mandal", obj.Mandal));
-                lstparams.Add(new System.Data.SqlClient.SqlParameter("@village", obj.Village));
+                lstparams.Add(new System.Data.SqlClient.SqlParameter("@village",obj.Village));
                 lstparams.Add(new System.Data.SqlClient.SqlParameter("@p_type", 8));
             }
             SQLManager sqlmngr = new SQLManager();
@@ -370,18 +370,18 @@ namespace ROFR.helper
         public DataTable GetAdangal_sp(addbeneficiary_details obj)
         {
             List<SqlParameter> lstparams = new List<SqlParameter>();
+          
 
+                lstparams.Add(new SqlParameter("@Itda_name", obj.Itda));
+                lstparams.Add(new SqlParameter("@District", obj.District));
+                lstparams.Add(new SqlParameter("@Mandal", obj.Mandal));
+                lstparams.Add(new SqlParameter("@village", obj.Village));
+                lstparams.Add(new SqlParameter("@Rofr_Pattadaar", obj.ROFR_PATTADAAR));
+                lstparams.Add(new SqlParameter("@Compartment_No", obj.Compartment_No));
+                lstparams.Add(new SqlParameter("@Aadhaar_No", obj.Aadhaar_NO));
+                lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
 
-            lstparams.Add(new SqlParameter("@Itda_name", obj.Itda));
-            lstparams.Add(new SqlParameter("@District", obj.District));
-            lstparams.Add(new SqlParameter("@Mandal", obj.Mandal));
-            lstparams.Add(new SqlParameter("@village", obj.Village));
-            lstparams.Add(new SqlParameter("@Rofr_Pattadaar", obj.ROFR_PATTADAAR));
-            lstparams.Add(new SqlParameter("@Compartment_No", obj.Compartment_No));
-            lstparams.Add(new SqlParameter("@Aadhaar_No", obj.Aadhaar_NO));
-            lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
-
-
+         
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("Proc_BenDetails_1B", lstparams);
             return result;
@@ -409,18 +409,18 @@ namespace ROFR.helper
         public DataTable Epassbook_sp(addbeneficiary_details obj)
         {
             List<SqlParameter> lstparams = new List<SqlParameter>();
+           
 
+                lstparams.Add(new SqlParameter("@Itda_Name",obj.Itda));
+                lstparams.Add(new SqlParameter("@District", obj.District));
+                lstparams.Add(new SqlParameter("@Mandal", obj.Mandal));
+                lstparams.Add(new SqlParameter("@Village", obj.Village));
+                lstparams.Add(new SqlParameter("@ROFR_PATTADAAR", obj.ROFR_PATTADAAR));
+                lstparams.Add(new SqlParameter("@Aadhaar_NO", obj.Aadhaar_NO));
+                lstparams.Add(new SqlParameter("@benficiary_id", obj.Benificiary_id));
+                lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
 
-            lstparams.Add(new SqlParameter("@Itda_Name", obj.Itda));
-            lstparams.Add(new SqlParameter("@District", obj.District));
-            lstparams.Add(new SqlParameter("@Mandal", obj.Mandal));
-            lstparams.Add(new SqlParameter("@Village", obj.Village));
-            lstparams.Add(new SqlParameter("@ROFR_PATTADAAR", obj.ROFR_PATTADAAR));
-            lstparams.Add(new SqlParameter("@Aadhaar_NO", obj.Aadhaar_NO));
-            lstparams.Add(new SqlParameter("@benficiary_id", obj.Benificiary_id));
-            lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
-
-
+        
 
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("[Proc_EPass_Book]", lstparams);
@@ -520,7 +520,7 @@ namespace ROFR.helper
         }
 
 
-
+       
 
 
         public DataTable Rofr_Plot_Details_sp(addbeneficiary_details obj)
@@ -528,9 +528,9 @@ namespace ROFR.helper
             List<SqlParameter> lstparams = new List<SqlParameter>();
 
             lstparams.Add(new SqlParameter("@ITDA", obj.Itda));
-
+           
             lstparams.Add(new SqlParameter("@District", obj.District));
-
+          
             lstparams.Add(new SqlParameter("@mandal", obj.Mandal));
             lstparams.Add(new SqlParameter("@village", obj.Village));
 
@@ -574,7 +574,7 @@ namespace ROFR.helper
         {
             List<SqlParameter> lstparams = new List<SqlParameter>();
 
-
+       
 
             lstparams.Add(new SqlParameter("@P_TYPE", 1));
 
@@ -657,7 +657,7 @@ namespace ROFR.helper
             //lstparams.Add(new SqlParameter("@District", obj.District));
 
             //lstparams.Add(new SqlParameter("@mandal", obj.Mandal));
-            lstparams.Add(new SqlParameter("@benficiary_id2", obj.Benificiary_id));
+           lstparams.Add(new SqlParameter("@benficiary_id2", obj.Benificiary_id));
 
             lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
 
@@ -677,7 +677,7 @@ namespace ROFR.helper
             lstparams.Add(new SqlParameter("@DLCPATH", obj.DLCPATH));
             lstparams.Add(new SqlParameter("@Dlc_date", obj.Dlc_date));
             lstparams.Add(new SqlParameter("@ID", obj.ID));
-
+          
             lstparams.Add(new SqlParameter("@PTYPE", obj.TYPE));
 
 
@@ -737,7 +737,7 @@ namespace ROFR.helper
 
             lstparams.Add(new System.Data.SqlClient.SqlParameter("@DISTRICT_CODE", obj.District_Code));
             lstparams.Add(new System.Data.SqlClient.SqlParameter("@MASTER_AADHAAR_NO", obj.Aadhaar_NO));
-            lstparams.Add(new System.Data.SqlClient.SqlParameter("@PTYPE", "1"));
+          lstparams.Add(new System.Data.SqlClient.SqlParameter("@PTYPE", "1"));
 
 
             SQLManager sqlmngr = new SQLManager();
@@ -789,12 +789,12 @@ namespace ROFR.helper
 
 
             lstparams.Add(new SqlParameter("@ITDA_NAME", obj.Itda));
-
+          
             lstparams.Add(new SqlParameter("@DISTRICT", obj.District));
-
+         
             lstparams.Add(new SqlParameter("@MANDAL", obj.Mandal));
             lstparams.Add(new SqlParameter("@VILLAGE", obj.Village));
-
+           
             lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
 
 
@@ -809,12 +809,12 @@ namespace ROFR.helper
 
 
             lstparams.Add(new SqlParameter("@itda_name", obj.Itda));
-
+           
             lstparams.Add(new SqlParameter("@district", obj.District));
-
+         
             lstparams.Add(new SqlParameter("@mandal", obj.Mandal));
             lstparams.Add(new SqlParameter("@village", obj.Village));
-
+           
             lstparams.Add(new SqlParameter("@p_type", obj.Type));
 
 
@@ -909,7 +909,7 @@ namespace ROFR.helper
             lstparams.Add(new SqlParameter("@ITDA_NAME", obj.Itda));
 
             lstparams.Add(new SqlParameter("@DISTRICT", obj.District));
-
+          
 
             lstparams.Add(new SqlParameter("@PTYPE", obj.Type));
 
@@ -934,20 +934,19 @@ namespace ROFR.helper
             return result;
         }
 
-        public DataTable Getfarmerimge_details(addbeneficiary_details obj)
-        {
+        public DataTable Getfarmerimge_details(addbeneficiary_details obj) {
 
             List<SqlParameter> lstparams = new List<SqlParameter>();
+           
+                lstparams.Add(new SqlParameter("@ITDA", obj.Itda));
+                lstparams.Add(new SqlParameter("@District", obj.District));
+                lstparams.Add(new SqlParameter("@Mandal", obj.Mandal));
+                lstparams.Add(new SqlParameter("@Village", obj.Village));
 
-            lstparams.Add(new SqlParameter("@ITDA", obj.Itda));
-            lstparams.Add(new SqlParameter("@District", obj.District));
-            lstparams.Add(new SqlParameter("@Mandal", obj.Mandal));
-            lstparams.Add(new SqlParameter("@Village", obj.Village));
+                lstparams.Add(new SqlParameter("@PTYPE","8"));
 
-            lstparams.Add(new SqlParameter("@PTYPE", "8"));
-
-
-
+            
+            
 
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("sp_add_details", lstparams);
@@ -956,11 +955,11 @@ namespace ROFR.helper
         }
         public DataTable update_farmerimage_sp(dynamic obj)
         {
-            List<SqlParameter> lstparams = new List<SqlParameter>();
-            lstparams.Add(new SqlParameter("@Image1", obj.Land_Filename));
-            lstparams.Add(new SqlParameter("@Imagepath", obj.Land_Image));
-            lstparams.Add(new SqlParameter("@Img_updatedby", obj.username));
-            lstparams.Add(new SqlParameter("@Beneficiary_id", obj.benid));  // obj.benid  
+                List<SqlParameter> lstparams = new List<SqlParameter>();
+                lstparams.Add(new SqlParameter("@Image1", obj.Land_Filename));
+                lstparams.Add(new SqlParameter("@Imagepath", obj.Land_Image));
+                lstparams.Add(new SqlParameter("@Img_updatedby", obj.username));
+                lstparams.Add(new SqlParameter("@Beneficiary_id", obj.benid));  // obj.benid  
             lstparams.Add(new SqlParameter("@PTYPE", 22));
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("sp_add_details", lstparams);
@@ -1079,7 +1078,7 @@ namespace ROFR.helper
         {
             List<SqlParameter> lstparams = new List<SqlParameter>();
 
-            lstparams.Add(new SqlParameter("@PTYPE", "1"));
+            lstparams.Add(new SqlParameter("@PTYPE","1"));
 
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("Proc_CitizenService_HHData", lstparams);
@@ -1091,11 +1090,11 @@ namespace ROFR.helper
             List<SqlParameter> lstparams = new List<SqlParameter>();
 
             lstparams.Add(new SqlParameter("@PTYPE", "1"));
-            lstparams.Add(new SqlParameter("@DistrictCode", obj.DistrictCode));
-            lstparams.Add(new SqlParameter("@DistrictName", obj.DistrictName));
-            lstparams.Add(new SqlParameter("@CitizenAadharNo", obj.CitizenNumber));
-            lstparams.Add(new SqlParameter("@CitizenName", obj.CitizenName));
-
+            lstparams.Add(new SqlParameter("@DistrictCode",obj.DistrictCode));
+            lstparams.Add(new SqlParameter("@DistrictName",obj.DistrictName));
+            lstparams.Add(new SqlParameter("@CitizenAadharNo",obj.CitizenNumber));
+            lstparams.Add(new SqlParameter("@CitizenName",obj.CitizenName));
+            
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("Proc_CitizenService_HHData", lstparams);
             return result;
@@ -1155,19 +1154,19 @@ namespace ROFR.helper
         public DataTable ROFR_GetUpdate_sp(ROFRData obj)
         {
             List<SqlParameter> lstparams = new List<SqlParameter>();
-
+           
             lstparams.Add(new System.Data.SqlClient.SqlParameter("@PTYPE", "1"));
             SQLManager sqlmngr = new SQLManager();
             DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("PROC_UNIQUE_FARMID", lstparams);
             return result;
         }
 
-        public DataTable ROFR_Updated_sp(string uniquId, string id, string Benificiaryid, string Aadhaarno)
+        public DataTable ROFR_Updated_sp(string uniquId,string id,string Benificiaryid,string Aadhaarno)
         {
-
+            
             List<SqlParameter> lstparams = new List<SqlParameter>();
-            lstparams.Add(new System.Data.SqlClient.SqlParameter("@PTYPE", "2"));
-            lstparams.Add(new System.Data.SqlClient.SqlParameter("@ID", id));
+            lstparams.Add(new System.Data.SqlClient.SqlParameter("@PTYPE","2"));
+            lstparams.Add(new System.Data.SqlClient.SqlParameter("@ID",id));
             lstparams.Add(new System.Data.SqlClient.SqlParameter("@benficiary_id", Benificiaryid));
             lstparams.Add(new System.Data.SqlClient.SqlParameter("@Aadhaar_NO", Aadhaarno));
             lstparams.Add(new System.Data.SqlClient.SqlParameter("@UNIQUE_FARMID", uniquId));
@@ -1240,9 +1239,10 @@ namespace ROFR.helper
             List<SqlParameter> lstparams = new List<SqlParameter>();
             lstparams.Add(new SqlParameter("@PTYPE", 1));
             SQLManager sqlmngr = new SQLManager();
-            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             return result;
         }
+        
         public DataTable GetFarmerDetails_SP(CropDetails CropDetails)
         {
             DataTable result = new DataTable();
@@ -1258,14 +1258,14 @@ namespace ROFR.helper
                 lstparams.Add(new SqlParameter("@Village", CropDetails.village));
                 lstparams.Add(new SqlParameter("@Habitation", CropDetails.Habitation));
                 SQLManager sqlmngr = new SQLManager();
-                result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+                 result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-
+            
             return result;
         }
 
@@ -1278,7 +1278,7 @@ namespace ROFR.helper
                 lstparams.Add(new SqlParameter("@PTYPE", 3));
                 lstparams.Add(new SqlParameter("@benficiary_id2", CropDetails.Benificiaryid));
                 SQLManager sqlmngr = new SQLManager();
-                result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+                result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             }
             catch (Exception ex)
             {
@@ -1294,7 +1294,7 @@ namespace ROFR.helper
             List<SqlParameter> lstparams = new List<SqlParameter>();
             lstparams.Add(new SqlParameter("@PTYPE", 4));
             SQLManager sqlmngr = new SQLManager();
-            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             return result;
         }
         public DataTable GetCropdetalis_SP(CropDetails CropDetails)
@@ -1303,7 +1303,36 @@ namespace ROFR.helper
             lstparams.Add(new SqlParameter("@PTYPE", 5));
             lstparams.Add(new SqlParameter("@Crop_Category_Code", CropDetails.Crop_Category_Code));
             SQLManager sqlmngr = new SQLManager();
-            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
+            return result;
+        }
+        //====================Insert Method API Service============================//
+
+        public DataTable InsertCropDetails_sp(CropDetails obj)
+        {
+            List<SqlParameter> lstparams = new List<SqlParameter>();
+
+            lstparams.Add(new SqlParameter("@PTYPE", obj.PTYPE));
+            lstparams.Add(new SqlParameter("@INPUT01", (object)obj.ITDA_Code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT02", (object)obj.District_Code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT03", (object)obj.Mandal_Code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT04", (object)obj.Panchayat_Code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT05", (object)obj.Rev_Village_code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT06", (object)obj.village ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT07", (object)obj.Habitation ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT08", (object)obj.Benificiaryid ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT09", (object)obj.Plot_id ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT10", (object)obj.Farmer_name ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT11", (object)obj.Father_name ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT12", (object)obj.Extent ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT13", (object)obj.Crop_Category_Code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT14", (object)obj.Crop_Code ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT15", (object)obj.Crop_season ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT16", (object)obj.Financial_year ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@INPUT17", (object)obj.Crop_quantity ?? DBNull.Value));
+            lstparams.Add(new SqlParameter("@USER_NAME", (object)obj.USER_NAME ?? DBNull.Value));
+            SQLManager sqlmngr = new SQLManager();
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_CROP_DETAILS_INSERT",lstparams);
             return result;
         }
     }
