@@ -41,7 +41,7 @@ namespace ROFR.pages
                     Frmrimgstat.InnerText = dtMerged.Rows[0]["Images_Uploaded"].ToString();
                     Frmrimgnotstat.InnerText = dtMerged.Rows[0]["Images_Not_Uploaded"].ToString();
 
-                    images_not_uploaded.InnerText = dtMerged.Rows[0]["Noland_Farmers"].ToString();
+                    //images_not_uploaded.InnerText = dtMerged.Rows[0]["Noland_Farmers"].ToString();
 
                     cfrtotalClaims.InnerText = dtMerged.Rows[0]["TOTAL_CFR_Claims"].ToString();
                     cfrMembers.InnerText = dtMerged.Rows[0]["Mem_Sub_Claims"].ToString();

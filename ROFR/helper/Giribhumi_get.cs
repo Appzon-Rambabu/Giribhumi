@@ -1239,7 +1239,7 @@ namespace ROFR.helper
             List<SqlParameter> lstparams = new List<SqlParameter>();
             lstparams.Add(new SqlParameter("@PTYPE", 1));
             SQLManager sqlmngr = new SQLManager();
-            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             return result;
         }
         
@@ -1258,7 +1258,7 @@ namespace ROFR.helper
                 lstparams.Add(new SqlParameter("@Village", CropDetails.village));
                 lstparams.Add(new SqlParameter("@Habitation", CropDetails.Habitation));
                 SQLManager sqlmngr = new SQLManager();
-                 result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+                 result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             }
             catch (Exception ex)
             {
@@ -1278,7 +1278,7 @@ namespace ROFR.helper
                 lstparams.Add(new SqlParameter("@PTYPE", 3));
                 lstparams.Add(new SqlParameter("@benficiary_id2", CropDetails.Benificiaryid));
                 SQLManager sqlmngr = new SQLManager();
-                result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+                result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             }
             catch (Exception ex)
             {
@@ -1294,7 +1294,7 @@ namespace ROFR.helper
             List<SqlParameter> lstparams = new List<SqlParameter>();
             lstparams.Add(new SqlParameter("@PTYPE", 4));
             SQLManager sqlmngr = new SQLManager();
-            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             return result;
         }
         public DataTable GetCropdetalis_SP(CropDetails CropDetails)
@@ -1303,7 +1303,7 @@ namespace ROFR.helper
             lstparams.Add(new SqlParameter("@PTYPE", 5));
             lstparams.Add(new SqlParameter("@Crop_Category_Code", CropDetails.Crop_Category_Code));
             SQLManager sqlmngr = new SQLManager();
-            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details", lstparams);
+            DataTable result = sqlmngr.ExecuteProcedureReturnDataTable("SP_IFR_Crop_Details_Dropdowns", lstparams);
             return result;
         }
         //====================Insert Method API Service============================//

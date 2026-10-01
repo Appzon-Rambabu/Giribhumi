@@ -86,6 +86,49 @@
   background: #d33a47;
   color: #ffffff;
 }
+.custom-year-list {
+    display: none;
+    position: absolute !important;
+    top: 30px;
+    left: 0;
+
+    width: 80px !important;
+    height: 250px !important;
+
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+
+    background: #ffffff !important;
+    border: 1px solid #999 !important;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+
+    z-index: 9999999 !important;
+}
+
+.custom-year-item {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 8px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    color: #222;
+    background: #fff;
+}
+
+.custom-year-item:hover {
+    background: #e8f1ff;
+}
+
+.custom-year-item.selected {
+    background: #1976d2;
+    color: #fff;
+    font-weight: bold;
+}
+
     </style>
     <script>
         function show(input) {
@@ -179,51 +222,59 @@
                     <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
 
                         <span id="ben_id_multiple" style="display:none" ></span>
+                        
                                 <div class="row justify-content-center">
                                     <div class="col-md-6">
                                         <h5 class="text-center text-white rounded py-1 bg-nav">Upload DLC</h5>
-                <div>
-                    <div class="col-lg-12" >
-                                <div class="row" id="maindiv">
+                                        <div>
 
+                                     <div class="col-lg-12" >
+                                         <h6 style="color:red">Note:Please enter Beneficiary IDs or Plot IDs, separated by commas.</h6>
+                                     <div class="row" id="maindiv">
                                      <div class="col-md-4">
-
                                         <label class="Radio Radio--large" for="rbgst">
                                             Select:
                                         </label>
                                     </div>
                                     <div class="col-md-4">
-
                                         <label class="Radio Radio--large" for="rbgst">
                                             <input type="radio" checked="checked" class="Radio-Input" id="rbbid" name="in" value="1"/>Benificiary Id wise
                                         </label>
                                     </div>
                                     <div class="col-md-4">
-
                                         <label class="Radio Radio--large" for="rbgst">
-                                     <input type="radio" class="Radio-Input" id="rbid" name="in" value="2"/>Plot Id wise
+                                      <input type="radio" class="Radio-Input" id="rbid" name="in" value="2"/>Plot Id wise
                                         </label>
                                     </div>
                                   
                                    
                                 </div>
-                                <div class="row">
+                                <div class="row align-items-center">
+    <div class="col-md-3">
+        <label id="lblsou" class="mb-0">Enter Id's:</label>
+    </div>
 
-                                       <div class="col-md-10">
-                                    <div class="form-group ">
-                                        <div class="row">
-                                            <label class="col-md-5" id="lblsou">Enter Id's: </label>
-                                            <div class="col-md-7">
-                                                <input type="text" id="Ben_multi" class="form-control" autocomplete="off" placeholder="Benificiary Id's" style="width:400px"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row"> <div class="col-md-10 text-center">
-                                        <a href="javascript:void(0);" title="click here get" id="Ben_data" class="btn  btn-success">Submit</a>
-                                     <a href="javascript:void(0);" title="click here get" id="upload_dlc" class="btn  btn-success">Upload DLC</a>
-                                    
+    <div class="col-md-6">
+        <input type="text" 
+               id="Ben_multi" 
+               class="form-control" 
+               autocomplete="off" 
+               placeholder="Beneficiary Id's"/>
+    </div>
+
+    <div class="col-md-3">
+        <a href="javascript:void(0);" 
+           title="click here get" 
+           id="Ben_data" 
+           class="btn btn-success w-100">
+           Submit
+        </a>
+    </div>
+</div>
+
+                                <div class="row" style="margin-top:10px"> <div class="text-left">
+                                        <%--<a href="javascript:void(0);" title="click here get" id="Ben_data" class="btn  btn-success">Submit</a>--%>
+                                        <a href="javascript:void(0);" title="click here get" id="upload_dlc" class="btn  btn-success">Upload DLC</a>
                                     </div></div>
                      
 
@@ -239,7 +290,8 @@
                          </div>
 
                     </div>
- <div class="row justify-content-center">
+
+                                    <div class="row justify-content-center">
                                     <div class="col-md-12">
                                         <div class="table-responsive">
                                              <div class="maincard">
@@ -281,7 +333,7 @@
                                     </div>
                                 </div>
 
-              
+                                    </div>
                </main>
           </div>
            </div>
@@ -302,18 +354,17 @@
                 <div class="modal-body">
                       <div class="row giribhumi-custom-form">
                     <div class="col-md-6 col-12">
+
+                        <h6 style="color:red">Note::Only JPG, PNG, PDF allowed</h6>
                         <div class="row mb-2">
                            <asp:Label ID="Label1" runat="server" Text="DLC Issued date:" CssClass="col-md-6 col-form-label"><asp:Label ID="Label3" runat="server" Text="*" ForeColor="Red"></asp:Label></asp:Label>
 
-                           <input type="text" id="todate" title="Date" oncopy="return false" onpaste="return false" oncut="return false"  maxlength="10" autocomplete="off" placeholder="Date" class="col-md-6" readonly />
+                           <input type="text" id="todate" title="Date" oncopy="return false" onpaste="return false" oncut="return false" autocomplete="off" placeholder="Date" class="col-md-6" readonly="" />
                         </div>
-
-                       
-
                         <div class="row mb-2">
                             <asp:Label ID="Label2" runat="server" Text="Upload DLC:" CssClass="col-md-6 col-form-label"><asp:Label ID="Label11" runat="server" Text="*" ForeColor="Red"></asp:Label></asp:Label>
                          
-                                  <input id="txt_image" type="text" name="filename"  class="col-md-4" autocomplete="off" readonly   />   
+                                  <input id="txt_image" type="text" name="filename"  class="col-md-4" autocomplete="off" readonly="" />   
                             <div class="custom-file col-md-2">
                                     <input id="FileUpload" type="file" name="file" onchange="show(this)" style="overflow: hidden; max-width: 270px;" />
                                    
@@ -340,27 +391,12 @@
 
     
        <script src="js/custom.js"></script>
-<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
-   <%-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--%>
+
     <script src="../newcss/js/jquery-3.5.1.min.js"></script>
      <script src="../js/jquery-ui.js"></script>
-  <%--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" />--%>
-        	  <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx2cY6Odt3ckOO-WtYInywqwEhIVSm9L0">
-    </script>--%>
-   <%-- <script src="../newcss/js/date-picker.js"></script>--%>
-
      <script src="../MapJsfloder/Upload_Dlc.js"></script>
-
-    <%--<script src="vendor-assets/popper.js/tooltip.min.js"></script>--%>
-   
-
-    
-
-
      <link href="../js/datatable.css" rel="stylesheet" />
     <script src="../js/datatable.js"></script>
-    <%-- <link href="../css/dataTables.checkboxes.css" rel="stylesheet" />
-  
-    <script src="../js/dataTables.checkboxes.min.js"></script>--%>
+   
   
 </asp:Content>

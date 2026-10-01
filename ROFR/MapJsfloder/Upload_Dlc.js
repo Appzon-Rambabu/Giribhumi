@@ -292,16 +292,191 @@ function Benificiary_details_multi(b_id) {
     });
 }
 
-$('#todate').datepicker({
-    constrainInput: "true",
-    dateFormat: "dd/mm/yy",
-    changeMonth: true,
-    changeYear: true,
-    maxDate: 0,
-    onSelect: function (date) {
-    }
-});
+/* =========================================================
+   CUSTOM YEAR SELECTOR
+   ========================================================= */
+function createCustomYearSelector() {
 
+    var yearSelect = $('.ui-datepicker-year');
+
+    if (!yearSelect.length) {
+        return;
+    }
+
+    // Remove old custom selector
+    $('.custom-year-selector').remove();
+
+    var selectedYear = parseInt(yearSelect.val(), 10);
+
+    if (isNaN(selectedYear)) {
+        selectedYear = new Date().getFullYear();
+    }
+
+    // Hide original jQuery UI year dropdown
+    yearSelect.css({
+        'display': 'none'
+    });
+
+    // Create custom wrapper
+    var wrapper = $('<div class="custom-year-selector"></div>');
+
+    // Create button
+    var button = $('<button type="button" class="custom-year-button"></button>');
+    button.text(selectedYear);
+
+    // Create scroll list
+    var yearList = $('<div class="custom-year-list"></div>');
+
+    var currentYear = new Date().getFullYear();
+    var minYear = 2008;
+
+    // 2026 -> 2008
+    for (var year = currentYear; year >= minYear; year--) {
+
+        var yearItem = $('<div class="custom-year-item"></div>');
+
+        yearItem.attr('data-year', year);
+        yearItem.text(year);
+
+        if (year === selectedYear) {
+            yearItem.addClass('selected');
+        }
+
+        yearList.append(yearItem);
+    }
+
+    wrapper.append(button);
+    wrapper.append(yearList);
+
+    // Put custom selector where original year selector was
+    yearSelect.after(wrapper);
+
+    // Open year list
+    button.on('click', function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        $('.custom-year-list').not(yearList).hide();
+
+        yearList.toggle();
+
+        // Scroll selected year into view
+        var selectedItem = yearList.find(
+            '.custom-year-item[data-year="' + selectedYear + '"]'
+        );
+
+        if (selectedItem.length) {
+
+            var itemTop = selectedItem[0].offsetTop;
+
+            yearList.scrollTop(itemTop - 80);
+        }
+    });
+
+    // Select year
+    yearList.find('.custom-year-item').on('click', function (e) {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        var newYear = parseInt($(this).attr('data-year'), 10);
+
+        var input = $('#todate');
+
+        var selectedDate = input.datepicker('getDate');
+
+        if (!selectedDate) {
+            selectedDate = new Date();
+        }
+
+        var month = selectedDate.getMonth();
+        var day = selectedDate.getDate();
+
+        // Handle Feb 29
+        if (month === 1 && day === 29) {
+
+            var testDate = new Date(newYear, month, day);
+
+            if (testDate.getMonth() !== month) {
+                day = 28;
+            }
+        }
+
+        var newDate = new Date(
+            newYear,
+            month,
+            day
+        );
+
+        var today = new Date();
+        var minDate = new Date(2008, 0, 1);
+
+        // Do not allow future date
+        if (newDate > today) {
+            newDate = today;
+        }
+
+        // Do not allow before 01/01/2008
+        if (newDate < minDate) {
+            newDate = minDate;
+        }
+
+        // Set date
+        input.datepicker('setDate', newDate);
+
+        // Update selected year
+        selectedYear = newYear;
+
+        button.text(newYear);
+
+        // Update selected style
+        yearList
+            .find('.custom-year-item')
+            .removeClass('selected');
+
+        $(this).addClass('selected');
+
+        // Close list
+        yearList.hide();
+    });
+
+    // Close when clicking outside
+    $(document).off('click.customYear').on(
+        'click.customYear',
+        function () {
+            yearList.hide();
+        }
+    );
+}
+/* =========================================================
+   DLC DATEPICKER
+   ========================================================= */
+$('#todate').datepicker({
+
+    constrainInput: true,
+
+    dateFormat: "dd/mm/yy",
+
+    changeMonth: true,
+
+    changeYear: true,
+
+    yearRange: "2008:" + new Date().getFullYear(),
+
+    minDate: new Date(2008, 0, 1),
+
+    maxDate: 0,
+
+    onUpdateDatepicker: function () {
+
+        setTimeout(function () {
+            createCustomYearSelector();
+        }, 10);
+
+    }
+
+});
 $(function () {
     $("#upload_dlc").click(function () {
         //if (document.getElementById('check_dt').checked == true) {
